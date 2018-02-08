@@ -1,0 +1,96 @@
+body {
+  font-family: $font-body-family;
+  font-size: $font-size-s;
+  line-height: $line-height;
+  font-weight: $font-weight-medium;
+  color: $font-color-secondary-dark;
+}
+
+.hero-title {
+  font-family: $font-title-family;
+  font-size: $font-size-l;
+  color: $font-color-light;
+  font-weight: $font-weight-bold;
+
+  @media all and (min-width: $media-desktop) {
+    font-size: $font-size-xl;
+  }
+}
+
+.hero-subtitle {
+  font-size: $font-size-s;
+  color: $font-color-light;
+  font-weight: $font-weight-mediumitalic;
+
+  @media all and (min-width: $media-desktop) {
+    font-size: $font-size-md;
+  }
+}
+
+.introduction-title {
+  font-size: $font-size-m;
+  color: $font-color-dark;
+}
+
+.introduction-body {
+  color: $font-color-dark;
+  font-weight: $font-weight-light;
+}
+
+.button-light-font {
+  font-size: $font-size-xxs;
+  font-weight: $font-weight-semi-bold;
+  color: $font-color-light;
+}
+
+.button-primary-font {
+  font-size: $font-size-xxs;
+  font-weight: $font-weight-semi-bold;
+  color: $font-color-primary;
+}
+
+.button-dark-font {
+  font-size: $font-size-xxs;
+  font-weight: $font-weight-semi-bold;
+  color: $font-color-secondary-dark;
+}
+
+.section-title {
+  font-family: $font-title-family;
+  font-size: $font-size-md;
+  color: $font-color-secondary;
+  font-weight: $font-weight-bold;
+}
+
+.data-title {
+  font-size: $font-size-m;
+  font-weight: $font-weight-bold;
+}
+
+.data-medium {
+  font-size: $font-size-m;
+  font-weight: $font-weight-medium;
+}
+
+.body-light {
+  font-size: $font-size-m;
+  font-weight: $font-weight-medium;
+  color: $font-color-light;
+}
+
+.body-primary {
+  font-size: $font-size-m;
+  font-weight: $font-weight-semi-bold;
+  color: $font-color-primary;
+}
+
+//clases para alinear
+.center {text-align: center;}
+.left {text-align: left;}
+.right {text-align: right;}
+
+//clases para mayúsculas
+.uppercase {text-transform: uppercase;}
+.capitalize {text-transform: capitalize;}
+
+ 

@@ -1,0 +1,43 @@
+//Variables de color
+$color: (
+  primary: #e0634b,
+
+  secondary: #336287,
+  secondary-light: #e1e8ed,
+  secondary-midtone: #3e4049,
+  secondary-dark: #373d42,
+
+
+  light: #fff,
+  dark: #000
+);
+
+//Variables tipográficas
+$font-body-family: 'Raleway', sans-serif;
+$font-title-family: 'Playfair Display', serif;
+
+$font-size-xxs: 12px;
+$font-size-xs: 14px;
+$font-size-s: 16px;
+$font-size-m: 18px;
+$font-size-md: 28px;
+$font-size-l: 46px;
+$font-size-xl: 54px;
+
+$font-color-light: map-get($color, 'light');
+$font-color-primary: map-get($color, 'primary');
+$font-color-secondary: map-get($color, 'secondary');
+$font-color-secondary-dark: map-get($color, 'secondary-dark');
+$font-color-dark: map-get($color, 'dark')
+
+$font-weight-light: 300;
+$font-weight-medium: 500;
+$font-weight-mediumitalic: 500i;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+
+$line-height: 20px;
+
+/*Variables para medias*/
+$media-tablet: 768px;
+$media-desktop: 1024px;
