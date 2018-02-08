@@ -1,4 +1,4 @@
-//Variables de color
+
 $color: (
   primary: #e0634b,
 
@@ -12,7 +12,7 @@ $color: (
   dark: #000
 );
 
-//Variables tipográficas
+
 $font-body-family: 'Raleway', sans-serif;
 $font-title-family: 'Playfair Display', serif;
 
@@ -28,7 +28,7 @@ $font-color-light: map-get($color, 'light');
 $font-color-primary: map-get($color, 'primary');
 $font-color-secondary: map-get($color, 'secondary');
 $font-color-secondary-dark: map-get($color, 'secondary-dark');
-$font-color-dark: map-get($color, 'dark')
+$font-color-dark: map-get($color, 'dark');
 
 $font-weight-light: 300;
 $font-weight-medium: 500;

@@ -1,0 +1,43 @@
+//tipografías botones
+.button-light-font {
+  font-size: $font-size-xxs;
+  font-weight: $font-weight-semi-bold;
+  color: $font-color-light;
+  text-transform: uppercase;
+}
+
+.button-primary-font {
+  font-size: $font-size-xxs;
+  font-weight: $font-weight-semi-bold;
+  color: $font-color-primary;
+  text-transform: uppercase;
+}
+
+.button-dark-font {
+  font-size: $font-size-xxs;
+  font-weight: $font-weight-semi-bold;
+  color: $font-color-secondary-dark;
+  text-transform: uppercase;
+}
+
+//estilos botones
+.main-button {
+  width: 80px;
+  background-color: map-get($color, 'primary');
+  border: 1px solid map-get($color, 'primary');
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color ease-in-out 0.7s, border ease-in-out 0.7s;
+  &:hover {
+    background-color: map-get($color, 'secondary-dark');
+    border: 1px solid map-get($color, 'primary');
+  }
+
+  &:active {
+    background-color: map-get($color, 'secondary-dark');
+    border: 1px solid map-get($color, 'primary');
+  }
+}

@@ -1,12 +1,12 @@
-@import 'core/variables';
+@import 'styles/core/variables';
 
-@import 'layout/header';
-@import 'layout/footer';
-@import 'layout/hero';
+@import 'styles/layout/header';
+@import 'styles/layout/footer';
+@import 'styles/layout/hero';
 
-@import 'components/typography';
-@import 'components/buttons';
+@import 'styles/components/typography';
+@import 'styles/components/buttons';
 
-@import 'pages/home';
-@import 'pages/group';
-@import 'pages/about';
+@import 'styles/pages/home';
+@import 'styles/pages/group';
+@import 'styles/pages/about';

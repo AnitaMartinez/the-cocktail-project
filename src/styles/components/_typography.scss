@@ -37,24 +37,6 @@ body {
   font-weight: $font-weight-light;
 }
 
-.button-light-font {
-  font-size: $font-size-xxs;
-  font-weight: $font-weight-semi-bold;
-  color: $font-color-light;
-}
-
-.button-primary-font {
-  font-size: $font-size-xxs;
-  font-weight: $font-weight-semi-bold;
-  color: $font-color-primary;
-}
-
-.button-dark-font {
-  font-size: $font-size-xxs;
-  font-weight: $font-weight-semi-bold;
-  color: $font-color-secondary-dark;
-}
-
 .section-title {
   font-family: $font-title-family;
   font-size: $font-size-md;
@@ -92,5 +74,3 @@ body {
 //clases para mayúsculas
 .uppercase {text-transform: uppercase;}
 .capitalize {text-transform: capitalize;}
-
- 
