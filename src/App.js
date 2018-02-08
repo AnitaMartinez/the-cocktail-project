@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
+import GoogleMapReact from 'google-map-react';
 
 //The cocktail
 let latitude = 40.454207;
 let longitude = -3.699970;
 const radius = 500;
+
+const AnyReactComponent= ({ text })=> <div>{text}</div>;
 
 class App extends Component {
   constructor(props) {
@@ -27,18 +29,30 @@ class App extends Component {
       body:
       "idClient="+idClient+"&passKey="+passKey+"&latitude="+latitude+"&longitude="+longitude+"&Radius="+radius+"&statistics=&cultureInfo=",
     }).then((response) => {
-        return response.json();
+      return response.json();
     }).then((data) => {
-        that.setState({
-          stopsBus: data,
-        });
+      that.setState({
+        stopsBus: data,
+      });
     })
   }
+
 
   render() {
     console.log(this.state.stopsBus);
     return (
-      <p>Hola mundo</p>
+      <div className="map">
+      <GoogleMapReact
+      defaultCenter={this.props.center}
+      defaultZoom={this.props.zoom}
+      >
+      <AnyReactComponent
+      lat={40.454207}
+      lng={-3.699970}
+      text={"La Parrado"}
+      />
+      </GoogleMapReact>
+      </div>
     );
   }
 
@@ -47,6 +61,9 @@ class App extends Component {
   }
 }
 
-
+App.defaultProps={
+  center: {lat:40.45, lgn:-3.69},
+  zoom: 11
+};
 
 export default App;
