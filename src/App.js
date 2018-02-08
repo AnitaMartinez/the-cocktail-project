@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { GoogleApiWrapper } from 'google-maps-react'
-import MapContainer from './MapContainer'
+import './App.css';
 
 //The cocktail
 let latitude = 40.454207;
@@ -38,14 +37,8 @@ class App extends Component {
 
   render() {
     console.log(this.state.stopsBus);
-    const center= {
-    lat:40.4893538,
-    lng:-3.6827461
-    }
     return (
-      <div>
-        <MapContainer google={this.props.google} />
-      </div>
+      <p>Hola mundo</p>
     );
   }
 
@@ -54,6 +47,6 @@ class App extends Component {
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyB8FhzRqKaI35lFpQQLuYEVSJfCGsPgM2Q',
-})(App)
+
+
+export default App;
