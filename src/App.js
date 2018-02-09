@@ -40,7 +40,10 @@ class App extends Component {
     console.log(this.state.stopsBus);
     return (
     <div>
-        <HeroHeader />
+        <section className="hero">
+          <h1 className="hero-title uppercase margin-title center">bus app</h1>
+          <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
+        </section>
         <div style={{width:'200px', height: '200px'}}>
           <GoogleMapReact
             defaultCenter={this.props.center}
