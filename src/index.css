@@ -39,7 +39,8 @@ body {
 .hero-subtitle {
   font-size: 16px;
   color: #fff;
-  font-weight: 500; }
+  font-weight: 500;
+  font-style: italic; }
   @media all and (min-width: 1024px) {
     .hero-subtitle {
       font-size: 28px; } }
