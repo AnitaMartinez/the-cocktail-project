@@ -4,6 +4,7 @@ class PageResults extends Component {
 
   render() {
     return (
+      <div>
       <section className="section-results">
         <h4 className="m-top-none section-title">Resultados</h4>
         <div className="box-result flex">
@@ -59,6 +60,17 @@ class PageResults extends Component {
           </div>
         </div>
       </section>
+
+
+      <div className="box-goUp">
+        <a className="link-goUp" href="#">Volver arriba</a>
+      </div>
+
+      <footer className="footer footer-font">
+        <p>Hecho por 'Las Apis' de Adalab</p>
+      </footer>
+
+      </div>
     );
   }
 

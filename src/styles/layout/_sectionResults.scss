@@ -39,3 +39,26 @@
 .border-bottom-results {
   border-bottom: 2px solid map-get($color, 'secondary');
 }
+
+//Botón arriba
+
+.box-goUp {
+  padding-top: 65px;
+  padding-bottom: 65px;
+  background-color: map-get($color, 'secondary-light');
+  text-align: center;
+}
+
+.link-goUp {
+  color: map-get($color, 'primary');
+  text-decoration: underline;
+  font-size: $font-size-m;
+  font-weight: $font-weight-semi-bold;
+}
+
+.footer {
+  background-color: map-get($color, 'secondary-midtone');
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
