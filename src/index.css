@@ -35,6 +35,10 @@ body {
   color: #000;
   font-weight: 300; }
 
+.introduction-text-search {
+  font-size: 12px;
+  color: #e0634b; }
+
 .section-title {
   font-family: "Playfair Display", serif;
   font-size: 28px;
@@ -108,3 +112,44 @@ body {
   .main-button:active {
     background-color: #373d42;
     border: 1px solid #e0634b; }
+
+.home {
+  width: 100%; }
+
+.intro {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.marker-icon-intro {
+  width: 30px;
+  height: 38px;
+  margin-top: 16px;
+  margin-bottom: 6px; }
+
+.home-title {
+  width: 191px;
+  height: 22px;
+  margin: 0; }
+
+.home-text {
+  width: 279px;
+  height: 36px;
+  margin-top: 0;
+  margin-bottom: 53px; }
+
+.home-button {
+  width: 200px;
+  height: 36px;
+  margin-bottom: 10px; }
+
+.map {
+  width: 400px;
+  height: 400px;
+  margin-top: 50px; }
+
+.map-text-search {
+  width: 143px;
+  height: 14px;
+  display: inline; }
