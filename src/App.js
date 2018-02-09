@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Intro from './components/Intro';
-import './index.css';
+
+
 
 //The cocktail
 let latitude = 40.454207;
@@ -40,6 +41,11 @@ class App extends Component {
   render() {
     console.log(this.state.stopsBus);
     return (
+      <div>
+      <section className="hero">
+      <h1 className="hero-title uppercase margin-title center">bus app</h1>
+      <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
+      </section>
       <main className= "home">
       <Intro/>
       <div className="map">
@@ -51,6 +57,8 @@ class App extends Component {
       </GoogleMapReact>
       </div>
       </main>
+      </div>
+
     );
   }
 

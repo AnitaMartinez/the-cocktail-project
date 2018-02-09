@@ -3,12 +3,29 @@
   height: 400px;
   width: 400px; }
 
+.hero {
+  background-image: url("/images/hero-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120px 60px; }
+  @media all and (min-width: 1024px) {
+    .hero {
+      padding-top: 36px;
+      height: 460px;
+      background-position: top bottom; } }
+
 body {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   line-height: 20px;
   font-weight: 500;
-  color: #373d42; }
+  color: #373d42;
+  -webkit-font-smoothing: antialiased; }
 
 .hero-title {
   font-family: "Playfair Display", serif;
@@ -22,7 +39,8 @@ body {
 .hero-subtitle {
   font-size: 16px;
   color: #fff;
-  font-weight: 500i; }
+  font-weight: 500;
+  font-style: italic; }
   @media all and (min-width: 1024px) {
     .hero-subtitle {
       font-size: 28px; } }
@@ -113,13 +131,6 @@ body {
     background-color: #373d42;
     border: 1px solid #e0634b; }
 
-* {
-  box-sizing: border-box; }
-
-body, html {
-  height: 100vh;
-  margin: 0; }
-
 .intro {
   display: flex;
   flex-direction: column;
@@ -132,18 +143,36 @@ body, html {
   height: 38px;
   margin-top: 16px;
   margin-bottom: 6px; }
+  @media all and (min-width: 1024px) {
+    .marker-icon-intro {
+      display: none; } }
 
 .home-title {
   margin: 0; }
+  @media all and (min-width: 1024px) {
+    .home-title {
+      margin-top: 48px; } }
 
 .home-text {
   margin-top: 0;
-  margin-bottom: 53px; }
+  margin-bottom: 50px; }
+
+.home-menu-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  @media all and (min-width: 1024px) {
+    .home-menu-buttons {
+      flex-direction: row; } }
 
 .home-button {
   width: 200px;
   height: 36px;
   margin-bottom: 10px; }
+  @media all and (min-width: 1024px) {
+    .home-button {
+      width: 170px;
+      margin-left: 20px; } }
 
 .map {
   width: 100vh;
@@ -154,3 +183,19 @@ body, html {
   width: 143px;
   height: 14px;
   display: inline; }
+
+.no-margin {
+  margin: 0; }
+
+.margin-title {
+  margin-bottom: 10px; }
+
+.padding-subtitle {
+  padding: 0 15px; }
+
+* {
+  box-sizing: border-box; }
+
+body, html {
+  height: 100vh;
+  margin: 0; }
