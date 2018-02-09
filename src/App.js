@@ -44,8 +44,8 @@ class App extends Component {
       defaultZoom={this.props.zoom}
       bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
       >
-
       </GoogleMapReact>
+
       </div>
     );
   }
