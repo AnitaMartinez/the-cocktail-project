@@ -127,13 +127,6 @@ body {
     background-color: #373d42;
     border: 1px solid #e0634b; }
 
-* {
-  box-sizing: border-box; }
-
-body, html {
-  height: 100vh;
-  margin: 0; }
-
 .no-margin {
   margin: 0; }
 
@@ -142,3 +135,10 @@ body, html {
 
 .padding-subtitle {
   padding: 0 15px; }
+
+* {
+  box-sizing: border-box; }
+
+body, html {
+  height: 100vh;
+  margin: 0; }
