@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import Intro from './components/Intro';
 import Stop from './components/Stop'
 import Marker from './components/Marker'
 
@@ -47,7 +46,16 @@ class App extends Component {
             <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
         </section>
         <main className= "home">
-          <Intro/>
+          <div className= "intro">
+            <img src="img/marker-icon.svg" className= "marker-icon-intro" alt="icono de marker"/>
+            <h2 className= "home-title introduction-title center">Bienvenido a BusApp</h2>
+            <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
+            <div className= "home-menu-buttons">
+              <button className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button>
+              <button className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button>
+              <button className= "home-button main-button button-light-font" type="button" name="button">El campo</button>
+            </div>
+          </div>
           <div className="map">
             <GoogleMapReact
             defaultCenter={this.props.center}
