@@ -3,12 +3,29 @@
   height: 400px;
   width: 400px; }
 
+.hero {
+  background-image: url("/images/hero-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120px 60px; }
+  @media all and (min-width: 1024px) {
+    .hero {
+      padding-top: 36px;
+      height: 460px;
+      background-position: top bottom; } }
+
 body {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   line-height: 20px;
   font-weight: 500;
-  color: #373d42; }
+  color: #373d42;
+  -webkit-font-smoothing: antialiased; }
 
 .hero-title {
   font-family: "Playfair Display", serif;
@@ -22,7 +39,8 @@ body {
 .hero-subtitle {
   font-size: 16px;
   color: #fff;
-  font-weight: 500i; }
+  font-weight: 500;
+  font-style: italic; }
   @media all and (min-width: 1024px) {
     .hero-subtitle {
       font-size: 28px; } }
@@ -108,3 +126,19 @@ body {
   .main-button:active {
     background-color: #373d42;
     border: 1px solid #e0634b; }
+
+.no-margin {
+  margin: 0; }
+
+.margin-title {
+  margin-bottom: 10px; }
+
+.padding-subtitle {
+  padding: 0 15px; }
+
+* {
+  box-sizing: border-box; }
+
+body, html {
+  height: 100vh;
+  margin: 0; }
