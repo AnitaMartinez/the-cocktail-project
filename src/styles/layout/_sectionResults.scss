@@ -1,0 +1,41 @@
+
+.section-results {
+  background-color: map-get($color, 'secondary-light');
+  padding-top: 40px;
+}
+
+.box-result {
+  background-color: map-get($color, 'light');
+  padding-left: 12px;
+  padding-top: 30px;
+  flex-direction: column;
+  padding-bottom: 60px;
+  border-top: 2px solid map-get($color, 'secondary');
+}
+
+.number-bus {
+  font-family: $font-title-family;
+  font-size: $font-size-md;
+  color: $font-color-light;
+  background-color: map-get($color, 'secondary');
+  padding: 5px 7px 10px 5px;
+  align-self: flex-start;
+}
+
+.icon-bus {
+  width: 15px;
+  align-self: flex-start;
+}
+
+.box-data-section {
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+
+.box-info-icon {
+  align-self: center;
+}
+
+.border-bottom-results {
+  border-bottom: 2px solid map-get($color, 'secondary');
+}

@@ -20,7 +20,7 @@ body {
 .hero-subtitle {
   font-size: $font-size-s;
   color: $font-color-light;
-  font-weight: $font-weight-mediumitalic;
+  font-weight: $font-weight-medium;
 
   @media all and (min-width: $media-desktop) {
     font-size: $font-size-md;
@@ -42,6 +42,7 @@ body {
   font-size: $font-size-md;
   color: $font-color-secondary;
   font-weight: $font-weight-bold;
+  margin-left: 12px;
 }
 
 .data-title {
@@ -52,6 +53,8 @@ body {
 .data-medium {
   font-size: $font-size-m;
   font-weight: $font-weight-medium;
+  margin-top: 2px;
+  margin-bottom: 0;
 }
 
 .body-light {

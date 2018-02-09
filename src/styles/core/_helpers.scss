@@ -1,0 +1,36 @@
+
+.hidden {
+  display: none;
+}
+
+.hide-sm {
+  @media (max-width: 1023px)
+  {
+    display: none;
+  }
+}
+
+.hide-lg {
+  @media (min-width: 1024px)
+  {
+    display: none;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+//Paddings
+
+//Margins
+
+.m-top-none {
+  margin-top: 0;
+}
+
+.m-none {
+  margin: 0;
+}
+
+//Center
