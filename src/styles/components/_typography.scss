@@ -4,6 +4,7 @@ body {
   line-height: $line-height;
   font-weight: $font-weight-medium;
   color: $font-color-secondary-dark;
+  -webkit-font-smoothing: antialiased;
 }
 
 .hero-title {
@@ -21,6 +22,7 @@ body {
   font-size: $font-size-s;
   color: $font-color-light;
   font-weight: $font-weight-medium;
+  font-style: italic;
 
   @media all and (min-width: $media-desktop) {
     font-size: $font-size-md;
@@ -35,6 +37,11 @@ body {
 .introduction-body {
   color: $font-color-dark;
   font-weight: $font-weight-light;
+}
+
+.introduction-text-search {
+  font-size: $font-size-xxs;
+  color: $font-color-primary;
 }
 
 .section-title {

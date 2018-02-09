@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import PageResults from './components/PageResults.js'
+import PageResults from './components/PageResults'
+import Stop from './components/Stop'
+import Marker from './components/Marker'
 
 //The cocktail
 let latitude = 40.454207;
@@ -11,7 +13,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stopsBus: {},
+      stopsBus: [],
     }
   }
 
@@ -31,25 +33,50 @@ class App extends Component {
       return response.json();
     }).then((data) => {
       that.setState({
-        stopsBus: data,
+        stopsBus: data.stop,
       });
     })
   }
 
   render() {
-    console.log(this.state.stopsBus);
+    const stopsBus = this.state.stopsBus;
     return (
       <div>
-      <PageResults/>
+        <section className="hero">
+          <h1 className="hero-title uppercase margin-title center">bus app</h1>
+            <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
+        </section>
+        <main className= "home">
+          <div className= "intro">
+            <img src="images/marker-icon.svg" className= "marker-icon-intro" alt="icono de marker"/>
+            <h2 className= "home-title introduction-title center">Bienvenido a BusApp</h2>
+            <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
+            <div className= "home-menu-buttons">
+              <button className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button>
+              <button className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button>
+              <button className= "home-button main-button button-light-font" type="button" name="button">El campo</button>
+            </div>
+          </div>
 
-      <div style={{width:'100px', height: '100px'}}>
-        <GoogleMapReact
-        defaultCenter={this.props.center}
-        defaultZoom={this.props.zoom}
-        bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
-        >
-        </GoogleMapReact>
-      </div>
+          <div className="map">
+            <GoogleMapReact
+            defaultCenter={this.props.center}
+            defaultZoom={this.props.zoom}
+            bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
+            >
+            {stopsBus.map(function(stop, index) {
+            return <Marker lng={stop.longitude} lat={stop.latitude} key={index}/>
+              })}
+            </GoogleMapReact>
+        </div>
+
+        <div className="busStop">
+          {stopsBus.map(function(stop, index) {
+          return <Stop stop={stop} key={index}/>
+          })}
+        </div>
+        <PageResults/>
+        </main>
 
       </div>
     );

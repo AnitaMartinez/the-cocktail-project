@@ -3,25 +3,10 @@
   display: none;
 }
 
-.hide-sm {
-  @media (max-width: 1023px)
-  {
-    display: none;
-  }
-}
-
-.hide-lg {
-  @media (min-width: 1024px)
-  {
-    display: none;
-  }
-}
 
 .flex {
   display: flex;
 }
-
-//Paddings
 
 //Margins
 
@@ -32,5 +17,11 @@
 .m-none {
   margin: 0;
 }
+
+.no-margin {margin: 0;}
+
+//Hero margins and paddings
+.margin-title {margin-bottom: 10px;}
+.padding-subtitle {padding: 0 15px;}
 
 //Center
