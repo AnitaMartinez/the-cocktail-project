@@ -39,16 +39,17 @@ class App extends Component {
   render() {
     console.log(this.state.stopsBus);
     return (
-      <div style={{width:'400px', height: '400px'}}>
+    <div>
         <HeroHeader />
-        <GoogleMapReact
-        defaultCenter={this.props.center}
-        defaultZoom={this.props.zoom}
-        bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
-        >
-
-        </GoogleMapReact>
+        <div style={{width:'200px', height: '200px'}}>
+          <GoogleMapReact
+            defaultCenter={this.props.center}
+            defaultZoom={this.props.zoom}
+            bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
+            >
+          </GoogleMapReact>
       </div>
+    </div>
     );
   }
 

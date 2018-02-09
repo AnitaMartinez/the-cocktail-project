@@ -4,20 +4,28 @@
   width: 400px; }
 
 .hero {
-  background-color: #e0634b;
+  background-image: url("/images/hero-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 0 90px; }
+  padding: 120px 60px; }
+  @media all and (min-width: 1024px) {
+    .hero {
+      padding-top: 36px;
+      height: 460px;
+      background-position: top bottom; } }
 
 body {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   line-height: 20px;
   font-weight: 500;
-  color: #373d42; }
+  color: #373d42;
+  -webkit-font-smoothing: antialiased; }
 
 .hero-title {
   font-family: "Playfair Display", serif;
@@ -31,8 +39,7 @@ body {
 .hero-subtitle {
   font-size: 16px;
   color: #fff;
-  font-weight: 500i;
-  font-style: italic; }
+  font-weight: 500; }
   @media all and (min-width: 1024px) {
     .hero-subtitle {
       font-size: 28px; } }

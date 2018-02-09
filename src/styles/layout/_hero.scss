@@ -4,11 +4,19 @@ width: 400px;
 }
 
 .hero {
-  background-color: map-get($color, 'primary');
+  background-image: url('/images/hero-image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 0 90px;
+  padding: 120px 60px;
+
+  @media all and (min-width: $media-desktop) {
+    padding-top: 36px;
+    height: 460px;
+    background-position: top bottom;
+  }
 }
