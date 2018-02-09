@@ -40,10 +40,9 @@ class App extends Component {
   render() {
     console.log(this.state.stopsBus);
     return (
-      <div className= "home">
+      <main className= "home">
       <Intro/>
       <div className="map">
-      <p className= "map-text-search introduction-text-search right">Buscar por código postal ></p>
       <GoogleMapReact
       defaultCenter={this.props.center}
       defaultZoom={this.props.zoom}
@@ -51,7 +50,7 @@ class App extends Component {
       >
       </GoogleMapReact>
       </div>
-      </div>
+      </main>
     );
   }
 
