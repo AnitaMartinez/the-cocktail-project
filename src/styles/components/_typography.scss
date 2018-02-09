@@ -21,6 +21,7 @@ body {
   font-size: $font-size-s;
   color: $font-color-light;
   font-weight: $font-weight-mediumitalic;
+  font-style: italic;
 
   @media all and (min-width: $media-desktop) {
     font-size: $font-size-md;

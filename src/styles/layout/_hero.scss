@@ -2,3 +2,13 @@
 height: 400px;
 width: 400px;
 }
+
+.hero {
+  background-color: map-get($color, 'primary');
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 90px;
+}

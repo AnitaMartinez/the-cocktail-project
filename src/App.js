@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import HeroHeader from './HeroHeader';
 
 //The cocktail
 let latitude = 40.454207;
@@ -39,13 +40,14 @@ class App extends Component {
     console.log(this.state.stopsBus);
     return (
       <div style={{width:'400px', height: '400px'}}>
-      <GoogleMapReact
-      defaultCenter={this.props.center}
-      defaultZoom={this.props.zoom}
-      bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
-      >
+        <HeroHeader />
+        <GoogleMapReact
+        defaultCenter={this.props.center}
+        defaultZoom={this.props.zoom}
+        bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
+        >
 
-      </GoogleMapReact>
+        </GoogleMapReact>
       </div>
     );
   }

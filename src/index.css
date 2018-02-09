@@ -3,6 +3,15 @@
   height: 400px;
   width: 400px; }
 
+.hero {
+  background-color: #e0634b;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 90px; }
+
 body {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
@@ -22,7 +31,8 @@ body {
 .hero-subtitle {
   font-size: 16px;
   color: #fff;
-  font-weight: 500i; }
+  font-weight: 500i;
+  font-style: italic; }
   @media all and (min-width: 1024px) {
     .hero-subtitle {
       font-size: 28px; } }
@@ -108,3 +118,19 @@ body {
   .main-button:active {
     background-color: #373d42;
     border: 1px solid #e0634b; }
+
+* {
+  box-sizing: border-box; }
+
+body, html {
+  height: 100vh;
+  margin: 0; }
+
+.no-margin {
+  margin: 0; }
+
+.margin-title {
+  margin-bottom: 10px; }
+
+.padding-subtitle {
+  padding: 0 15px; }
