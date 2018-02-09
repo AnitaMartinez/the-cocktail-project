@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import Stop from './components/Stop'
+import Marker from './components/Marker'
+
+
+// {stopId: "1571", pmv: "61155", name: "BRAVO MURILLO-MANUEL LUNA", postalAddress: "Bravo Murillo, 192", longitude: -3.7025840465004, …}
 
 //The cocktail
 let latitude = 40.454207;
@@ -10,7 +15,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stopsBus: {},
+      stopsBus: [],
     }
   }
 
@@ -30,22 +35,33 @@ class App extends Component {
       return response.json();
     }).then((data) => {
       that.setState({
-        stopsBus: data,
+        stopsBus: data.stop,
       });
     })
   }
 
   render() {
-    console.log(this.state.stopsBus);
+    const stopsBus = this.state.stopsBus;
     return (
+      <div className="app">
+      <div className="busStop">
+      {stopsBus.map(function(stop, index) {
+        return <Stop stop={stop} key={index}/>
+      })}
+      </div>
       <div style={{width:'400px', height: '400px'}}>
       <GoogleMapReact
       defaultCenter={this.props.center}
       defaultZoom={this.props.zoom}
       bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
       >
+      {stopsBus.map(function(stop, index) {
+        return <Marker lng={stop.longitude} lat={stop.latitude} key={index}/>
+      })}
+
       </GoogleMapReact>
 
+      </div>
       </div>
     );
   }
