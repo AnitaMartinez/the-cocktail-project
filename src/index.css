@@ -1,4 +1,10 @@
 /*Variables para medias*/
+.footer {
+  background-color: #3e4049;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center; }
+
 .map {
   height: 400px;
   width: 400px; }
@@ -19,17 +25,34 @@
       height: 460px;
       background-position: top bottom; } }
 
-.section-results {
+.section-cards {
   background-color: #e1e8ed;
   padding-top: 40px; }
 
-.box-result {
+@media all and (min-width: 768px) {
+  .container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1150px; } }
+  @media all and (min-width: 768px) and (min-width: 1150px) {
+    .container-cards {
+      margin-right: auto;
+      margin-left: auto; } }
+
+.card {
   background-color: #fff;
-  padding-left: 12px;
-  padding-top: 30px;
-  flex-direction: column;
-  padding-bottom: 60px;
-  border-top: 2px solid #336287; }
+  border-top: 2px solid #336287;
+  padding: 30px 0 60px 12px;
+  flex-direction: column; }
+  @media all and (min-width: 768px) {
+    .card {
+      width: 340px;
+      border-top: 0px;
+      box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19); } }
+  @media all and (min-width: 1024px) {
+    .card {
+      width: 355px; } }
 
 .number-bus {
   font-family: "Playfair Display", serif;
@@ -43,15 +66,31 @@
   width: 15px;
   align-self: flex-start; }
 
-.box-data-section {
+.box-data-card {
   margin-left: 10px;
   margin-bottom: 30px; }
 
-.box-info-icon {
+.box-icon-card {
   align-self: center; }
 
-.border-bottom-results {
+.border-bottom-card {
   border-bottom: 2px solid #336287; }
+  @media all and (min-width: 768px) {
+    .border-bottom-card {
+      border-bottom: 0px; } }
+
+.section-title {
+  margin-left: 12px; }
+  @media all and (min-width: 768px) {
+    .section-title {
+      margin-left: 30px; } }
+  @media all and (min-width: 1024px) {
+    .section-title {
+      margin-left: 130px; } }
+  @media all and (min-width: 1150px) {
+    .section-title {
+      margin-left: 0;
+      text-align: center; } }
 
 .box-goUp {
   padding-top: 65px;
@@ -64,12 +103,6 @@
   text-decoration: underline;
   font-size: 18px;
   font-weight: 600; }
-
-.footer {
-  background-color: #3e4049;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  text-align: center; }
 
 body {
   font-family: "Raleway", sans-serif;
@@ -109,12 +142,11 @@ body {
   font-size: 12px;
   color: #e0634b; }
 
-.section-title {
+.section-title-font {
   font-family: "Playfair Display", serif;
   font-size: 28px;
   color: #336287;
-  font-weight: 700;
-  margin-left: 12px; }
+  font-weight: 700; }
 
 .data-title {
   font-size: 18px;
@@ -234,7 +266,7 @@ body {
       margin-left: 20px; } }
 
 .map {
-  width: 100vh;
+  width: 100%;
   height: 400px;
   margin-top: 70px; }
 
@@ -257,6 +289,22 @@ body {
 
 .no-margin {
   margin: 0; }
+
+@media all and (min-width: 768px) {
+  .m-right-tablet-desktop {
+    margin-right: 20px; } }
+
+@media all and (min-width: 1024px) {
+  .m-right-tablet-desktop {
+    margin-right: 45px; } }
+
+@media all and (min-width: 768px) {
+  .m-bottom-tablet-desktop {
+    margin-bottom: 20px; } }
+
+@media all and (min-width: 1024px) {
+  .m-bottom-tablet-desktop {
+    margin-bottom: 45px; } }
 
 .margin-title {
   margin-bottom: 10px; }

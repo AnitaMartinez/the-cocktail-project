@@ -75,58 +75,60 @@ class App extends Component {
           })}
         </div>
 
-        <section className="section-results">
-          <h4 className="m-top-none section-title">Resultados</h4>
-          <div className="box-result flex">
-            <div className="flex">
-              <span className="number-bus">17</span>
-              <div className="box-data-section">
-                <h6 className="m-none data-title">Cibeles</h6>
-                <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
+        <section className="section-cards">
+          <h4 className="m-top-none section-title-font section-title">Resultados</h4>
+          <div className="container-cards">
+            <div className="card flex m-right-tablet-desktop m-bottom-tablet-desktop ">
+              <div className="flex">
+                <span className="number-bus">17</span>
+                <div className="box-data-card">
+                  <h6 className="m-none data-title">Cibeles</h6>
+                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
+                </div>
+              </div>
+              <div className="flex box-icon-card">
+                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
+                <p className="m-none">Tiempo de espera: 3 min</p>
               </div>
             </div>
-            <div className="flex box-info-icon">
-              <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
-              <p className="m-none">Tiempo de espera: 3 min</p>
-            </div>
-          </div>
-          <div className="box-result flex">
-            <div className="flex">
-              <span className="number-bus">17</span>
-              <div className="box-data-section">
-                <h6 className="m-none data-title">Cibeles</h6>
-                <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
+            <div className="card flex m-bottom-tablet-desktop ">
+              <div className="flex">
+                <span className="number-bus">17</span>
+                <div className="box-data-card">
+                  <h6 className="m-none data-title">Cibeles</h6>
+                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
+                </div>
+              </div>
+              <div className="flex box-icon-card">
+                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
+                <p className="m-none">Tiempo de espera: 3 min</p>
               </div>
             </div>
-            <div className="flex box-info-icon">
-              <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
-              <p className="m-none">Tiempo de espera: 3 min</p>
-            </div>
-          </div>
-          <div className="box-result flex">
-            <div className="flex">
-              <span className="number-bus">17</span>
-              <div className="box-data-section">
-                <h6 className="m-none data-title">Cibeles</h6>
-                <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
+            <div className="card flex m-right-tablet-desktop">
+              <div className="flex">
+                <span className="number-bus">17</span>
+                <div className="box-data-card">
+                  <h6 className="m-none data-title">Cibeles</h6>
+                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
+                </div>
+              </div>
+              <div className="flex box-icon-card">
+                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
+                <p className="m-none">Tiempo de espera: 3 min</p>
               </div>
             </div>
-            <div className="flex box-info-icon">
-              <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
-              <p className="m-none">Tiempo de espera: 3 min</p>
-            </div>
-          </div>
-          <div className="box-result flex border-bottom-results">
-            <div className="flex">
-              <span className="number-bus">17</span>
-              <div className="box-data-section">
-                <h6 className="m-none data-title">Cibeles</h6>
-                <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
+            <div className="card flex border-bottom-card">
+              <div className="flex">
+                <span className="number-bus">17</span>
+                <div className="box-data-card">
+                  <h6 className="m-none data-title">Cibeles</h6>
+                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
+                </div>
               </div>
-            </div>
-            <div className="flex box-info-icon">
-              <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
-              <p className="m-none">Tiempo de espera: 3 min</p>
+              <div className="flex box-icon-card">
+                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
+                <p className="m-none">Tiempo de espera: 3 min</p>
+              </div>
             </div>
           </div>
         </section>

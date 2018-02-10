@@ -20,6 +20,24 @@
 
 .no-margin {margin: 0;}
 
+.m-right-tablet-desktop {
+  @media all and (min-width: $media-tablet) {
+    margin-right: 20px;
+  }
+  @media all and (min-width: $media-desktop) {
+    margin-right: 45px;
+  }
+}
+
+.m-bottom-tablet-desktop {
+  @media all and (min-width: $media-tablet) {
+    margin-bottom: 20px;
+  }
+  @media all and (min-width: $media-desktop) {
+    margin-bottom: 45px;
+  }
+}
+
 //Hero margins and paddings
 .margin-title {margin-bottom: 10px;}
 .padding-subtitle {padding: 0 15px;}

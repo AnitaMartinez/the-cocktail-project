@@ -1,16 +1,35 @@
 
-.section-results {
+.section-cards {
   background-color: map-get($color, 'secondary-light');
   padding-top: 40px;
 }
 
-.box-result {
+.container-cards {
+  @media all and (min-width: $media-tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1150px;
+    @media all and (min-width: 1150px) {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+
+.card {
   background-color: map-get($color, 'light');
-  padding-left: 12px;
-  padding-top: 30px;
-  flex-direction: column;
-  padding-bottom: 60px;
   border-top: 2px solid map-get($color, 'secondary');
+  padding: 30px 0 60px 12px;
+  flex-direction: column;
+  @media all and (min-width: $media-tablet) {
+    width: 340px;
+    border-top: 0px;
+    box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19);
+  }
+  @media all and (min-width: $media-desktop) {
+    width: 355px;
+  }
 }
 
 .number-bus {
@@ -27,20 +46,37 @@
   align-self: flex-start;
 }
 
-.box-data-section {
+.box-data-card {
   margin-left: 10px;
   margin-bottom: 30px;
 }
 
-.box-info-icon {
+.box-icon-card {
   align-self: center;
 }
 
-.border-bottom-results {
+.border-bottom-card {
   border-bottom: 2px solid map-get($color, 'secondary');
+  @media all and (min-width: $media-tablet) {
+    border-bottom: 0px;
+  }
 }
 
-//Botón arriba
+.section-title {
+  margin-left: 12px;
+  @media all and (min-width: $media-tablet) {
+    margin-left: 30px;
+  }
+  @media all and (min-width: $media-desktop) {
+    margin-left: 130px;
+  }
+  @media all and (min-width: 1150px) {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+//Enlace arriba
 
 .box-goUp {
   padding-top: 65px;
@@ -54,11 +90,4 @@
   text-decoration: underline;
   font-size: $font-size-m;
   font-weight: $font-weight-semi-bold;
-}
-
-.footer {
-  background-color: map-get($color, 'secondary-midtone');
-  padding-top: 40px;
-  padding-bottom: 40px;
-  text-align: center;
 }
