@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import HeroHeader from './HeroHeader';
+import Intro from './components/Intro';
+import Stop from './components/Stop'
+import Marker from './components/Marker'
 
 //The cocktail
 let latitude = 40.454207;
@@ -11,7 +13,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stopsBus: {},
+      stopsBus: [],
     }
   }
 
@@ -31,28 +33,40 @@ class App extends Component {
       return response.json();
     }).then((data) => {
       that.setState({
-        stopsBus: data,
+        stopsBus: data.stop,
       });
     })
   }
 
   render() {
-    console.log(this.state.stopsBus);
+    const stopsBus = this.state.stopsBus;
     return (
-    <div>
+      <div>
         <section className="hero">
           <h1 className="hero-title uppercase margin-title center">bus app</h1>
-          <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
+            <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
         </section>
-        <div style={{width:'200px', height: '200px'}}>
-          <GoogleMapReact
+        <main className= "home">
+          <Intro/>
+          <div className="map">
+            <GoogleMapReact
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
             bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
             >
-          </GoogleMapReact>
+            {stopsBus.map(function(stop, index) {
+            return <Marker lng={stop.longitude} lat={stop.latitude} key={index}/>
+              })}
+            </GoogleMapReact>
+        </div>
+
+        <div className="busStop">
+          {stopsBus.map(function(stop, index) {
+          return <Stop stop={stop} key={index}/>
+          })}
+        </div>
+        </main>
       </div>
-    </div>
     );
   }
 
