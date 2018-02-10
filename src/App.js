@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import Intro from './components/Intro';
 import Stop from './components/Stop'
 import Marker from './components/Marker'
 
@@ -47,7 +46,17 @@ class App extends Component {
             <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
         </section>
         <main className= "home">
-          <Intro/>
+          <div className= "intro">
+            <img src="images/marker-icon.svg" className= "marker-icon-intro" alt="icono de marker"/>
+            <h2 className= "home-title introduction-title center">Bienvenido a BusApp</h2>
+            <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
+            <div className= "home-menu-buttons">
+              <button className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button>
+              <button className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button>
+              <button className= "home-button main-button button-light-font" type="button" name="button">El campo</button>
+            </div>
+          </div>
+
           <div className="map">
             <GoogleMapReact
             defaultCenter={this.props.center}
@@ -65,19 +74,87 @@ class App extends Component {
           return <Stop stop={stop} key={index}/>
           })}
         </div>
+
+        <section className="section-cards">
+          <h4 className="m-top-none section-title-font section-title">Resultados</h4>
+          <div className="container-cards">
+            <div className="card flex m-right-tablet-desktop m-bottom-tablet-desktop ">
+              <div className="flex">
+                <span className="number-bus">17</span>
+                <div className="box-data-card">
+                  <h6 className="m-none data-title">Cibeles</h6>
+                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
+                </div>
+              </div>
+              <div className="flex box-icon-card">
+                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
+                <p className="m-none">Tiempo de espera: 3 min</p>
+              </div>
+            </div>
+            <div className="card flex m-bottom-tablet-desktop ">
+              <div className="flex">
+                <span className="number-bus">17</span>
+                <div className="box-data-card">
+                  <h6 className="m-none data-title">Cibeles</h6>
+                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
+                </div>
+              </div>
+              <div className="flex box-icon-card">
+                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
+                <p className="m-none">Tiempo de espera: 3 min</p>
+              </div>
+            </div>
+            <div className="card flex m-right-tablet-desktop">
+              <div className="flex">
+                <span className="number-bus">17</span>
+                <div className="box-data-card">
+                  <h6 className="m-none data-title">Cibeles</h6>
+                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
+                </div>
+              </div>
+              <div className="flex box-icon-card">
+                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
+                <p className="m-none">Tiempo de espera: 3 min</p>
+              </div>
+            </div>
+            <div className="card flex border-bottom-card">
+              <div className="flex">
+                <span className="number-bus">17</span>
+                <div className="box-data-card">
+                  <h6 className="m-none data-title">Cibeles</h6>
+                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
+                </div>
+              </div>
+              <div className="flex box-icon-card">
+                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
+                <p className="m-none">Tiempo de espera: 3 min</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="box-goUp">
+          <a className="link-goUp" href="#">Volver arriba</a>
+        </div>
+
         </main>
+
+        <footer className="footer footer-font">
+          <p>Hecho por 'Las Apis' de Adalab</p>
+        </footer>
+
       </div>
     );
   }
 
-  componentDidMount() {
-    this.fetchInfoBuses();
+  componentDidMount () {
+    this.fetchInfoBuses()
   }
 }
 
-App.defaultProps={
+App.defaultProps= {
   center: {lat:40.41, lng:-3.70},
   zoom: 12
-};
+}
 
 export default App;

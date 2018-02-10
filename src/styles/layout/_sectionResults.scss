@@ -1,0 +1,93 @@
+
+.section-cards {
+  background-color: map-get($color, 'secondary-light');
+  padding-top: 40px;
+}
+
+.container-cards {
+  @media all and (min-width: $media-tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1150px;
+    @media all and (min-width: 1150px) {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+
+.card {
+  background-color: map-get($color, 'light');
+  border-top: 2px solid map-get($color, 'secondary');
+  padding: 30px 0 60px 12px;
+  flex-direction: column;
+  @media all and (min-width: $media-tablet) {
+    width: 340px;
+    border-top: 0px;
+    box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19);
+  }
+  @media all and (min-width: $media-desktop) {
+    width: 355px;
+  }
+}
+
+.number-bus {
+  font-family: $font-title-family;
+  font-size: $font-size-md;
+  color: $font-color-light;
+  background-color: map-get($color, 'secondary');
+  padding: 5px 7px 10px 5px;
+  align-self: flex-start;
+}
+
+.icon-bus {
+  width: 15px;
+  align-self: flex-start;
+}
+
+.box-data-card {
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+
+.box-icon-card {
+  align-self: center;
+}
+
+.border-bottom-card {
+  border-bottom: 2px solid map-get($color, 'secondary');
+  @media all and (min-width: $media-tablet) {
+    border-bottom: 0px;
+  }
+}
+
+.section-title {
+  margin-left: 12px;
+  @media all and (min-width: $media-tablet) {
+    margin-left: 30px;
+  }
+  @media all and (min-width: $media-desktop) {
+    margin-left: 130px;
+  }
+  @media all and (min-width: 1150px) {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+//Enlace arriba
+
+.box-goUp {
+  padding-top: 65px;
+  padding-bottom: 65px;
+  background-color: map-get($color, 'secondary-light');
+  text-align: center;
+}
+
+.link-goUp {
+  color: map-get($color, 'primary');
+  text-decoration: underline;
+  font-size: $font-size-m;
+  font-weight: $font-weight-semi-bold;
+}
