@@ -55,6 +55,10 @@
   width: 100%;
   height: 400px;
   margin-top: 70px;
+  @media all and (min-width: $media-desktop) {
+    width: 70%;
+    margin: 70px auto;
+  }
 }
 
 .map-text-search {
