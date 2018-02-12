@@ -60,7 +60,8 @@
   color: #fff;
   background-color: #336287;
   padding: 5px 7px 10px 5px;
-  align-self: flex-start; }
+  align-self: flex-start;
+  margin-bottom: 10px; }
 
 .icon-bus {
   width: 15px;
@@ -91,6 +92,9 @@
     .section-title {
       margin-left: 0;
       text-align: center; } }
+
+.box-numbers {
+  flex-direction: column; }
 
 .box-goUp {
   padding-top: 65px;

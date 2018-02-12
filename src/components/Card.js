@@ -9,14 +9,16 @@ class Card extends Component {
       numberLine = <span className="number-bus">{stopsBusLines.line}</span>
     } else {
       numberLine = stopsBusLines.map(function(line, index) {
-      return <span className="number-bus">{line.line}</span>
+      return <span key={index} className="number-bus">{line.line}</span> //poner la key
         })
     }
 
     return(
       <div className="card flex m-right-tablet-desktop m-bottom-tablet-desktop ">
         <div className="flex">
-          {numberLine}
+          <div className="flex box-numbers">
+            {numberLine}
+          </div>
           <div className="box-data-card">
             <h6 className="m-none data-title">{this.props.stop.name}</h6>
             <p className="data-medium">{this.props.stop.postalAddress}</p>
