@@ -39,7 +39,12 @@ body {
   font-weight: $font-weight-light;
 }
 
-.section-title {
+.introduction-text-search {
+  font-size: $font-size-xxs;
+  color: $font-color-primary;
+}
+
+.section-title-font {
   font-family: $font-title-family;
   font-size: $font-size-md;
   color: $font-color-secondary;
@@ -54,6 +59,13 @@ body {
 .data-medium {
   font-size: $font-size-m;
   font-weight: $font-weight-medium;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+.footer-font {
+  color: map-get($color, 'light');
+  font-size: $font-size-m;
 }
 
 .body-light {
