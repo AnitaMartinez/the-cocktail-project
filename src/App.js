@@ -6,6 +6,7 @@ import Bus from './components/Icons/Bus';
 import Arrow from './components/Icons/Arrow';
 import IconMarker from './components/Icons/IconMarker';
 import FooterIcons from './components/Icons/FooterIcons';
+import Menu from './components/Menu';
 
 //The cocktail
 let latitude = 40.454207;
@@ -45,6 +46,7 @@ class App extends Component {
     const stopsBus = this.state.stopsBus;
     return (
       <div>
+        <Menu />
         <section className="hero" id="hero">
           <h1 className="hero-title uppercase margin-title center">bus app</h1>
           <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
