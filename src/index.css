@@ -149,6 +149,11 @@ body {
   color: #373d42;
   -webkit-font-smoothing: antialiased; }
 
+.menu-link {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff; }
+
 .hero-title {
   font-family: "Playfair Display", serif;
   font-size: 46px;
@@ -310,6 +315,65 @@ body {
   margin-right: 5px;
   fill: #336287; }
 
+.hamburguer {
+  fill: #fff;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  align-content: center;
+  display: flex;
+  justify-content: center; }
+
+.menu-display {
+  background-color: transparent;
+  transition: background-color ease-in-out 2s; }
+
+.background-menu {
+  background-color: #e0634b;
+  height: 100%;
+  position: absolute;
+  width: 276px;
+  left: -100%;
+  transition: left ease 2s; }
+  .menu-visible .background-menu {
+    left: 0;
+    z-index: 2; }
+
+.menu-visible {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  z-index: 2; }
+
+.close-button {
+  fill: #fff;
+  width: 30px;
+  height: 30px;
+  margin-top: 50px; }
+
+.button-style {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  background-color: none; }
+
+.list-style {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.background-menu-link {
+  margin: 15px 0px; }
+
 .intro {
   display: flex;
   flex-direction: column;
@@ -416,3 +480,10 @@ a {
 
 html {
   scroll-behavior: smooth; }
+
+ul {
+  list-style: none;
+  padding-left: 0; }
+
+.hidden {
+  display: none; }
