@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import Stop from './components/Stop'
 import Marker from './components/Marker'
+import Card from './components/Card'
 
 //The cocktail
 let latitude = 40.454207;
@@ -39,6 +39,7 @@ class App extends Component {
 
   render() {
     const stopsBus = this.state.stopsBus;
+    console.log(stopsBus);
     return (
       <div>
         <section className="hero">
@@ -69,72 +70,17 @@ class App extends Component {
             </GoogleMapReact>
         </div>
 
-        <div className="busStop">
-          {stopsBus.map(function(stop, index) {
-          return <Stop stop={stop} key={index}/>
-          })}
-        </div>
-
         <section className="section-cards">
           <h4 className="m-top-none section-title-font section-title">Resultados</h4>
           <div className="container-cards">
-            <div className="card flex m-right-tablet-desktop m-bottom-tablet-desktop ">
-              <div className="flex">
-                <span className="number-bus">17</span>
-                <div className="box-data-card">
-                  <h6 className="m-none data-title">Cibeles</h6>
-                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
-                </div>
-              </div>
-              <div className="flex box-icon-card">
-                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
-                <p className="m-none">Tiempo de espera: 3 min</p>
-              </div>
-            </div>
-            <div className="card flex m-bottom-tablet-desktop ">
-              <div className="flex">
-                <span className="number-bus">17</span>
-                <div className="box-data-card">
-                  <h6 className="m-none data-title">Cibeles</h6>
-                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
-                </div>
-              </div>
-              <div className="flex box-icon-card">
-                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
-                <p className="m-none">Tiempo de espera: 3 min</p>
-              </div>
-            </div>
-            <div className="card flex m-right-tablet-desktop">
-              <div className="flex">
-                <span className="number-bus">17</span>
-                <div className="box-data-card">
-                  <h6 className="m-none data-title">Cibeles</h6>
-                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
-                </div>
-              </div>
-              <div className="flex box-icon-card">
-                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
-                <p className="m-none">Tiempo de espera: 3 min</p>
-              </div>
-            </div>
-            <div className="card flex border-bottom-card">
-              <div className="flex">
-                <span className="number-bus">17</span>
-                <div className="box-data-card">
-                  <h6 className="m-none data-title">Cibeles</h6>
-                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
-                </div>
-              </div>
-              <div className="flex box-icon-card">
-                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
-                <p className="m-none">Tiempo de espera: 3 min</p>
-              </div>
-            </div>
+            {stopsBus.map(function(stop, index) {
+            return <Card stop={stop} key={index}/>
+            })}
           </div>
         </section>
 
         <div className="box-goUp">
-          <a className="link-goUp" href="#">Volver arriba</a>
+          <a className="link-goUp" href="/">Volver arriba</a>
         </div>
 
         </main>
