@@ -45,7 +45,7 @@ class App extends Component {
     const stopsBus = this.state.stopsBus;
     return (
       <div>
-        <section className="hero">
+        <section className="hero" id="hero">
           <h1 className="hero-title uppercase margin-title center">bus app</h1>
           <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
           <Arrow className="arrow-down"/>
@@ -139,7 +139,7 @@ class App extends Component {
         </section>
 
         <div className="box-goUp">
-          <a className="link-goUp" href="#">Volver arriba</a>
+          <a className="link-goUp" href="#hero">Volver arriba</a>
         </div>
 
         </main>

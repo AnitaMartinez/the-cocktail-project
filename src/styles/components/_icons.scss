@@ -13,6 +13,7 @@
 
 .arrow-down {
   fill: map-get($color, 'light');
+  cursor: pointer;
   margin-left: auto;
   margin-right: auto;
   position: absolute;
