@@ -37,7 +37,7 @@
     bottom: 20px; }
   }
 
-  .marker-icon-intro {
+  .bus-icon-intro {
     fill: map-get($color, 'primary');
 
     @media all and (min-width: $media-desktop) {
@@ -45,9 +45,9 @@
     }
   }
 
-  .icon-marker-map {
-    width: 1em;
-    height: 1em;
+  .bus-marker-map {
+    width: 1.5em;
+    height: 1.5em;
     fill: map-get($color, 'primary');
   }
 

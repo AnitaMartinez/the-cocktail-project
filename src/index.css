@@ -293,15 +293,15 @@ body {
   100% {
     bottom: 20px; } }
 
-.marker-icon-intro {
+.bus-icon-intro {
   fill: #e0634b; }
   @media all and (min-width: 1024px) {
-    .marker-icon-intro {
+    .bus-icon-intro {
       display: none; } }
 
-.icon-marker-map {
-  width: 1em;
-  height: 1em;
+.bus-marker-map {
+  width: 1.5em;
+  height: 1.5em;
   fill: #e0634b; }
 
 .bus-card {
