@@ -9,10 +9,9 @@ class Menu extends Component {
     this.state = {
       close : true
     }
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  handleClick = () => {
       this.setState({close : !this.state.close});
   }
 
@@ -20,31 +19,27 @@ class Menu extends Component {
     const menuClose = this.state.close ? '' : 'menu-visible';
 
     return (
-      <div className="menu-display">
+      <div className={`menu-display ${menuClose}`}>
 
-        <header className="hamburguer" onClick={this.handleClick}>
-          <MenuButton className="menu-hamburger" />
-        </header>
+        <MenuButton className="hamburguer" onClick={this.handleClick} />
 
-        <nav className={`${menuClose} background-menu`}>
+        <nav className="background-menu">
 
-          <div className="close-button">
-            <CloseButton />
-          </div>
-
-          <ul>
+          <ul className="list-style">
 
             <li className="background-menu-link">
-              <a className="menu-link">Busca tu parada</a>
+              <a className="menu-link uppercase">Busca tu parada</a>
             </li>
 
             <li className="background-menu-link">
-              <a className="menu-link">Mi grupo</a>
+              <a className="menu-link uppercase">Mi grupo</a>
             </li>
 
             <li className="background-menu-link">
-              <a className="menu-link">About us</a>
+              <a className="menu-link uppercase">About us</a>
             </li>
+
+            <li><CloseButton className="close-button" onClick={this.handleClick} /></li>
 
           </ul>
 

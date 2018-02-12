@@ -1,21 +1,18 @@
 .hamburguer {
-  width: 44px;
-  height: 44px;
+  fill: map-get($color, 'light');
+  width: 30px;
+  height: 30px;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10px;
+  left: 10px;
   z-index: 1;
   align-content: center;
   display: flex;
   justify-content: center;
 }
 
-.menu-hamburger {
-  fill: map-get($color, 'light');
-}
-
 .menu-display {
-    background-color: rgba(map-get($color, 'dark'), 0);
+    background-color: rgba($font-color-dark, 0);
     transition: background-color ease-in-out 2s;
 }
 
@@ -25,7 +22,7 @@
   position: absolute;
   width: 276px;
   left: -100%;
-  transition: left ease 1s;
+  transition: left ease 2s;
 
   .menu-visible & {
     left: 0;
@@ -37,7 +34,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(map-get($color, 'dark'), 0.7);
+    background-color: rgba($font-color-dark, 0.5);
     height: 100%;
     width: 100%;
     z-index: 2;
@@ -45,13 +42,10 @@
 
 
 .close-button {
-  width: 44px;
-  height: 44px;
-  position: absolute;
-  left: 100%;
-  align-content: center;
-  display: flex;
-  justify-content: center;
+  fill: map-get($color, 'light');
+  width: 30px;
+  height: 30px;
+  margin-top: 50px;
 }
 
 .button-style {
@@ -60,4 +54,16 @@
 	border-radius: 0;
   outline: none;
   background-color: none;
+}
+
+.list-style {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-menu-link {
+  margin: 15px 0px;
 }
