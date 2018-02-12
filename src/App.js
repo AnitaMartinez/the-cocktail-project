@@ -38,6 +38,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.stopsBus)
     const stopsBus = this.state.stopsBus;
     return (
       <div>
