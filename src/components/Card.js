@@ -13,9 +13,11 @@ class Card extends Component {
         })
     }
 
+    const futureColumnClass = stopsBusLines.length >= 4 ? 'flex classColumn' : 'flex';
+
     return(
       <div className="card flex m-right-tablet-desktop m-bottom-tablet-desktop ">
-        <div className="flex">
+        <div className={futureColumnClass} id="columnMobile">
           <div className="flex box-numbers">
             {numberLine}
           </div>
