@@ -39,6 +39,7 @@
   background-color: map-get($color, 'secondary');
   padding: 5px 7px 10px 5px;
   align-self: flex-start;
+  margin-bottom: 10px;
 }
 
 .icon-bus {
@@ -74,6 +75,10 @@
     margin-left: 0;
     text-align: center;
   }
+}
+
+.box-numbers {
+  flex-direction: column;
 }
 
 //Enlace arriba

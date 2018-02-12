@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import Stop from './components/Stop';
+import Card from './components/Card'
 import Marker from './components/Marker';
 import Bus from './components/Icons/Bus';
 import Arrow from './components/Icons/Arrow';
@@ -74,67 +74,12 @@ class App extends Component {
             </GoogleMapReact>
         </div>
 
-        <div className="busStop">
-          {stopsBus.map(function(stop, index) {
-          return <Stop stop={stop} key={index}/>
-          })}
-        </div>
-
         <section className="section-cards">
           <h4 className="m-top-none section-title-font section-title">Resultados</h4>
           <div className="container-cards">
-            <div className="card flex m-right-tablet-desktop m-bottom-tablet-desktop ">
-              <div className="flex">
-                <span className="number-bus">17</span>
-                <div className="box-data-card">
-                  <h6 className="m-none data-title">Cibeles</h6>
-                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
-                </div>
-              </div>
-              <div className="flex box-icon-card">
-                <Bus className="bus-card"/>
-                <p className="m-none">Tiempo de espera: 3 min</p>
-              </div>
-            </div>
-            <div className="card flex m-bottom-tablet-desktop ">
-              <div className="flex">
-                <span className="number-bus">17</span>
-                <div className="box-data-card">
-                  <h6 className="m-none data-title">Cibeles</h6>
-                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
-                </div>
-              </div>
-              <div className="flex box-icon-card">
-                <Bus className="bus-card"/>
-                <p className="m-none">Tiempo de espera: 3 min</p>
-              </div>
-            </div>
-            <div className="card flex m-right-tablet-desktop">
-              <div className="flex">
-                <span className="number-bus">17</span>
-                <div className="box-data-card">
-                  <h6 className="m-none data-title">Cibeles</h6>
-                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
-                </div>
-              </div>
-              <div className="flex box-icon-card">
-                <Bus className="bus-card"/>
-                <p className="m-none">Tiempo de espera: 3 min</p>
-              </div>
-            </div>
-            <div className="card flex border-bottom-card">
-              <div className="flex">
-                <span className="number-bus">17</span>
-                <div className="box-data-card">
-                  <h6 className="m-none data-title">Cibeles</h6>
-                  <p className="data-medium">Plaza de Cibeles con Pº Recoletos</p>
-                </div>
-              </div>
-              <div className="flex box-icon-card">
-                <Bus className="bus-card"/>
-                <p className="m-none">Tiempo de espera: 3 min</p>
-              </div>
-            </div>
+            {stopsBus.map(function(stop, index) {
+            return <Card stop={stop} key={index}/>
+            })}
           </div>
         </section>
 
