@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import Stop from './components/Stop'
-import Marker from './components/Marker'
+import Stop from './components/Stop';
+import Marker from './components/Marker';
+import Bus from './components/Icons/Bus';
+import Arrow from './components/Icons/Arrow';
+import IconMarker from './components/Icons/IconMarker';
+import FooterIcons from './components/Icons/FooterIcons';
 
 //The cocktail
 let latitude = 40.454207;
@@ -43,21 +47,22 @@ class App extends Component {
       <div>
         <section className="hero">
           <h1 className="hero-title uppercase margin-title center">bus app</h1>
-            <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
+          <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
+          <Arrow className="arrow-down"/>
         </section>
-        <main className= "home">
+        <main className= "home" id="intro">
           <div className= "intro">
-            <img src="images/marker-icon.svg" className= "marker-icon-intro" alt="icono de marker"/>
+            <IconMarker className="marker-icon-intro" />
             <h2 className= "home-title introduction-title center">Bienvenido a BusApp</h2>
             <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
             <div className= "home-menu-buttons">
-              <button className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button>
-              <button className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button>
-              <button className= "home-button main-button button-light-font" type="button" name="button">El campo</button>
+              <a href="#map"><button className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
+              <a href="#map"><button className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
+              <a href="#map"><button className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
             </div>
           </div>
 
-          <div className="map">
+          <div className="map" id="map">
             <GoogleMapReact
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
@@ -87,7 +92,7 @@ class App extends Component {
                 </div>
               </div>
               <div className="flex box-icon-card">
-                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
+                <Bus className="bus-card"/>
                 <p className="m-none">Tiempo de espera: 3 min</p>
               </div>
             </div>
@@ -100,7 +105,7 @@ class App extends Component {
                 </div>
               </div>
               <div className="flex box-icon-card">
-                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
+                <Bus className="bus-card"/>
                 <p className="m-none">Tiempo de espera: 3 min</p>
               </div>
             </div>
@@ -113,7 +118,7 @@ class App extends Component {
                 </div>
               </div>
               <div className="flex box-icon-card">
-                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
+                <Bus className="bus-card"/>
                 <p className="m-none">Tiempo de espera: 3 min</p>
               </div>
             </div>
@@ -126,7 +131,7 @@ class App extends Component {
                 </div>
               </div>
               <div className="flex box-icon-card">
-                <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
+                <Bus className="bus-card"/>
                 <p className="m-none">Tiempo de espera: 3 min</p>
               </div>
             </div>
@@ -140,6 +145,7 @@ class App extends Component {
         </main>
 
         <footer className="footer footer-font">
+          <FooterIcons className="icons-footer"/>
           <p>Hecho por 'Las Apis' de Adalab</p>
         </footer>
 
