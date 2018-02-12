@@ -3,10 +3,20 @@ import React, { Component } from 'react';
 
 class Card extends Component {
   render() {
+    const stopsBusLines = this.props.stop.line;
+    let numberLine = "";
+    if(stopsBusLines.length === undefined) {
+      numberLine = <span className="number-bus">{stopsBusLines.line}</span>
+    } else {
+      numberLine = stopsBusLines.map(function(line, index) {
+      return <span className="number-bus">{line.line}</span>
+        })
+    }
+
     return(
       <div className="card flex m-right-tablet-desktop m-bottom-tablet-desktop ">
         <div className="flex">
-          <span className="number-bus">{this.props.stop.line.line}</span>
+          {numberLine}
           <div className="box-data-card">
             <h6 className="m-none data-title">{this.props.stop.name}</h6>
             <p className="data-medium">{this.props.stop.postalAddress}</p>
