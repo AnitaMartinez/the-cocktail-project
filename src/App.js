@@ -12,18 +12,24 @@ let latitude = 40.454207;
 let longitude = -3.699970;
 const radius = 500;
 
+const idClient = "WEB.SERV.redlim@gmail.com";
+const passKey = "FB5B0E17-88EB-407E-A222-97F0916E0C41";
+const urlGetStopsFromXY = "https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetStopsFromXY.php";
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       stopsBus: [],
+      center: {lat:40.41, lng:-3.70},
+      zoom: 11
     }
+    this.handleClickBilbao=this.handleClickBilbao.bind(this);
+    this.handleClickCocktail=this.handleClickCocktail.bind(this);
+    this.handleClickCampo=this.handleClickCampo.bind(this);
   }
 
   fetchInfoBuses() {
-    const idClient = "WEB.SERV.redlim@gmail.com";
-    const passKey = "FB5B0E17-88EB-407E-A222-97F0916E0C41";
-    const urlGetStopsFromXY = "https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetStopsFromXY.php";
     const that = this
     fetch(urlGetStopsFromXY, {
       method: "POST",
@@ -41,9 +47,58 @@ class App extends Component {
     })
   }
 
+  handleClickBilbao(event){
+    let latitudeBilbao = 40.428917;
+    let longitudeBilbao = -3.702006;
+    const radius = 500;
+    const that = this
+
+        fetch(urlGetStopsFromXY, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body:
+          "idClient="+idClient+"&passKey="+passKey+"&latitude="+latitudeBilbao+"&longitude="+longitudeBilbao+"&Radius="+radius+"&statistics=&cultureInfo=",
+        }).then((response) => {
+          return response.json();
+        }).then((data) => {
+          that.setState({
+            stopsBus: data.stop,
+            center:{lat:40.428917, lng:-3.702006},
+            zoom: 15
+          });
+        })
+
+        return <GoogleMapReact
+        center={this.state.center}
+        zoom={this.state.zoom}/>
+  }
+
+  handleClickCocktail(event){
+    this.setState({
+      center:{lat:40.454302, lng:-3.700337},
+      zoom: 15
+    });
+    return <GoogleMapReact
+    center={this.state.center}
+    zoom={this.state.zoom}/>
+  }
+
+  handleClickCampo(event){
+  this.setState({
+    center:{lat:40.411345, lng:-3.709016},
+    zoom: 15
+  });
+    return <GoogleMapReact
+    center={this.state.center}
+    zoom={this.state.zoom}/>
+  }
+
   render() {
     console.log(this.state.stopsBus)
     const stopsBus = this.state.stopsBus;
+
     return (
       <div>
         <section className="hero">
@@ -57,9 +112,9 @@ class App extends Component {
             <h2 className= "home-title introduction-title center">Bienvenido a BusApp</h2>
             <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
             <div className= "home-menu-buttons">
-              <a href="#map"><button className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
-              <a href="#map"><button className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
-              <a href="#map"><button className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
+              <a href="#map"><button onClick={this.handleClickBilbao} className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
+              <a href="#map"><button onClick={this.handleClickCocktail} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
+              <a href="#map"><button onClick={this.handleClickCampo} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
             </div>
           </div>
 
@@ -67,6 +122,8 @@ class App extends Component {
             <GoogleMapReact
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
+            center={this.state.center}
+            zoom={this.state.zoom}
             bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
             >
             {stopsBus.map(function(stop, index) {
@@ -159,9 +216,12 @@ class App extends Component {
   }
 }
 
-App.defaultProps= {
+App.defaultProps={
   center: {lat:40.41, lng:-3.70},
-  zoom: 12
-}
+  zoom: 1
+};
+
+
+
 
 export default App;
