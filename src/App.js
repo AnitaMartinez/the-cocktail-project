@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Card from './components/Card'
 import Marker from './components/Marker';
-import Bus from './components/Icons/Bus';
 import Arrow from './components/Icons/Arrow';
 import IconMarker from './components/Icons/IconMarker';
 import FooterIcons from './components/Icons/FooterIcons';

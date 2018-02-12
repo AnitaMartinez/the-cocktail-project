@@ -298,10 +298,10 @@ body {
   100% {
     bottom: 20px; } }
 
-.bus-icon-intro {
+.marker-icon-intro {
   fill: #e0634b; }
   @media all and (min-width: 1024px) {
-    .bus-icon-intro {
+    .marker-icon-intro {
       display: none; } }
 
 .bus-marker-map {
