@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Bus from './Icons/Bus';
 
 
 class Card extends Component {
@@ -27,7 +28,7 @@ class Card extends Component {
           </div>
         </div>
         <div className="flex box-icon-card">
-          <img className="icon-bus" src="images/bus.png" alt="icono bus"/>
+          <Bus className="bus-card" />
           <p className="m-none">Parada: {this.props.stop.stopId} </p>
         </div>
       </div>
