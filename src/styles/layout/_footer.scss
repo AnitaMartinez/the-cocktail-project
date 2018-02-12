@@ -5,3 +5,45 @@
   padding-bottom: 40px;
   text-align: center;
 }
+
+.icons-footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @media all and (min-width: $media-tablet) {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+}
+
+.footer-star {
+  fill: map-get($color, 'light');
+  margin-bottom: 20px;
+
+  @media all and (min-width: $media-tablet) {
+    margin-bottom: 0;
+  }
+}
+
+.footer-star-desktop {
+  display: none;
+  fill: map-get($color, 'light');
+
+  @media all and (min-width: $media-tablet) {
+    display: inline;
+  }
+}
+
+.icon-marker-footer {
+  fill: map-get($color, 'light');
+  margin-left: 20px;
+  margin-right: 20px;
+
+  @media all and (min-width: $media-tablet) {
+    width: 2.5em;
+    height: 2.5em;
+  }
+}

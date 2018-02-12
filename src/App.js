@@ -4,8 +4,8 @@ import Stop from './components/Stop';
 import Marker from './components/Marker';
 import Bus from './components/Icons/Bus';
 import Arrow from './components/Icons/Arrow';
-import Star from './components/Icons/Star';
 import IconMarker from './components/Icons/IconMarker';
+import FooterIcons from './components/Icons/FooterIcons';
 
 //The cocktail
 let latitude = 40.454207;
@@ -145,6 +145,7 @@ class App extends Component {
         </main>
 
         <footer className="footer footer-font">
+          <FooterIcons className="icons-footer"/>
           <p>Hecho por 'Las Apis' de Adalab</p>
         </footer>
 

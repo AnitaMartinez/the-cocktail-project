@@ -5,6 +5,39 @@
   padding-bottom: 40px;
   text-align: center; }
 
+.icons-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; }
+  @media all and (min-width: 768px) {
+    .icons-footer {
+      flex-direction: row;
+      justify-content: center; } }
+
+.footer-star {
+  fill: #fff;
+  margin-bottom: 20px; }
+  @media all and (min-width: 768px) {
+    .footer-star {
+      margin-bottom: 0; } }
+
+.footer-star-desktop {
+  display: none;
+  fill: #fff; }
+  @media all and (min-width: 768px) {
+    .footer-star-desktop {
+      display: inline; } }
+
+.icon-marker-footer {
+  fill: #fff;
+  margin-left: 20px;
+  margin-right: 20px; }
+  @media all and (min-width: 768px) {
+    .icon-marker-footer {
+      width: 2.5em;
+      height: 2.5em; } }
+
 .map {
   height: 400px;
   width: 400px; }
