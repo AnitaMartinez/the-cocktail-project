@@ -17,20 +17,8 @@ const passKey = "FB5B0E17-88EB-407E-A222-97F0916E0C41";
 const urlGetStopsFromXY = "https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetStopsFromXY.php";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      stopsBus: [],
-      center: {lat:40.41, lng:-3.70},
-      zoom: 11
-    }
-    this.handleClickBilbao=this.handleClickBilbao.bind(this);
-    this.handleClickCocktail=this.handleClickCocktail.bind(this);
-    this.handleClickCampo=this.handleClickCampo.bind(this);
-  }
 
-  fetchInfoBuses() {
-    const that = this
+  fetchInfoBuses(latitude,longitude) {
     fetch(urlGetStopsFromXY, {
       method: "POST",
       headers: {
@@ -41,55 +29,68 @@ class App extends Component {
     }).then((response) => {
       return response.json();
     }).then((data) => {
-      that.setState({
+      this.setState({
         stopsBus: data.stop,
       });
     })
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      stopsBus: [],
+      center: {lat:40.41, lng:-3.70},
+      zoom: 15
+    }
+    this.handleClickBilbao=this.handleClickBilbao.bind(this);
+    this.handleClickCocktail=this.handleClickCocktail.bind(this);
+    this.handleClickCampo=this.handleClickCampo.bind(this);
+    this.fetchInfoBuses=this.fetchInfoBuses.bind(this);
+  }
+
+
   handleClickBilbao(event){
-    let latitudeBilbao = 40.428917;
-    let longitudeBilbao = -3.702006;
+    let latitudeBilbao = 40.429154;
+    let longitudeBilbao = -3.701952;
     const radius = 500;
-    const that = this
 
-        fetch(urlGetStopsFromXY, {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body:
-          "idClient="+idClient+"&passKey="+passKey+"&latitude="+latitudeBilbao+"&longitude="+longitudeBilbao+"&Radius="+radius+"&statistics=&cultureInfo=",
-        }).then((response) => {
-          return response.json();
-        }).then((data) => {
-          that.setState({
-            stopsBus: data.stop,
-            center:{lat:40.428917, lng:-3.702006},
-            zoom: 15
-          });
-        })
-
+    this.fetchInfoBuses(latitudeBilbao,longitudeBilbao);
+    this.setState({
+      center:{lat:40.429154, lng:-3.701952},
+      zoom: 15
+    });
         return <GoogleMapReact
         center={this.state.center}
         zoom={this.state.zoom}/>
   }
 
   handleClickCocktail(event){
+    let latitudeCocktail = 40.454146;
+    let longitudeCocktail = -3.700346;
+    const radius = 500;
+    this.fetchInfoBuses(latitudeCocktail,longitudeCocktail);
+
     this.setState({
-      center:{lat:40.454302, lng:-3.700337},
+      center:{lat:40.454146, lng:-3.700346},
       zoom: 15
     });
     return <GoogleMapReact
     center={this.state.center}
     zoom={this.state.zoom}/>
+
   }
 
   handleClickCampo(event){
-  this.setState({
-    center:{lat:40.411345, lng:-3.709016},
-    zoom: 15
-  });
+    let latitudeCampo = 40.614497;
+    let longitudeCampo = -3.854413;
+    const radius = 500;
+    this.fetchInfoBuses(latitudeCampo,longitudeCampo);
+
+    this.setState({
+      center:{lat:40.614497, lng:-3.854413},
+      zoom: 15
+    });
+
     return <GoogleMapReact
     center={this.state.center}
     zoom={this.state.zoom}/>
@@ -212,7 +213,7 @@ class App extends Component {
   }
 
   componentDidMount () {
-    this.fetchInfoBuses()
+    this.fetchInfoBuses(latitude,longitude)
   }
 }
 
