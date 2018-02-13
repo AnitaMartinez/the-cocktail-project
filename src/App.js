@@ -20,7 +20,7 @@ class App extends Component {
     super(props);
     this.state = {
       stopsBus: [],
-      loading: false
+      loading: false,
       currentPage: 1,
       elementsPerPage: 4
     };
