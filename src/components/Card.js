@@ -3,6 +3,7 @@ import Bus from './Icons/Bus';
 
 
 class Card extends Component {
+
   render() {
     const stopsBusLines = this.props.stop.line;
     let numberLine = "";
@@ -23,7 +24,7 @@ class Card extends Component {
             {numberLine}
           </div>
           <div className="box-data-card">
-            <h6 className="m-none data-title">{this.props.stop.name}</h6>
+            <h4 className="m-none data-title">{this.props.stop.name}</h4>
             <p className="data-medium">{this.props.stop.postalAddress}</p>
           </div>
         </div>
