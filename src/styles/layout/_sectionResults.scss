@@ -24,12 +24,9 @@
   flex-direction: column;
   height: 230px;
   @media all and (min-width: $media-tablet) {
-    width: 340px;
+    width: 400px;
     border-top: 0px;
     box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19);
-  }
-  @media all and (min-width: $media-desktop) {
-    width: 355px;
   }
 }
 
@@ -87,6 +84,10 @@
     margin-left: 0;
     text-align: center;
   }
+}
+
+.data-title {
+  width: 95%;
 }
 
 .box-numbers {
