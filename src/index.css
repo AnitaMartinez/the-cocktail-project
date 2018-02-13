@@ -129,6 +129,25 @@
 .box-numbers {
   flex-direction: column; }
 
+.list-pagination {
+  display: flex;
+  padding-left: 0;
+  justify-content: center;
+  margin: 0; }
+
+.number-pagination {
+  padding: 8px 16px;
+  background-color: #e0634b;
+  border: 1px solid #e0634b;
+  transition: background-color .3s;
+  border-right: 1px solid #fff; }
+  .number-pagination:hover {
+    background-color: #373d42;
+    border: 1px solid #e0634b; }
+  .number-pagination:active {
+    background-color: #373d42;
+    border: 1px solid #e0634b; }
+
 .box-goUp {
   padding-top: 65px;
   padding-bottom: 65px;
@@ -412,3 +431,6 @@ a {
 
 html {
   scroll-behavior: smooth; }
+
+li {
+  list-style-type: none; }

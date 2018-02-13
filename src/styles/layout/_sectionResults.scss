@@ -81,7 +81,32 @@
   flex-direction: column;
 }
 
-//Enlace arriba
+//Pagination
+
+.list-pagination { //Ul
+  display: flex;
+  padding-left: 0;
+  justify-content: center;
+  margin: 0;
+}
+
+.number-pagination {  //li
+  padding: 8px 16px;
+  background-color: map-get($color, 'primary');
+  border: 1px solid map-get($color, 'primary');
+  transition: background-color .3s;
+  border-right: 1px solid map-get($color, 'light');
+ &:hover {
+  background-color: map-get($color, 'secondary-dark');
+  border: 1px solid map-get($color, 'primary');
+}
+&:active {
+  background-color: map-get($color, 'secondary-dark');
+  border: 1px solid map-get($color, 'primary');
+}
+}
+
+//Link Go Up
 
 .box-goUp {
   padding-top: 65px;

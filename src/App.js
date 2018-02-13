@@ -69,9 +69,9 @@ class App extends Component {
     }
     const renderPageNumbers = pageNumbers.map(number => {
       return (
-        <li key={number} id={number} onClick={this.handleClickPagination} >
-          {number}
-        </li>
+          <li className="number-pagination button-light-font" key={number} id={number} onClick={this.handleClickPagination} >
+            {number}
+          </li>
       );
     });
 
@@ -112,9 +112,10 @@ class App extends Component {
           <div className="container-cards">
             {renderElementsPage}
           </div>
-          <ul id="page-numbers">
+          <ul id="page-numbers flex" className="list-pagination">
             {renderPageNumbers}
           </ul>
+
         </section>
 
         <div className="box-goUp">
