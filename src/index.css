@@ -286,8 +286,7 @@ body {
 .arrow-down {
   fill: #fff;
   cursor: pointer;
-  margin-left: auto;
-  margin-right: auto;
+  right: 44%;
   position: absolute;
   bottom: 20px;
   animation-name: scroll;
