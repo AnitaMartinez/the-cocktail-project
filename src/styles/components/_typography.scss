@@ -58,8 +58,12 @@ body {
 }
 
 .data-title {
-  font-size: $font-size-m;
+  font-size: $font-size-s;
   font-weight: $font-weight-bold;
+  @media all and (min-width: $media-desktop) {
+    font-size: $font-size-m;
+  }
+
 }
 
 .data-medium {

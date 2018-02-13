@@ -24,7 +24,7 @@
   flex-direction: column;
   height: 230px;
   @media all and (min-width: $media-tablet) {
-    width: 400px;
+    width: 360px;
     border-top: 0px;
     box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19);
   }
@@ -32,13 +32,16 @@
 
 .number-bus {
   font-family: $font-title-family;
-  font-size: $font-size-md;
+  font-size: $font-size-mm;
   color: $font-color-light;
   background-color: map-get($color, 'secondary');
   padding: 5px 7px 10px 5px;
   align-self: flex-start;
   margin-bottom: 10px;
   margin-left: 1.5%;
+  @media all and (min-width: $media-desktop) {
+    font-size: $font-size-md;
+  }
 }
 
 #columnMobile {
@@ -87,7 +90,9 @@
 }
 
 .data-title {
-  width: 95%;
+  width: 90%;
+  font-size: 10px;
+  margin-right: 0;
 }
 
 .box-numbers {

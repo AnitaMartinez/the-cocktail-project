@@ -81,19 +81,22 @@
   height: 230px; }
   @media all and (min-width: 768px) {
     .card {
-      width: 400px;
+      width: 360px;
       border-top: 0px;
       box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19); } }
 
 .number-bus {
   font-family: "Playfair Display", serif;
-  font-size: 28px;
+  font-size: 24px;
   color: #fff;
   background-color: #336287;
   padding: 5px 7px 10px 5px;
   align-self: flex-start;
   margin-bottom: 10px;
   margin-left: 1.5%; }
+  @media all and (min-width: 1024px) {
+    .number-bus {
+      font-size: 28px; } }
 
 @media all and (max-width: 768px) {
   #columnMobile {
@@ -133,7 +136,9 @@
       text-align: center; } }
 
 .data-title {
-  width: 95%; }
+  width: 90%;
+  font-size: 10px;
+  margin-right: 0; }
 
 .box-numbers {
   flex-direction: row; }
@@ -219,8 +224,11 @@ body {
   font-weight: 700; }
 
 .data-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700; }
+  @media all and (min-width: 1024px) {
+    .data-title {
+      font-size: 18px; } }
 
 .data-medium {
   font-size: 18px;
