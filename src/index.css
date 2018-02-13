@@ -322,6 +322,11 @@ body {
   margin-right: 5px;
   fill: #336287; }
 
+.spinner-style {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 .hamburguer {
   fill: #fff;
   width: 30px;

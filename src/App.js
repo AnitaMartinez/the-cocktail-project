@@ -5,7 +5,9 @@ import Marker from './components/Marker';
 import Arrow from './components/Icons/Arrow';
 import IconMarker from './components/Icons/IconMarker';
 import FooterIcons from './components/Icons/FooterIcons';
+import Spinner from './components/Icons/Spinner';
 import Menu from './components/Menu';
+
 
 //The cocktail
 let latitude = 40.454207;
@@ -17,6 +19,7 @@ class App extends Component {
     super(props);
     this.state = {
       stopsBus: [],
+      loading: false
     }
   }
 
@@ -37,6 +40,7 @@ class App extends Component {
     }).then((data) => {
       that.setState({
         stopsBus: data.stop,
+        loading : true
       });
     })
   }
@@ -78,6 +82,7 @@ class App extends Component {
         <section className="section-cards">
           <h4 className="m-top-none section-title-font section-title">Resultados</h4>
           <div className="container-cards">
+            { this.state.loading ? null : <Spinner />  }
             {stopsBus.map(function(stop, index) {
             return <Card stop={stop} key={index}/>
             })}
