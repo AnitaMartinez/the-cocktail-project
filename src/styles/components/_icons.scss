@@ -13,8 +13,8 @@
 
 .arrow-down {
   fill: map-get($color, 'light');
-  margin-left: auto;
-  margin-right: auto;
+  cursor: pointer;
+  right: 44%;
   position: absolute;
   bottom: 20px;
   animation-name: scroll;
@@ -44,9 +44,9 @@
     }
   }
 
-  .icon-marker-map {
-    width: 1em;
-    height: 1em;
+  .bus-marker-map {
+    width: 1.5em;
+    height: 1.5em;
     fill: map-get($color, 'primary');
   }
 
@@ -55,5 +55,10 @@
     height: 1em;
     margin-right: 5px;
     fill: map-get($color, 'secondary');
+  }
 
+  .spinner-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }

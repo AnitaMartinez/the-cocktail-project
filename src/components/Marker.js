@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import IconMarker from './Icons/IconMarker';
+import Bus from './Icons/Bus';
 
 
 class Marker extends Component {
   render() {
     return(
       <div className="marker">
-      <IconMarker className="icon-marker-map"/>
+      <Bus className="bus-marker-map"/>
       </div>
     )
   }
