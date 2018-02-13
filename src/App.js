@@ -12,13 +12,24 @@ let latitude = 40.454207;
 let longitude = -3.699970;
 const radius = 500;
 
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       stopsBus: [],
-    }
+      currentPage: 1,
+      elementsPerPage: 4
+    };
+    this.handleClickPagination = this.handleClickPagination.bind(this);
   }
+
+  handleClickPagination(event) {
+        this.setState({
+          currentPage: Number(event.target.id)
+        });
+      }
+
 
   fetchInfoBuses() {
     const idClient = "WEB.SERV.redlim@gmail.com";
@@ -43,6 +54,27 @@ class App extends Component {
 
   render() {
     const stopsBus = this.state.stopsBus;
+
+    // Pagination
+    const { currentPage, elementsPerPage } = this.state;
+    const indexOfLastAll = currentPage * elementsPerPage;
+    const indexOfFirstAll = indexOfLastAll - elementsPerPage;
+    const currentElements = stopsBus.slice(indexOfFirstAll, indexOfLastAll);
+    const renderElementsPage = currentElements.map((stop, index) => {
+          return <Card stop={stop} key={index}/>;
+        });
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(stopsBus.length / elementsPerPage); i++) {
+      pageNumbers.push(i);
+    }
+    const renderPageNumbers = pageNumbers.map(number => {
+      return (
+          <li className="number-pagination button-light-font" key={number} id={number} onClick={this.handleClickPagination} >
+            {number}
+          </li>
+      );
+    });
+
     return (
       <div>
         <Menu />
@@ -65,23 +97,25 @@ class App extends Component {
 
           <div className="map" id="map">
             <GoogleMapReact
-            defaultCenter={this.props.center}
-            defaultZoom={this.props.zoom}
-            bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
+              defaultCenter={this.props.center}
+              defaultZoom={this.props.zoom}
+              bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
             >
-            {stopsBus.map(function(stop, index) {
-            return <Marker lng={stop.longitude} lat={stop.latitude} key={index}/>
-              })}
+              {stopsBus.map(function(stop, index) {
+              return <Marker lng={stop.longitude} lat={stop.latitude} key={index}/>
+                })}
             </GoogleMapReact>
         </div>
 
         <section className="section-cards">
-          <h4 className="m-top-none section-title-font section-title">Resultados</h4>
+          <h3 className="m-top-none section-title-font section-title">Resultados</h3>
           <div className="container-cards">
-            {stopsBus.map(function(stop, index) {
-            return <Card stop={stop} key={index}/>
-            })}
+            {renderElementsPage}
           </div>
+          <ul id="page-numbers flex" className="list-pagination">
+            {renderPageNumbers}
+          </ul>
+
         </section>
 
         <div className="box-goUp">

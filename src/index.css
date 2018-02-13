@@ -77,7 +77,8 @@
   background-color: #fff;
   border-top: 2px solid #336287;
   padding: 30px 0 60px 12px;
-  flex-direction: column; }
+  flex-direction: column;
+  height: 230px; }
   @media all and (min-width: 768px) {
     .card {
       width: 340px;
@@ -136,6 +137,25 @@
 
 .box-numbers {
   flex-direction: row; }
+
+.list-pagination {
+  display: flex;
+  padding-left: 0;
+  justify-content: center;
+  margin: 30px 0 0 0; }
+
+.number-pagination {
+  padding: 8px 16px;
+  background-color: #e0634b;
+  border: 1px solid #e0634b;
+  transition: background-color .3s;
+  border-right: 1px solid #fff; }
+  .number-pagination:hover {
+    background-color: #373d42;
+    border: 1px solid #e0634b; }
+  .number-pagination:active {
+    background-color: #373d42;
+    border: 1px solid #e0634b; }
 
 .box-goUp {
   padding-top: 65px;
@@ -494,3 +514,6 @@ ul {
 
 .hidden {
   display: none; }
+
+li {
+  list-style-type: none; }

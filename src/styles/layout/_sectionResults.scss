@@ -22,6 +22,7 @@
   border-top: 2px solid map-get($color, 'secondary');
   padding: 30px 0 60px 12px;
   flex-direction: column;
+  height: 230px;
   @media all and (min-width: $media-tablet) {
     width: 340px;
     border-top: 0px;
@@ -92,7 +93,32 @@
   flex-direction: row;
 }
 
-//Enlace arriba
+//Pagination
+
+.list-pagination { //Ul
+  display: flex;
+  padding-left: 0;
+  justify-content: center;
+  margin: 30px 0 0 0;
+}
+
+.number-pagination {  //li
+  padding: 8px 16px;
+  background-color: map-get($color, 'primary');
+  border: 1px solid map-get($color, 'primary');
+  transition: background-color .3s;
+  border-right: 1px solid map-get($color, 'light');
+ &:hover {
+  background-color: map-get($color, 'secondary-dark');
+  border: 1px solid map-get($color, 'primary');
+}
+&:active {
+  background-color: map-get($color, 'secondary-dark');
+  border: 1px solid map-get($color, 'primary');
+}
+}
+
+//Link Go Up
 
 .box-goUp {
   padding-top: 65px;
