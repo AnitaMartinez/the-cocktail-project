@@ -31,7 +31,8 @@ class App extends Component {
       currentPage: 1,
       elementsPerPage: 4,
       center: {lat:40.41, lng:-3.70},
-      zoom: 15
+      zoom: 15,
+      hidden: true
     };
     this.handleClickPagination = this.handleClickPagination.bind(this);
     this.handleClickBilbao=this.handleClickBilbao.bind(this);
@@ -64,7 +65,9 @@ class App extends Component {
     }).then((data) => {
       this.setState({
         stopsBus: data.stop,
-        loading : true
+        loading : true,
+        hidden: false
+
       });
     })
   }
@@ -77,7 +80,8 @@ class App extends Component {
     this.fetchInfoBuses(latitudeBilbao,longitudeBilbao);
     this.setState({
       center:{lat:latitudeBilbao, lng:longitudeBilbao},
-      zoom: 15
+      zoom: 15,
+
     });
         return <GoogleMapReact
         center={this.state.center}
@@ -91,7 +95,7 @@ class App extends Component {
 
     this.setState({
       center:{lat:latitudeCocktail, lng:longitudeCocktail},
-      zoom: 15
+      zoom: 15,
     });
     return <GoogleMapReact
     center={this.state.center}
@@ -106,7 +110,8 @@ class App extends Component {
 
     this.setState({
       center:{lat:latitudeCampo, lng:latitudeCampo},
-      zoom: 15
+      zoom: 15,
+      hidden: true
     });
 
     return <GoogleMapReact
@@ -115,6 +120,7 @@ class App extends Component {
   }
 
   render() {
+    const hiddenResults = this.state.hidden ? 'hidden' : '';
     const stopsBus = this.state.stopsBus;
 
     // Pagination
@@ -171,18 +177,16 @@ class App extends Component {
             </GoogleMapReact>
         </div>
 
-        <section className="section-cards">
-          <h3 className="m-top-none section-title-font section-title">Resultados</h3>
-          <div className="container-cards">
-            { this.state.loading ? null : <Spinner />  }
-            {renderElementsPage}
-          </div>
-          <ul id="page-numbers flex" className="list-pagination">
-            {renderPageNumbers}
-          </ul>
-
-        </section>
-
+        <section className={`section-cards ${hiddenResults}`}>
+         <h3 className="m-top-none section-title-font section-title">Resultados</h3>
+         <div className="container-cards">
+          { this.state.loading ? null : <Spinner />  }
+          {renderElementsPage}
+        </div>
+        <ul id="page-numbers flex" className="list-pagination">
+          {renderPageNumbers}
+        </ul>
+      </section>
         <div className="box-goUp">
           <a className="link-goUp" href="#hero">Volver arriba</a>
         </div>
@@ -198,9 +202,6 @@ class App extends Component {
     );
   }
 
-  componentDidMount () {
-    this.fetchInfoBuses(latitude,longitude)
-  }
 }
 
 App.defaultProps={
