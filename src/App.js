@@ -8,6 +8,8 @@ import FooterIcons from './components/Icons/FooterIcons';
 import Spinner from './components/Icons/Spinner';
 import Menu from './components/Menu';
 
+import heroImage from './images/hero-image.jpg';
+
 
 //The cocktail
 let latitude = 40.454207;
@@ -83,7 +85,7 @@ class App extends Component {
     return (
       <div>
         <Menu />
-        <section className="hero" id="hero">
+        <section className="hero" style={{backgroundImage: `url(${heroImage})`}} id="hero">
           <h1 className="hero-title uppercase margin-title center">bus app</h1>
           <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
           <Arrow className="arrow-down"/>
