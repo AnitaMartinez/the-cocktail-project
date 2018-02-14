@@ -39,11 +39,15 @@ class App extends Component {
   }
 
   handleClickPagination(event) {
+    console.log(document.querySelectorAll(".number-pagination"));
         this.setState({
           currentPage: Number(event.target.id)
         });
+        for(let i = 0; i < document.querySelectorAll(".number-pagination").length; i++) {
+          document.querySelectorAll(".number-pagination")[i].classList.remove('active');
+          event.target.classList.add('active');
+        }
       }
-
 
   fetchInfoBuses(latitude,longitude) {
     const idClient = "WEB.SERV.redlim@gmail.com";
