@@ -17,6 +17,11 @@ let longitude = -3.699970;
 const radius = 500;
 
 
+const idClient = "WEB.SERV.redlim@gmail.com";
+const passKey = "FB5B0E17-88EB-407E-A222-97F0916E0C41";
+const urlGetStopsFromXY = "https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetStopsFromXY.php";
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -24,24 +29,29 @@ class App extends Component {
       stopsBus: [],
       loading: false,
       currentPage: 1,
-      elementsPerPage: 4
+      elementsPerPage: 4,
+      center: {lat:40.41, lng:-3.70},
+      zoom: 15
     };
     this.handleClickPagination = this.handleClickPagination.bind(this);
-
+    this.handleClickBilbao=this.handleClickBilbao.bind(this);
+    this.handleClickCocktail=this.handleClickCocktail.bind(this);
+    this.handleClickCampo=this.handleClickCampo.bind(this);
+    this.fetchInfoBuses=this.fetchInfoBuses.bind(this);
   }
 
   handleClickPagination(event) {
-        this.setState({
-          currentPage: Number(event.target.id)
-        });
-      }
+    const numberPagination = document.querySelectorAll(".number-pagination");
+    this.setState({
+      currentPage: Number(event.target.id)
+    });
+    for(let i = 0; i < numberPagination.length; i++) {
+      numberPagination[i].classList.remove('active');
+      event.target.classList.add('active');
+    }
+  }
 
-
-  fetchInfoBuses() {
-    const idClient = "WEB.SERV.redlim@gmail.com";
-    const passKey = "FB5B0E17-88EB-407E-A222-97F0916E0C41";
-    const urlGetStopsFromXY = "https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetStopsFromXY.php";
-    const that = this
+  fetchInfoBuses(latitude,longitude) {
     fetch(urlGetStopsFromXY, {
       method: "POST",
       headers: {
@@ -52,11 +62,56 @@ class App extends Component {
     }).then((response) => {
       return response.json();
     }).then((data) => {
-      that.setState({
+      this.setState({
         stopsBus: data.stop,
         loading : true
       });
     })
+  }
+
+  handleClickBilbao(event){
+    let latitudeBilbao = 40.429154;
+    let longitudeBilbao = -3.701952;
+
+
+    this.fetchInfoBuses(latitudeBilbao,longitudeBilbao);
+    this.setState({
+      center:{lat:latitudeBilbao, lng:longitudeBilbao},
+      zoom: 15
+    });
+        return <GoogleMapReact
+        center={this.state.center}
+        zoom={this.state.zoom}/>
+  }
+
+  handleClickCocktail(event){
+    let latitudeCocktail = 40.454146;
+    let longitudeCocktail = -3.700346;
+    this.fetchInfoBuses(latitudeCocktail,longitudeCocktail);
+
+    this.setState({
+      center:{lat:latitudeCocktail, lng:longitudeCocktail},
+      zoom: 15
+    });
+    return <GoogleMapReact
+    center={this.state.center}
+    zoom={this.state.zoom}/>
+
+  }
+
+  handleClickCampo(event){
+    let latitudeCampo = 40.614497;
+    let longitudeCampo = -3.854413;
+    this.fetchInfoBuses(latitudeCampo,longitudeCampo);
+
+    this.setState({
+      center:{lat:latitudeCampo, lng:latitudeCampo},
+      zoom: 15
+    });
+
+    return <GoogleMapReact
+    center={this.state.center}
+    zoom={this.state.zoom}/>
   }
 
   render() {
@@ -76,7 +131,7 @@ class App extends Component {
     }
     const renderPageNumbers = pageNumbers.map(number => {
       return (
-          <li className="number-pagination button-light-font" key={number} id={number} onClick={this.handleClickPagination} >
+          <li className={"number-pagination button-light-font " + (number === 1 ? 'active' : "")} key={number} id={number} onClick={this.handleClickPagination} >
             {number}
           </li>
       );
@@ -96,17 +151,19 @@ class App extends Component {
             <h2 className= "home-title introduction-title center">Bienvenido a BusApp</h2>
             <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
             <div className= "home-menu-buttons">
-              <a href="#map"><button className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
-              <a href="#map"><button className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
-              <a href="#map"><button className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
+              <a href="#map"><button onClick={this.handleClickBilbao} className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
+              <a href="#map"><button onClick={this.handleClickCocktail} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
+              <a href="#map"><button onClick={this.handleClickCampo} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
             </div>
           </div>
 
           <div className="map" id="map">
             <GoogleMapReact
-              defaultCenter={this.props.center}
-              defaultZoom={this.props.zoom}
-              bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
+            defaultCenter={this.props.center}
+            defaultZoom={this.props.zoom}
+            center={this.state.center}
+            zoom={this.state.zoom}
+            bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
             >
               {stopsBus.map(function(stop, index) {
               return <Marker lng={stop.longitude} lat={stop.latitude} key={index}/>
@@ -142,13 +199,13 @@ class App extends Component {
   }
 
   componentDidMount () {
-    this.fetchInfoBuses()
+    this.fetchInfoBuses(latitude,longitude)
   }
 }
 
-App.defaultProps= {
+App.defaultProps={
   center: {lat:40.41, lng:-3.70},
-  zoom: 12
-}
+  zoom: 1
+};
 
 export default App;
