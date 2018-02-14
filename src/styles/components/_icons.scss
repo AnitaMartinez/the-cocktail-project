@@ -56,3 +56,9 @@
     margin-right: 5px;
     fill: map-get($color, 'secondary');
   }
+
+  .spinner-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

@@ -158,9 +158,10 @@
   .number-pagination:hover {
     background-color: #373d42;
     border: 1px solid #e0634b; }
-  .number-pagination:active {
-    background-color: #373d42;
-    border: 1px solid #e0634b; }
+
+.active {
+  background-color: #373d42;
+  border: 1px solid #e0634b; }
 
 .box-goUp {
   padding-top: 65px;
@@ -349,6 +350,11 @@ body {
   height: 1em;
   margin-right: 5px;
   fill: #336287; }
+
+.spinner-style {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .hamburguer {
   fill: #fff;

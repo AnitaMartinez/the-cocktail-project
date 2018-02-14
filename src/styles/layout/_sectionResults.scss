@@ -46,7 +46,7 @@
 
 #columnMobile {
   @media all and (max-width: $media-tablet) {
-  flex-direction: column;
+    flex-direction: column;
   }
 }
 
@@ -114,15 +114,17 @@
   border: 1px solid map-get($color, 'primary');
   transition: background-color .3s;
   border-right: 1px solid map-get($color, 'light');
- &:hover {
+  &:hover {
+    background-color: map-get($color, 'secondary-dark');
+    border: 1px solid map-get($color, 'primary');
+  }
+}
+
+.active {
   background-color: map-get($color, 'secondary-dark');
   border: 1px solid map-get($color, 'primary');
 }
-&:active {
-  background-color: map-get($color, 'secondary-dark');
-  border: 1px solid map-get($color, 'primary');
-}
-}
+
 
 //Link Go Up
 
