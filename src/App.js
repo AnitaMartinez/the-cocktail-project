@@ -12,8 +12,6 @@ import heroImage from './images/hero-image.jpg';
 
 
 //The cocktail
-let latitude = 40.454207;
-let longitude = -3.699970;
 const radius = 500;
 
 
@@ -65,9 +63,7 @@ class App extends Component {
     }).then((data) => {
       this.setState({
         stopsBus: data.stop,
-        loading : true,
-        hidden: false
-
+        loading : true
       });
     })
   }
@@ -81,11 +77,12 @@ class App extends Component {
     this.setState({
       center:{lat:latitudeBilbao, lng:longitudeBilbao},
       zoom: 15,
-
+      hidden: false,
     });
-        return <GoogleMapReact
-        center={this.state.center}
-        zoom={this.state.zoom}/>
+
+      return <GoogleMapReact
+      center={this.state.center}
+      zoom={this.state.zoom}/>
   }
 
   handleClickCocktail(event){
@@ -96,11 +93,12 @@ class App extends Component {
     this.setState({
       center:{lat:latitudeCocktail, lng:longitudeCocktail},
       zoom: 15,
+      hidden: false
     });
+
     return <GoogleMapReact
     center={this.state.center}
     zoom={this.state.zoom}/>
-
   }
 
   handleClickCampo(event){
@@ -111,7 +109,7 @@ class App extends Component {
     this.setState({
       center:{lat:latitudeCampo, lng:latitudeCampo},
       zoom: 15,
-      hidden: true
+      hidden: false
     });
 
     return <GoogleMapReact
@@ -188,7 +186,7 @@ class App extends Component {
         </ul>
       </section>
         <div className="box-goUp">
-          <a className="link-goUp" href="#hero">Volver arriba</a>
+          <a className="link-goUp" href="#intro">Volver arriba</a>
         </div>
 
         </main>
