@@ -431,6 +431,10 @@ body {
     .marker-icon-intro {
       display: none; } }
 
+.selected-marker {
+  background-color: red;
+  width: 100px; }
+
 .home-title {
   margin: 0; }
   @media all and (min-width: 1024px) {

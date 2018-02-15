@@ -7,14 +7,9 @@ import IconMarker from './components/Icons/IconMarker';
 import FooterIcons from './components/Icons/FooterIcons';
 import Spinner from './components/Icons/Spinner';
 import Menu from './components/Menu';
-
 import heroImage from './images/hero-image.jpg';
 
-
-//The cocktail
 const radius = 500;
-
-
 const idClient = "WEB.SERV.redlim@gmail.com";
 const passKey = "FB5B0E17-88EB-407E-A222-97F0916E0C41";
 const urlGetStopsFromXY = "https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetStopsFromXY.php";
@@ -30,13 +25,22 @@ class App extends Component {
       elementsPerPage: 4,
       center: {lat:40.41, lng:-3.70},
       zoom: 15,
-      hidden: true
+      hidden: true,
+      selectedStop: null
     };
     this.handleClickPagination = this.handleClickPagination.bind(this);
     this.handleClickBilbao=this.handleClickBilbao.bind(this);
     this.handleClickCocktail=this.handleClickCocktail.bind(this);
     this.handleClickCampo=this.handleClickCampo.bind(this);
     this.fetchInfoBuses=this.fetchInfoBuses.bind(this);
+    this.setCurrentStop=this.setCurrentStop.bind(this);
+  }
+
+  setCurrentStop(stop) {
+    this.setState({
+      selectedStop: stop
+    });
+    console.log(this.state.selectedStop);
   }
 
   handleClickPagination(event) {
@@ -63,7 +67,8 @@ class App extends Component {
     }).then((data) => {
       this.setState({
         stopsBus: data.stop,
-        loading : true
+        loading : true,
+        selectedStop: data.stop[0]
       });
     })
   }
@@ -71,31 +76,26 @@ class App extends Component {
   handleClickBilbao(event){
     let latitudeBilbao = 40.429154;
     let longitudeBilbao = -3.701952;
-
-
     this.fetchInfoBuses(latitudeBilbao,longitudeBilbao);
     this.setState({
       center:{lat:latitudeBilbao, lng:longitudeBilbao},
       zoom: 15,
       hidden: false,
     });
-
-      return <GoogleMapReact
-      center={this.state.center}
-      zoom={this.state.zoom}/>
+    return <GoogleMapReact
+    center={this.state.center}
+    zoom={this.state.zoom}/>
   }
 
   handleClickCocktail(event){
     let latitudeCocktail = 40.454146;
     let longitudeCocktail = -3.700346;
     this.fetchInfoBuses(latitudeCocktail,longitudeCocktail);
-
     this.setState({
       center:{lat:latitudeCocktail, lng:longitudeCocktail},
       zoom: 15,
       hidden: false
     });
-
     return <GoogleMapReact
     center={this.state.center}
     zoom={this.state.zoom}/>
@@ -105,13 +105,11 @@ class App extends Component {
     let latitudeCampo = 40.614497;
     let longitudeCampo = -3.854413;
     this.fetchInfoBuses(latitudeCampo,longitudeCampo);
-
     this.setState({
       center:{lat:latitudeCampo, lng:latitudeCampo},
       zoom: 15,
       hidden: false
     });
-
     return <GoogleMapReact
     center={this.state.center}
     zoom={this.state.zoom}/>
@@ -127,7 +125,7 @@ class App extends Component {
     const indexOfFirstAll = indexOfLastAll - elementsPerPage;
     const currentElements = stopsBus.slice(indexOfFirstAll, indexOfLastAll);
     const renderElementsPage = currentElements.map((stop, index) => {
-          return <Card stop={stop} key={index}/>;
+          return <Card stop={stop} key={index} setCurrentStop={this.setCurrentStop} />;
         });
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(stopsBus.length / elementsPerPage); i++) {
@@ -169,9 +167,16 @@ class App extends Component {
             zoom={this.state.zoom}
             bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
             >
-              {stopsBus.map(function(stop, index) {
-              return <Marker lng={stop.longitude} lat={stop.latitude} key={index}/>
-                })}
+            {stopsBus.map( (stop,index) => {
+              return (
+                <Marker
+                  lng={ stop.longitude }
+                  lat={ stop.latitude }
+                  key={ index }
+                  //selected = { this.state.selectedMarker }
+                />
+              )
+            })}
             </GoogleMapReact>
         </div>
 
