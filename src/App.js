@@ -173,7 +173,7 @@ class App extends Component {
                   lng={ stop.longitude }
                   lat={ stop.latitude }
                   key={ index }
-                  //selected = { this.state.selectedMarker }
+                  selected = { stop === this.state.selectedStop }
                 />
               )
             })}
