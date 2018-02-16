@@ -149,6 +149,10 @@ class App extends Component {
           <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
           <Arrow className="arrow-down"/>
         </section>
+
+        <div className="sticky-menu">
+        </div>
+
         <main className= "home" id="intro">
           <div className= "intro">
             <IconMarker className="marker-icon-intro" />

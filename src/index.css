@@ -1,4 +1,13 @@
 /*Variables para medias*/
+.sticky-menu {
+  height: 30px;
+  width: 100%;
+  background-color: #e0634b;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 200000; }
+
 .footer {
   background-color: #3e4049;
   padding-top: 40px;
