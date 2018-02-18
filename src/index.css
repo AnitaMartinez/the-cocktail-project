@@ -85,6 +85,9 @@
       border-top: 0px;
       box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19); } }
 
+.active-card {
+  background-color: blue; }
+
 .number-bus {
   font-family: "Playfair Display", serif;
   font-size: 24px;
@@ -431,8 +434,8 @@ body {
     .marker-icon-intro {
       display: none; } }
 
-.selected-marker {
-  fill: purple;
+.active-marker {
+  fill: #336287;
   width: 3.5em;
   height: 3.5em; }
 

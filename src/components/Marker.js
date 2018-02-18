@@ -5,7 +5,7 @@ class Marker extends Component {
   render() {
     let classes = "bus-marker-map";
     if (this.props.selected) {
-      classes += " selected-marker"
+      classes += " active-marker"
     }
     return(
       <div className="marker">

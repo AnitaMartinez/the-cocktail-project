@@ -18,8 +18,8 @@
   }
 }
 
-.selected-marker {
-  fill: purple;
+.active-marker {
+  fill: map-get($color, 'secondary');
   width: 3.5em;
   height: 3.5em;
 }

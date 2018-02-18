@@ -26,7 +26,8 @@ class App extends Component {
       center: {lat:40.41, lng:-3.70},
       zoom: 15,
       hidden: true,
-      selectedStop: null
+      selectedStop: null,
+      currentCard: null
     };
     this.handleClickPagination = this.handleClickPagination.bind(this);
     this.handleClickBilbao=this.handleClickBilbao.bind(this);
@@ -40,9 +41,15 @@ class App extends Component {
     this.setState({
       selectedStop: stop
     });
-    console.log(this.state.selectedStop);
   }
 
+  handleActiveClassCard(event) {
+    const cards = document.querySelectorAll('.card');
+    for(let i = 0; i < cards.length; i++) {
+      cards[i].classList.remove('active-card');
+      event.currentTarget.classList.add('active-card');
+    }
+  }
   handleClickPagination(event) {
     const numberPagination = document.querySelectorAll(".number-pagination");
     this.setState({
@@ -125,7 +132,7 @@ class App extends Component {
     const indexOfFirstAll = indexOfLastAll - elementsPerPage;
     const currentElements = stopsBus.slice(indexOfFirstAll, indexOfLastAll);
     const renderElementsPage = currentElements.map((stop, index) => {
-          return <Card stop={stop} key={index} setCurrentStop={this.setCurrentStop} />;
+          return <Card stop={stop} key={index} setCurrentStop={this.setCurrentStop} onClick={this.handleActiveClassCard}/>;
         });
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(stopsBus.length / elementsPerPage); i++) {
