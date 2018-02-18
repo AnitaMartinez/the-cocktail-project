@@ -73,6 +73,16 @@ body {
   margin-bottom: 0;
 }
 
+.number-card-font {
+  font-family: $font-title-family;
+  font-size: $font-size-mm;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
 .footer-font {
   color: map-get($color, 'light');
   font-size: $font-size-m;

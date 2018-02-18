@@ -43,13 +43,6 @@ class App extends Component {
     });
   }
 
-  handleActiveClassCard(event) {
-    const cards = document.querySelectorAll('.card');
-    for(let i = 0; i < cards.length; i++) {
-      cards[i].classList.remove('active-card');
-      event.currentTarget.classList.add('active-card');
-    }
-  }
   handleClickPagination(event) {
     const numberPagination = document.querySelectorAll(".number-pagination");
     this.setState({
@@ -132,7 +125,15 @@ class App extends Component {
     const indexOfFirstAll = indexOfLastAll - elementsPerPage;
     const currentElements = stopsBus.slice(indexOfFirstAll, indexOfLastAll);
     const renderElementsPage = currentElements.map((stop, index) => {
-          return <Card stop={stop} key={index} setCurrentStop={this.setCurrentStop} onClick={this.handleActiveClassCard}/>;
+          return (
+            <Card
+              stop={stop}
+              key={index}
+              setCurrentStop={this.setCurrentStop}
+              onClick={this.handleActiveClassCard}
+              selected = {stop === this.state.selectedStop}
+            />
+          )
         });
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(stopsBus.length / elementsPerPage); i++) {

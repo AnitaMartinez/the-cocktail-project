@@ -9,20 +9,33 @@ class Card extends Component {
   }
 
   render() {
+
+    //Active card
+    let classesCard = "card flex m-right-tablet-desktop m-bottom-tablet-desktop";
+    let classesBusIcon = "bus-card"
+    let classesNumberLine = "number-bus number-card-font"
+    if (this.props.selected) {
+      classesCard += " active-card";
+      classesBusIcon += " active-bus";
+      classesNumberLine += " active-number-line";
+    }
+
+    //Stops lines
     const stopsBusLines = this.props.stop.line;
     let numberLine = "";
     if(stopsBusLines.length === undefined) {
-      numberLine = <span className="number-bus">{stopsBusLines.line}</span>
+      numberLine = <span className={classesNumberLine}>{stopsBusLines.line}</span>
     } else {
       numberLine = stopsBusLines.map(function(line, index) {
-      return <span key={index} className="number-bus">{line.line}</span>
+      return <span key={index} className={classesNumberLine}>{line.line}</span>
         })
     }
 
+    //Section results
     const futureColumnClass = stopsBusLines.length >= 4 ? 'flex classColumn' : 'flex';
 
     return(
-      <div className="card active-card flex m-right-tablet-desktop m-bottom-tablet-desktop " onClick={this.clickCard} onClick={this.props.onClick}>
+      <div className={classesCard}  onClick={this.clickCard}>
         <div className={futureColumnClass} id="columnMobile">
           <div className="flex box-numbers">
             {numberLine}
@@ -33,7 +46,7 @@ class Card extends Component {
           </div>
         </div>
         <div className="flex box-icon-card">
-          <Bus className="bus-card" />
+          <Bus className={classesBusIcon} />
           <p className="m-none">Parada: {this.props.stop.stopId} </p>
         </div>
       </div>

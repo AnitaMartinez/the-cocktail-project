@@ -23,6 +23,7 @@
   padding: 30px 0 60px 12px;
   flex-direction: column;
   height: 230px;
+  cursor: pointer;
   @media all and (min-width: $media-tablet) {
     width: 360px;
     border-top: 0px;
@@ -31,21 +32,26 @@
 }
 
 .active-card {
-  background-color: blue;
+  background-color: map-get($color, 'secondary');
+  color: map-get($color, 'light');
 }
 
 .number-bus {
-  font-family: $font-title-family;
-  font-size: $font-size-mm;
-  color: $font-color-light;
-  background-color: map-get($color, 'secondary');
-  padding: 5px 7px 10px 5px;
+  padding: 1px 8px 8px 8px;
+  border-radius: 3px;
   align-self: flex-start;
   margin-bottom: 10px;
   margin-left: 1.5%;
+  color: $font-color-light;
+  background-color: map-get($color, 'secondary');
   @media all and (min-width: $media-desktop) {
     font-size: $font-size-md;
   }
+}
+
+.active-number-line {
+  background-color: map-get($color, 'light');
+  color: map-get($color, 'secondary');
 }
 
 #columnMobile {
