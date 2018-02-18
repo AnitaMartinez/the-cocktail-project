@@ -7,7 +7,7 @@ import IconMarker from './components/Icons/IconMarker';
 import FooterIcons from './components/Icons/FooterIcons';
 import Spinner from './components/Icons/Spinner';
 import Menu from './components/Menu';
-
+import EmptyState from './components/EmptyState';
 import heroImage from './images/hero-image.jpg';
 
 
@@ -63,12 +63,19 @@ class App extends Component {
     }).then((response) => {
       return response.json();
     }).then((data) => {
-      this.setState({
-        stopsBus: data.stop,
+      if (typeof data.stop !== 'undefined') {
+        this.setState({
+          stopsBus: data.stop,
+          loading : true,
+          hidden: false
+        });
+      } else {
+        this.setState({
+        stopsBus: [],
         loading : true,
         hidden: false
-
       });
+      }
     })
   }
 
@@ -100,16 +107,15 @@ class App extends Component {
     return <GoogleMapReact
     center={this.state.center}
     zoom={this.state.zoom}/>
-
   }
 
   handleClickCampo(event){
-    let latitudeCampo = 40.614497;
-    let longitudeCampo = -3.854413;
+    let latitudeCampo = 40.640772;
+    let longitudeCampo = -3.909992;
     this.fetchInfoBuses(latitudeCampo,longitudeCampo);
 
     this.setState({
-      center:{lat:latitudeCampo, lng:latitudeCampo},
+      center:{lat:latitudeCampo, lng:longitudeCampo},
       zoom: 15,
       hidden: true
     });
@@ -117,9 +123,11 @@ class App extends Component {
     return <GoogleMapReact
     center={this.state.center}
     zoom={this.state.zoom}/>
+
   }
 
   render() {
+
     const hiddenResults = this.state.hidden ? 'hidden' : '';
     const stopsBus = this.state.stopsBus;
 
@@ -171,9 +179,11 @@ class App extends Component {
             zoom={this.state.zoom}
             bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
             >
-              {stopsBus.map(function(stop, index) {
-              return <Marker lng={stop.longitude} lat={stop.latitude} key={index}/>
-                })}
+              {stopsBus.length === 0 ? <EmptyState/> : this.state.stopsBus.map(function(stop, index) {
+                return <Marker lng={stop.longitude} lat={stop.latitude} key={index}/>
+              })}
+
+
             </GoogleMapReact>
         </div>
 
@@ -202,11 +212,15 @@ class App extends Component {
     );
   }
 
+
+componentDidMount() {
+  this.fetchInfoBuses();
+}
 }
 
 App.defaultProps={
-  center: {lat:40.41, lng:-3.70},
-  zoom: 1
+center: {lat:40.41, lng:-3.70},
+zoom: 12
 };
 
 export default App;
