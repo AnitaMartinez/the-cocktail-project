@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Card from './components/Card'
 import Marker from './components/Marker';
-import Arrow from './components/Icons/Arrow';
 import IconMarker from './components/Icons/IconMarker';
-import FooterIcons from './components/Icons/FooterIcons';
+import Footer from './components/Footer';
 import Spinner from './components/Icons/Spinner';
 import Menu from './components/Menu';
 import StickyMenu from './components/StickyMenu';
 import EmptyState from './components/EmptyState';
-import heroImage from './images/hero-image.jpg';
+import Hero from './components/Hero';
 import PropTypes from 'prop-types';
 
 const radius = 500;
@@ -182,15 +181,8 @@ class App extends Component {
 
     return (
       <div>
-
       <Menu />
-
-      <section className="hero" style={{backgroundImage: `url(${heroImage})`}} id="hero">
-      <h1 className="hero-title uppercase margin-title center">bus app</h1>
-      <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
-      <Arrow className="arrow-down"/>
-      </section>
-
+      <Hero />
       <StickyMenu />
 
       <main className= "home" id="intro">
@@ -236,11 +228,7 @@ class App extends Component {
 
     </main>
 
-    <footer className="footer footer-font">
-    <FooterIcons className="icons-footer"/>
-    <p>Hecho por 'Las Apis' de Adalab</p>
-    </footer>
-
+    <Footer />
     </div>
   );
 }

@@ -402,6 +402,9 @@ body {
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite; }
+  @media all and (min-width: 768px) {
+    .arrow-down {
+      right: 48%; } }
   @media all and (min-width: 1024px) {
     .arrow-down {
       display: none; } }

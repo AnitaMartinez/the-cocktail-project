@@ -22,6 +22,10 @@
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 
+  @media all and (min-width: $media-tablet) {
+    right: 48%;
+  }
+
   @media all and (min-width: $media-desktop) {
     display: none;
   }
