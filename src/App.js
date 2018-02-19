@@ -7,6 +7,7 @@ import IconMarker from './components/Icons/IconMarker';
 import FooterIcons from './components/Icons/FooterIcons';
 import Spinner from './components/Icons/Spinner';
 import Menu from './components/Menu';
+import StickyMenu from './components/StickyMenu';
 
 import heroImage from './images/hero-image.jpg';
 
@@ -150,8 +151,7 @@ class App extends Component {
           <Arrow className="arrow-down"/>
         </section>
 
-        <div className="sticky-menu">
-        </div>
+        <StickyMenu />
 
         <main className= "home" id="intro">
           <div className= "intro">

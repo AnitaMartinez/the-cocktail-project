@@ -1,12 +1,17 @@
 /*Variables para medias*/
-.sticky-menu {
-  height: 30px;
-  width: 100%;
-  background-color: #e0634b;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 200000; }
+@media all and (min-width: 768px) {
+  .sticky {
+    display: block;
+    height: 30px;
+    width: 100%;
+    background-color: #e0634b;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 200000; } }
+
+.menu-invisible {
+  display: none; }
 
 .footer {
   background-color: #3e4049;

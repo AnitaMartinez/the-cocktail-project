@@ -1,9 +1,14 @@
-.sticky-menu {
-  height: 30px;
-  width: 100%;
-  background-color: map-get($color, 'primary');
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 200000;
+.sticky {
+  @media all and (min-width: $media-tablet) {
+    display: block;
+    height: 30px;
+    width: 100%;
+    background-color: map-get($color, 'primary');
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 200000;
+  }  
 }
+
+.menu-invisible {display: none;}
