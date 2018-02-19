@@ -57,6 +57,10 @@
     fill: map-get($color, 'secondary');
   }
 
+  .active-bus {
+    fill: map-get($color, 'light');
+  }
+
   .spinner-style {
     display: flex;
     justify-content: center;
