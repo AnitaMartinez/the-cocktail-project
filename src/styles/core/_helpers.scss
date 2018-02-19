@@ -29,4 +29,15 @@
 .margin-title {margin-bottom: 10px;}
 .padding-subtitle {padding: 0 15px;}
 
-//Center
+//Fijo
+.fixed {position: fixed;}
+
+//Boton sin estilos propio
+.no-style-button {
+  border:none;
+  background-color: transparent;
+}
+
+.no-style-button button:active, button:focus {
+  outline: none;
+}

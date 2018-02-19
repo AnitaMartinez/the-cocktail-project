@@ -7,7 +7,7 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 200000;
+    z-index: 1;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -446,11 +446,12 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
-  z-index: 1;
+  z-index: 2;
   align-content: center;
   display: flex;
   justify-content: center;
-  cursor: pointer; }
+  cursor: pointer;
+  padding: 0; }
 
 .menu-display {
   background-color: transparent;
@@ -458,21 +459,21 @@ body {
 
 .background-menu {
   background-color: #e0634b;
-  height: 100%;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   width: 276px;
   left: -100%;
   transition: left ease 2s; }
   .menu-visible .background-menu {
     left: 0;
-    z-index: 2; }
+    z-index: 3; }
 
 .menu-visible {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  height: 100%;
+  height: 100vh;
   width: 100%;
   z-index: 2; }
 
@@ -480,7 +481,8 @@ body {
   fill: #fff;
   width: 30px;
   height: 30px;
-  margin-top: 50px; }
+  margin-top: 50px;
+  cursor: pointer; }
 
 .button-style {
   padding: 0;
@@ -497,7 +499,8 @@ body {
   align-items: center; }
 
 .background-menu-link {
-  margin: 15px 0px; }
+  margin: 15px 0px;
+  cursor: pointer; }
 
 .intro {
   display: flex;
@@ -584,6 +587,16 @@ body {
 
 .padding-subtitle {
   padding: 0 15px; }
+
+.fixed {
+  position: fixed; }
+
+.no-style-button {
+  border: none;
+  background-color: transparent; }
+
+.no-style-button button:active, button:focus {
+  outline: none; }
 
 * {
   box-sizing: border-box; }
