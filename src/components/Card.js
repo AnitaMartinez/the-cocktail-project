@@ -32,12 +32,13 @@ class Card extends Component {
     }
 
     //Section results
-    const futureColumnClass = stopsBusLines.length >= 4 ? 'flex classColumn' : 'flex';
+    const futureColumnClass = stopsBusLines.length >= 2 ? 'flex classColumn' : 'flex';
+    const futureWrap = stopsBusLines.length >= 5 ? 'flex flexWrap' : 'flex';
 
     return(
       <div className={classesCard}  onClick={this.clickCard}>
-        <div className={futureColumnClass} id="columnMobile">
-          <div className="flex box-numbers">
+        <div className="flex classColumn" id="columnMobile">
+          <div className={futureWrap}>
             {numberLine}
           </div>
           <div className="box-data-card">

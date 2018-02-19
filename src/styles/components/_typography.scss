@@ -58,7 +58,7 @@ body {
 }
 
 .data-title {
-  font-size: $font-size-s;
+  font-size: $font-size-xs;
   font-weight: $font-weight-bold;
   @media all and (min-width: $media-desktop) {
     font-size: $font-size-m;
@@ -67,20 +67,32 @@ body {
 }
 
 .data-medium {
-  font-size: $font-size-m;
+  font-size: $font-size-xs;
   font-weight: $font-weight-medium;
   margin-top: 2px;
   margin-bottom: 0;
+  @media all and (min-width: $media-tablet) {
+  font-size: $font-size-s;
+  }
+  @media all and (min-width: $media-desktop) {
+  font-size: $font-size-m;
+  }
 }
 
 .number-card-font {
   font-family: $font-title-family;
-  font-size: $font-size-mm;
+  font-size: $font-size-s;
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
+  @media all and (min-width: $media-tablet) {
+  font-size: $font-size-m;
+  }
+  @media all and (min-width: $media-desktop) {
+  font-size: $font-size-mn;
+  }
 }
 
 .footer-font {

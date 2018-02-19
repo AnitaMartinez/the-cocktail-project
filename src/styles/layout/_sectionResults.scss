@@ -5,16 +5,20 @@
 }
 
 .container-cards {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  grid-template-columns: 300px 300px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
   @media all and (min-width: $media-tablet) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1150px;
-    @media all and (min-width: 1150px) {
-      margin-right: auto;
-      margin-left: auto;
-    }
+    grid-template-columns: 300px 300px 300px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
   }
+  @media all and (min-width: $media-desktop) {
+    grid-template-columns: 350px 350px 350px;
+    }
 }
 
 .card {
@@ -26,31 +30,29 @@
   cursor: pointer;
   transition: transform .5s;
   @media all and (min-width: $media-tablet) {
-    width: 360px;
     border-top: 0px;
     box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19);
   }
-
   &::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: opacity 2s cubic-bezier(.165, .84, .44, 1);
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0.2, .5, .75);
-    content: '';
-    opacity: 0;
-    z-index: -1;
-  }
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   transition: opacity 2s cubic-bezier(.165, .84, .44, 1);
+   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0.2, .5, .75);
+   content: '';
+   opacity: 0;
+   z-index: -1;
+ }
 
-  &:hover,
-  &:focus {
-    transform: scale3d(1.006, 1.006, 1);
-    &::after {
-      opacity: 1;
-    }
-  }
+ &:hover,
+ &:focus {
+   transform: scale3d(1.006, 1.006, 1);
+   &::after {
+     opacity: 1;
+   }
+ }
 }
 
 .active-card {
@@ -66,6 +68,9 @@
   margin-left: 1.5%;
   color: $font-color-light;
   background-color: map-get($color, 'secondary');
+  @media all and (min-width: $media-tablet) {
+    font-size: $font-size-mn;
+  }
   @media all and (min-width: $media-desktop) {
     font-size: $font-size-md;
   }
@@ -86,6 +91,10 @@
   flex-direction: column;
 }
 
+.flexWrap {
+  flex-wrap: wrap;
+}
+
 .icon-bus {
   width: 15px;
   align-self: flex-start;
@@ -95,6 +104,7 @@
   margin-left: 10px;
   margin-bottom: 30px;
 }
+
 
 .box-icon-card {
   align-self: center;
@@ -149,7 +159,6 @@
   &:hover {
     background-color: map-get($color, 'secondary-dark');
     border: 1px solid map-get($color, 'primary');
-    cursor: pointer;
   }
 }
 
