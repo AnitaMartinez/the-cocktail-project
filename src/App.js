@@ -81,8 +81,7 @@ class App extends Component {
         this.setState({
           stopsBus: [],
           loading : true,
-          hidden: false,
-          selectedStop: data.stop[0]
+          hidden: false
         });
       }
     })
