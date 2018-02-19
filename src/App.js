@@ -131,6 +131,7 @@ class App extends Component {
 
 
     if (this.state.fetch === false) {
+      // eslint-disable-next-line
         null;
     } else if (this.state.fetch === true && stopsBus.length > 0){
       markers= stopsBus.map((stop, index)=> {
@@ -221,8 +222,6 @@ class App extends Component {
     <section className={`section-cards ${hiddenResults}`}>
     <h3 className="m-top-none section-title-font section-title">Resultados</h3>
     {noResults}
-    <div className="container-cards">
-
     { this.state.loading ? null : <Spinner />  }
     <div className="container-cards">
     {renderElementsPage}

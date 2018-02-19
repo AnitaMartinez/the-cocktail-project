@@ -89,7 +89,7 @@
       grid-row-gap: 10px; } }
   @media all and (min-width: 1024px) {
     .container-cards {
-      grid-template-columns: 350px 350px 350px; } }
+      grid-template-columns: 325px 325px 325px; } }
 
 .card {
   background-color: #fff;
@@ -588,8 +588,9 @@ body {
 .padding-subtitle {
   padding: 0 15px; }
 
-.fixed {
-  position: fixed; }
+@media all and (min-width: 768px) {
+  .fixed {
+    position: fixed; } }
 
 .no-style-button {
   border: none;

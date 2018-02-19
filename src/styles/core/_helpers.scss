@@ -30,7 +30,11 @@
 .padding-subtitle {padding: 0 15px;}
 
 //Fijo
-.fixed {position: fixed;}
+.fixed {
+  @media all and (min-width: $media-tablet) {
+    position: fixed;
+  }
+}
 
 //Boton sin estilos propio
 .no-style-button {
