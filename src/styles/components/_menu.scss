@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
+  padding: 0;
 }
 
 .menu-display {
@@ -27,7 +28,7 @@
 
   .menu-visible & {
     left: 0;
-    z-index: 2;
+    z-index: 20000000000000000000;
   }
 }
 
@@ -68,4 +69,5 @@
 
 .background-menu-link {
   margin: 15px 0px;
+  cursor: pointer;
 }

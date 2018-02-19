@@ -21,25 +21,27 @@ class Menu extends Component {
     return (
       <div className={`menu-display ${menuClose}`}>
 
-        <MenuButton className="hamburguer fixed" onClick={this.handleClick} />
+        <button aria-label="Menú" className="no-style-button hamburguer fixed" onClick={this.handleClick}>
+          <MenuButton className=""  />
+        </button>
 
         <nav className="background-menu">
 
           <ul className="list-style">
 
-            <li className="background-menu-link">
+            <button className="background-menu-link no-style-button">
               <a className="menu-link uppercase">Busca tu parada</a>
-            </li>
+            </button>
 
-            <li className="background-menu-link">
+            <button className="background-menu-link no-style-button">
               <a className="menu-link uppercase">Mi grupo</a>
-            </li>
+            </button>
 
-            <li className="background-menu-link">
+            <button className="background-menu-link no-style-button">
               <a className="menu-link uppercase">About us</a>
-            </li>
+            </button>
 
-            <li><CloseButton className="close-button" onClick={this.handleClick} /></li>
+            <button aria-label="Cerrar" className="no-style-button"><CloseButton className="close-button" onClick={this.handleClick} /></button>
 
           </ul>
 

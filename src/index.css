@@ -432,7 +432,8 @@ body {
   align-content: center;
   display: flex;
   justify-content: center;
-  cursor: pointer; }
+  cursor: pointer;
+  padding: 0; }
 
 .menu-display {
   background-color: transparent;
@@ -447,7 +448,7 @@ body {
   transition: left ease 2s; }
   .menu-visible .background-menu {
     left: 0;
-    z-index: 2; }
+    z-index: 20000000000000000000; }
 
 .menu-visible {
   position: absolute;
@@ -480,7 +481,8 @@ body {
   align-items: center; }
 
 .background-menu-link {
-  margin: 15px 0px; }
+  margin: 15px 0px;
+  cursor: pointer; }
 
 .intro {
   display: flex;
@@ -586,6 +588,13 @@ body {
 
 .fixed {
   position: fixed; }
+
+.no-style-button {
+  border: none;
+  background-color: transparent; }
+
+.no-style-button button:active, button:focus {
+  outline: none; }
 
 * {
   box-sizing: border-box; }
