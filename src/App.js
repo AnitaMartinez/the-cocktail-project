@@ -222,8 +222,6 @@ class App extends Component {
     <section className={`section-cards ${hiddenResults}`}>
     <h3 className="m-top-none section-title-font section-title">Resultados</h3>
     {noResults}
-    <div className="container-cards">
-
     { this.state.loading ? null : <Spinner />  }
     <div className="container-cards">
     {renderElementsPage}
@@ -231,7 +229,6 @@ class App extends Component {
     <ul id="page-numbers flex" className="list-pagination">
     {renderPageNumbers}
     </ul>
-    </div>
     </section>
     <div className="box-goUp">
     <a className="link-goUp" href="#intro">Volver arriba</a>
