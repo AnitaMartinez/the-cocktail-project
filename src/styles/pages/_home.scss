@@ -18,6 +18,12 @@
   }
 }
 
+.active-marker {
+  fill: map-get($color, 'secondary');
+  width: 3.5em;
+  height: 3.5em;
+}
+
 .home-title {
   margin: 0;
   @media all and (min-width: $media-desktop) {
