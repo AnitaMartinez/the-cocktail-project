@@ -284,14 +284,14 @@ body {
   font-weight: 700; }
 
 .data-title {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700; }
   @media all and (min-width: 1024px) {
     .data-title {
-      font-size: 18px; } }
+      font-size: 14px; } }
 
 .data-medium {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   margin-top: 2px;
   margin-bottom: 0; }

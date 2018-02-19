@@ -72,16 +72,15 @@ body {
 }
 
 .data-title {
-  font-size: $font-size-xs;
+  font-size: $font-size-m;
   font-weight: $font-weight-bold;
   @media all and (min-width: $media-desktop) {
-    font-size: $font-size-m;
+    font-size: $font-size-xs;
   }
-
 }
 
 .data-medium {
-  font-size: $font-size-xs;
+  font-size: $font-size-s;
   font-weight: $font-weight-medium;
   margin-top: 2px;
   margin-bottom: 0;
