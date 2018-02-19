@@ -43,7 +43,7 @@ class Card extends Component {
             {numberLine}
           </div>
           <div className="box-data-card">
-            <h4 className="m-none data-title">{this.props.stop.name}</h4>
+            <h4 className="m-none data-title uppercase">{this.props.stop.name}</h4>
             <p className="data-medium">{this.props.stop.postalAddress}</p>
           </div>
         </div>
