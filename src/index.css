@@ -65,13 +65,10 @@
 .container-cards {
   display: grid;
   justify-content: center;
-  grid-template-columns: 1fr;
-  grid-template-columns: 300px 300px;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px; }
+  grid-template-columns: 1fr; }
   @media all and (min-width: 768px) {
     .container-cards {
-      grid-template-columns: 300px 300px 300px;
+      grid-template-columns: 350px 350px;
       grid-column-gap: 10px;
       grid-row-gap: 10px; } }
   @media all and (min-width: 1024px) {
