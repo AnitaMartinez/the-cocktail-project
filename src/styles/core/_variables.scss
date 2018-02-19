@@ -18,6 +18,7 @@ $font-size-xxs: 12px;
 $font-size-xs: 14px;
 $font-size-s: 16px;
 $font-size-m: 18px;
+$font-size-mn: 20px;
 $font-size-mm: 24px;
 $font-size-md: 28px;
 $font-size-l: 46px;
@@ -39,5 +40,6 @@ $font-weight-bold: 700;
 $line-height: 20px;
 
 /*Variables para medias*/
+$media-mobile: 320px;
 $media-tablet: 768px;
 $media-desktop: 1024px;

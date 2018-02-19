@@ -7,7 +7,7 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 200000;
+    z-index: 1;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -78,16 +78,18 @@
   background-color: #e1e8ed;
   padding-top: 40px; }
 
-@media all and (min-width: 768px) {
-  .container-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1150px; } }
-  @media all and (min-width: 768px) and (min-width: 1150px) {
+.container-cards {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr; }
+  @media all and (min-width: 768px) {
     .container-cards {
-      margin-right: auto;
-      margin-left: auto; } }
+      grid-template-columns: 350px 350px;
+      grid-column-gap: 10px;
+      grid-row-gap: 10px; } }
+  @media all and (min-width: 1024px) {
+    .container-cards {
+      grid-template-columns: 350px 350px 350px; } }
 
 .card {
   background-color: #fff;
@@ -99,7 +101,6 @@
   transition: transform .5s; }
   @media all and (min-width: 768px) {
     .card {
-      width: 360px;
       border-top: 0px;
       box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19); } }
   .card::after {
@@ -130,6 +131,9 @@
   margin-left: 1.5%;
   color: #fff;
   background-color: #336287; }
+  @media all and (min-width: 768px) {
+    .number-bus {
+      font-size: 20px; } }
   @media all and (min-width: 1024px) {
     .number-bus {
       font-size: 28px; } }
@@ -144,6 +148,9 @@
 
 .classColumn {
   flex-direction: column; }
+
+.flexWrap {
+  flex-wrap: wrap; }
 
 .icon-bus {
   width: 15px;
@@ -197,8 +204,7 @@
   border-right: 1px solid #fff; }
   .number-pagination:hover {
     background-color: #373d42;
-    border: 1px solid #e0634b;
-    cursor: pointer; }
+    border: 1px solid #e0634b; }
 
 .active {
   background-color: #373d42;
@@ -278,26 +284,38 @@ body {
   font-weight: 700; }
 
 .data-title {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700; }
   @media all and (min-width: 1024px) {
     .data-title {
       font-size: 18px; } }
 
 .data-medium {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   margin-top: 2px;
   margin-bottom: 0; }
+  @media all and (min-width: 768px) {
+    .data-medium {
+      font-size: 16px; } }
+  @media all and (min-width: 1024px) {
+    .data-medium {
+      font-size: 18px; } }
 
 .number-card-font {
   font-family: "Playfair Display", serif;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal; }
+  @media all and (min-width: 768px) {
+    .number-card-font {
+      font-size: 18px; } }
+  @media all and (min-width: 1024px) {
+    .number-card-font {
+      font-size: 20px; } }
 
 .footer-font {
   color: #fff;
@@ -428,11 +446,12 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
-  z-index: 1;
+  z-index: 2;
   align-content: center;
   display: flex;
   justify-content: center;
-  cursor: pointer; }
+  cursor: pointer;
+  padding: 0; }
 
 .menu-display {
   background-color: transparent;
@@ -440,21 +459,21 @@ body {
 
 .background-menu {
   background-color: #e0634b;
-  height: 100%;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   width: 276px;
   left: -100%;
   transition: left ease 2s; }
   .menu-visible .background-menu {
     left: 0;
-    z-index: 2; }
+    z-index: 3; }
 
 .menu-visible {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  height: 100%;
+  height: 100vh;
   width: 100%;
   z-index: 2; }
 
@@ -462,7 +481,8 @@ body {
   fill: #fff;
   width: 30px;
   height: 30px;
-  margin-top: 50px; }
+  margin-top: 50px;
+  cursor: pointer; }
 
 .button-style {
   padding: 0;
@@ -479,7 +499,8 @@ body {
   align-items: center; }
 
 .background-menu-link {
-  margin: 15px 0px; }
+  margin: 15px 0px;
+  cursor: pointer; }
 
 .intro {
   display: flex;
@@ -561,27 +582,21 @@ body {
 .no-margin {
   margin: 0; }
 
-@media all and (min-width: 768px) {
-  .m-right-tablet-desktop {
-    margin-right: 20px; } }
-
-@media all and (min-width: 1024px) {
-  .m-right-tablet-desktop {
-    margin-right: 45px; } }
-
-@media all and (min-width: 768px) {
-  .m-bottom-tablet-desktop {
-    margin-bottom: 20px; } }
-
-@media all and (min-width: 1024px) {
-  .m-bottom-tablet-desktop {
-    margin-bottom: 45px; } }
-
 .margin-title {
   margin-bottom: 10px; }
 
 .padding-subtitle {
   padding: 0 15px; }
+
+.fixed {
+  position: fixed; }
+
+.no-style-button {
+  border: none;
+  background-color: transparent; }
+
+.no-style-button button:active, button:focus {
+  outline: none; }
 
 * {
   box-sizing: border-box; }

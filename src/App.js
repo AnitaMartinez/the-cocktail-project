@@ -25,7 +25,7 @@ class App extends Component {
       fetch: false,
       loading: false,
       currentPage: 1,
-      elementsPerPage: 4,
+      elementsPerPage: 6,
       center: {lat:40.41, lng:-3.70},
       zoom: 15,
       hidden: true,
@@ -222,7 +222,9 @@ class App extends Component {
     <h3 className="m-top-none section-title-font section-title">Resultados</h3>
     {noResults}
     <div className="container-cards">
+
     { this.state.loading ? null : <Spinner />  }
+    <div className="container-cards">
     {renderElementsPage}
     </div>
     <ul id="page-numbers flex" className="list-pagination">
