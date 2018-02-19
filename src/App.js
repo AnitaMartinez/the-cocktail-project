@@ -11,6 +11,7 @@ import EmptyState from './components/EmptyState';
 import heroImage from './images/hero-image.jpg';
 
 
+
 //The cocktail
 let latitude = 40.454207;
 let longitude = -3.699970;
@@ -178,11 +179,11 @@ class App extends Component {
             center={this.state.center}
             zoom={this.state.zoom}
             bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
+
             >
               {stopsBus.length === 0 ? <EmptyState/> : this.state.stopsBus.map(function(stop, index) {
                 return <Marker lng={stop.longitude} lat={stop.latitude} key={index}/>
               })}
-
 
             </GoogleMapReact>
         </div>
