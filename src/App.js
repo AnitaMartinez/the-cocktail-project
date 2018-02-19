@@ -229,6 +229,7 @@ class App extends Component {
     <ul id="page-numbers flex" className="list-pagination">
     {renderPageNumbers}
     </ul>
+    </div>
     </section>
     <div className="box-goUp">
     <a className="link-goUp" href="#intro">Volver arriba</a>
