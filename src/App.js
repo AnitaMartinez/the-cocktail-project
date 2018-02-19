@@ -7,7 +7,9 @@ import IconMarker from './components/Icons/IconMarker';
 import FooterIcons from './components/Icons/FooterIcons';
 import Spinner from './components/Icons/Spinner';
 import Menu from './components/Menu';
+import StickyMenu from './components/StickyMenu';
 import EmptyState from './components/EmptyState';
+
 import heroImage from './images/hero-image.jpg';
 import PropTypes from 'prop-types';
 
@@ -80,8 +82,7 @@ class App extends Component {
         this.setState({
           stopsBus: [],
           loading : true,
-          hidden: false,
-          selectedStop: data.stop[0]
+          hidden: false
         });
       }
     })
@@ -166,22 +167,29 @@ class App extends Component {
 
     return (
       <div>
+
       <Menu />
+
       <section className="hero" style={{backgroundImage: `url(${heroImage})`}} id="hero">
       <h1 className="hero-title uppercase margin-title center">bus app</h1>
       <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
       <Arrow className="arrow-down"/>
       </section>
+
+      <StickyMenu />
+
       <main className= "home" id="intro">
       <div className= "intro">
       <IconMarker className="marker-icon-intro" />
       <h2 className= "home-title introduction-title center">Bienvenido a BusApp</h2>
       <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
+
       <div className= "home-menu-buttons">
       <a href="#map"><button onClick={this.handleClickBilbao} className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
       <a href="#map"><button onClick={this.handleClickCocktail} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
       <a href="#map"><button onClick={this.handleClickCampo} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
       </div>
+
       </div>
 
       <div className="map" id="map">
