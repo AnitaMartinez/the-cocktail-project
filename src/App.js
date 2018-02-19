@@ -159,9 +159,12 @@ class App extends Component {
     }
     const renderPageNumbers = pageNumbers.map(number => {
       return (
-        <li className={"number-pagination button-light-font " + (number === 1 ? 'active' : "")} key={number} id={number} onClick={this.handleClickPagination} >
-        {number}
+        <li key={number}>
+          <button onClick={this.handleClickPagination} className={"number-pagination button-light-font " + (number === 1 ? 'active' : "")} id={number} type="button" name="button">
+            {number}
+          </button>
         </li>
+        
       );
     });
 
