@@ -8,6 +8,7 @@ import FooterIcons from './components/Icons/FooterIcons';
 import Spinner from './components/Icons/Spinner';
 import Menu from './components/Menu';
 import heroImage from './images/hero-image.jpg';
+import PropTypes from 'prop-types';
 
 const radius = 500;
 const idClient = "WEB.SERV.redlim@gmail.com";
@@ -218,6 +219,11 @@ class App extends Component {
 App.defaultProps={
   center: {lat:40.41, lng:-3.70},
   zoom: 1
+};
+
+Card.propTypes = {
+  center: PropTypes.object,
+  zoom: PropTypes.number
 };
 
 export default App;

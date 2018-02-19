@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Bus from './Icons/Bus';
+import PropTypes from 'prop-types';
 
 
 class Card extends Component {
@@ -15,7 +16,6 @@ class Card extends Component {
     let classesBusIcon = "bus-card"
     let classesNumberLine = "number-bus number-card-font"
     if (this.props.selected) {
-      console.log(this.props.selected );
       classesCard += " active-card";
       classesBusIcon += " active-bus";
       classesNumberLine += " active-number-line";
@@ -57,8 +57,8 @@ class Card extends Component {
 
 Card.propTypes = {
   setCurrentStop: PropTypes.func,
-  selected: PropTypes.string,
-  stop: PropTypes.string
+  selected: PropTypes.bool,
+  stop: PropTypes.object
 };
 
 export default Card;
