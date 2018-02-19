@@ -21,7 +21,7 @@ class Menu extends Component {
     return (
       <div className={`menu-display ${menuClose}`}>
 
-        <MenuButton className="hamburguer" onClick={this.handleClick} />
+        <MenuButton className="hamburguer fixed" onClick={this.handleClick} />
 
         <nav className="background-menu">
 
