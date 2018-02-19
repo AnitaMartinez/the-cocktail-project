@@ -1,36 +1,29 @@
 # BusApp
-## Página web desarrollada para The Cocktail
+## Aplicación web desarrollada para The Cocktail
 
-Landing integrada con la API de Autobuses de la EMT en la que el usuario puede consultar las paradas de una zona.
-
-Objetivos:
- * Maquetar de forma responsiva un diseño con diferentes vistas.
- * Conectarse con una API y obtener información de esos datos para visualizarlo.
- * Integrar una API Externa como Google Maps para poder pintar esos datos.
+Landing integrada con la API de Autobuses de la EMT en la que el usuario puede consultar las paradas de una zona. Nos conectamos con la API de la EMT e integramos la API Externa de Google Maps para poder pintar esos datos.
+La aplicación está adaptada a todos los dispositivos y es necesario tener conexión a internet para que se pueda acceder a las apis externas.
 
 Caso de uso:
 Un usuario es capaz de entrar a la web y consultar las paradas de autobús cercanas (radio 500m) a las zonas propuestas en un mapa de Google Maps, al clickar en una de las paradas se podrá consultar el detalle de los autobuses que están por llegar a la parada, así como el tiempo restante para su llegada.
 
-### Cómo comenzar
+### Ayuda al desarrollo
 
 #### Requisitos
 
-Para trabajar con React, necesitamos Node.js instalado. Para comprobar si tenemos Node.js instalado, escribimos esta orden en la terminal:
+Proyecto generado a partir de  ["create react app"](https://github.com/facebook/create-react-app).
 
-```
-node -v
-```
-#### Installing
+Es necesario tener instalado node >= 6 para desarrollar la aplicación. Ver [Nodejs](https://nodejs.org/es/)
 
-Para trabajar en el proyecto, necesitamos instalar estas dependencias:
-* Tareas de Gulp
-* Google Map React
-* PropTypes
+#### Comenzar
 
-Para ello, ejecutamos en la terminal:
+Ejecutamos en la terminal:
 
 ```
 npm install
+```
+```
+npm start
 ```
 ### Deployment en GitHub
 
