@@ -22,6 +22,7 @@ class App extends Component {
     super(props);
     this.state = {
       stopsBus: [],
+      fetch: false,
       loading: false,
       currentPage: 1,
       elementsPerPage: 6,
@@ -67,20 +68,13 @@ class App extends Component {
     }).then((response) => {
       return response.json();
     }).then((data) => {
-      if (typeof data.stop !== 'undefined') {
-        this.setState({
-          stopsBus: data.stop,
-          loading : true,
-          hidden: false,
-          selectedStop: data.stop[0]
-        });
-      } else {
-        this.setState({
-          stopsBus: [],
-          loading : true,
-          hidden: false
-        });
-      }
+      this.setState({
+        stopsBus: data.stop || [],
+        loading : true,
+        fetch: true,
+        hidden: false,
+        selectedStop: data.stop ? data.stop[0] : null
+      });
     })
   }
 
@@ -132,6 +126,27 @@ class App extends Component {
     const hiddenResults = this.state.hidden ? 'hidden' : '';
     const stopsBus = this.state.stopsBus;
     const selectedStop= this.state.selectedStop;
+    let markers= null;
+    let noResults= null;
+
+
+    if (this.state.fetch === false) {
+        null;
+    } else if (this.state.fetch === true && stopsBus.length > 0){
+      markers= stopsBus.map((stop, index)=> {
+        return (
+        <Marker
+        lng={stop.longitude}
+        lat={stop.latitude}
+        key={index}
+        selected = { stop === selectedStop }
+        />
+        )
+      });
+    } else {
+     noResults= <EmptyState/>
+    }
+
 
     // Pagination
     const { currentPage, elementsPerPage } = this.state;
@@ -199,21 +214,15 @@ class App extends Component {
       zoom={this.state.zoom}
       bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
       >
-      {stopsBus.length === 0 ? <EmptyState/> : stopsBus.map(function(stop, index) {
-        return (
-        <Marker
-        lng={stop.longitude}
-        lat={stop.latitude}
-        key={index}
-        selected = { stop === selectedStop }
-        />
-      )
-    })}
+      {markers}
     </GoogleMapReact>
     </div>
 
     <section className={`section-cards ${hiddenResults}`}>
     <h3 className="m-top-none section-title-font section-title">Resultados</h3>
+    {noResults}
+    <div className="container-cards">
+
     { this.state.loading ? null : <Spinner />  }
     <div className="container-cards">
     {renderElementsPage}
