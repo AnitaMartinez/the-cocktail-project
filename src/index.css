@@ -94,25 +94,49 @@
   border-top: 2px solid #336287;
   padding: 30px 0 60px 12px;
   flex-direction: column;
-  height: 230px; }
+  height: 230px;
+  cursor: pointer;
+  transition: transform .5s; }
   @media all and (min-width: 768px) {
     .card {
       width: 360px;
       border-top: 0px;
       box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19); } }
+  .card::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 1, 0.75);
+    content: '';
+    opacity: 0;
+    z-index: -1; }
+  .card:hover, .card:focus {
+    transform: scale3d(1.006, 1.006, 1); }
+    .card:hover::after, .card:focus::after {
+      opacity: 1; }
+
+.active-card {
+  background-color: #336287;
+  color: #fff; }
 
 .number-bus {
-  font-family: "Playfair Display", serif;
-  font-size: 24px;
-  color: #fff;
-  background-color: #336287;
-  padding: 5px 7px 10px 5px;
+  padding: 1px 8px 8px 8px;
+  border-radius: 3px;
   align-self: flex-start;
   margin-bottom: 10px;
-  margin-left: 1.5%; }
+  margin-left: 1.5%;
+  color: #fff;
+  background-color: #336287; }
   @media all and (min-width: 1024px) {
     .number-bus {
       font-size: 28px; } }
+
+.active-number-line {
+  background-color: #fff;
+  color: #336287; }
 
 @media all and (max-width: 768px) {
   #columnMobile {
@@ -173,7 +197,8 @@
   border-right: 1px solid #fff; }
   .number-pagination:hover {
     background-color: #373d42;
-    border: 1px solid #e0634b; }
+    border: 1px solid #e0634b;
+    cursor: pointer; }
 
 .active {
   background-color: #373d42;
@@ -264,6 +289,15 @@ body {
   font-weight: 500;
   margin-top: 2px;
   margin-bottom: 0; }
+
+.number-card-font {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal; }
 
 .footer-font {
   color: #fff;
@@ -379,6 +413,9 @@ body {
   margin-right: 5px;
   fill: #336287; }
 
+.active-bus {
+  fill: #fff; }
+
 .spinner-style {
   display: flex;
   justify-content: center;
@@ -394,7 +431,8 @@ body {
   z-index: 1;
   align-content: center;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  cursor: pointer; }
 
 .menu-display {
   background-color: transparent;
@@ -458,6 +496,11 @@ body {
   @media all and (min-width: 1024px) {
     .marker-icon-intro {
       display: none; } }
+
+.active-marker {
+  fill: #336287;
+  width: 3.5em;
+  height: 3.5em; }
 
 .home-title {
   margin: 0; }

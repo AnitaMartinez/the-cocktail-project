@@ -23,25 +23,57 @@
   padding: 30px 0 60px 12px;
   flex-direction: column;
   height: 230px;
+  cursor: pointer;
+  transition: transform .5s;
   @media all and (min-width: $media-tablet) {
     width: 360px;
     border-top: 0px;
     box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19);
   }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 2s cubic-bezier(.165, .84, .44, 1);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0.2, .5, .75);
+    content: '';
+    opacity: 0;
+    z-index: -1;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale3d(1.006, 1.006, 1);
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.active-card {
+  background-color: map-get($color, 'secondary');
+  color: map-get($color, 'light');
 }
 
 .number-bus {
-  font-family: $font-title-family;
-  font-size: $font-size-mm;
-  color: $font-color-light;
-  background-color: map-get($color, 'secondary');
-  padding: 5px 7px 10px 5px;
+  padding: 1px 8px 8px 8px;
+  border-radius: 3px;
   align-self: flex-start;
   margin-bottom: 10px;
   margin-left: 1.5%;
+  color: $font-color-light;
+  background-color: map-get($color, 'secondary');
   @media all and (min-width: $media-desktop) {
     font-size: $font-size-md;
   }
+}
+
+.active-number-line {
+  background-color: map-get($color, 'light');
+  color: map-get($color, 'secondary');
 }
 
 #columnMobile {
@@ -117,6 +149,7 @@
   &:hover {
     background-color: map-get($color, 'secondary-dark');
     border: 1px solid map-get($color, 'primary');
+    cursor: pointer;
   }
 }
 
