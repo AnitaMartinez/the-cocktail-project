@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Bus from './Icons/Bus';
+import PropTypes from 'prop-types';
 
 class Marker extends Component {
   render() {
@@ -14,5 +15,9 @@ class Marker extends Component {
     )
   }
 }
+
+Marker.propTypes = {
+  selected: PropTypes.bool
+};
 
 export default Marker

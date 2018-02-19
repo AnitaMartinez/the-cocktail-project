@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Bus from './Icons/Bus';
+import PropTypes from 'prop-types';
 
 
 class Card extends Component {
@@ -53,5 +54,11 @@ class Card extends Component {
     )
   }
 }
+
+Card.propTypes = {
+  setCurrentStop: PropTypes.func,
+  selected: PropTypes.bool,
+  stop: PropTypes.object
+};
 
 export default Card;

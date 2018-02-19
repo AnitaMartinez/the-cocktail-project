@@ -7,16 +7,15 @@ import IconMarker from './components/Icons/IconMarker';
 import FooterIcons from './components/Icons/FooterIcons';
 import Spinner from './components/Icons/Spinner';
 import Menu from './components/Menu';
+import StickyMenu from './components/StickyMenu';
 import EmptyState from './components/EmptyState';
 import heroImage from './images/hero-image.jpg';
-
-
+import PropTypes from 'prop-types';
 
 const radius = 500;
 const idClient = "WEB.SERV.redlim@gmail.com";
 const passKey = "FB5B0E17-88EB-407E-A222-97F0916E0C41";
 const urlGetStopsFromXY = "https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetStopsFromXY.php";
-
 
 class App extends Component {
   constructor(props) {
@@ -171,30 +170,40 @@ class App extends Component {
     }
     const renderPageNumbers = pageNumbers.map(number => {
       return (
-        <li className={"number-pagination button-light-font " + (number === 1 ? 'active' : "")} key={number} id={number} onClick={this.handleClickPagination} >
-        {number}
+        <li key={number}>
+          <button onClick={this.handleClickPagination} className={"number-pagination button-light-font " + (number === 1 ? 'active' : "")} id={number} type="button" name="button">
+            {number}
+          </button>
         </li>
+
       );
     });
 
     return (
       <div>
+
       <Menu />
+
       <section className="hero" style={{backgroundImage: `url(${heroImage})`}} id="hero">
       <h1 className="hero-title uppercase margin-title center">bus app</h1>
       <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
       <Arrow className="arrow-down"/>
       </section>
+
+      <StickyMenu />
+
       <main className= "home" id="intro">
       <div className= "intro">
       <IconMarker className="marker-icon-intro" />
       <h2 className= "home-title introduction-title center">Bienvenido a BusApp</h2>
       <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
+
       <div className= "home-menu-buttons">
       <a href="#map"><button onClick={this.handleClickBilbao} className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
       <a href="#map"><button onClick={this.handleClickCocktail} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
       <a href="#map"><button onClick={this.handleClickCampo} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
       </div>
+
       </div>
 
       <div className="map" id="map">
@@ -239,6 +248,11 @@ class App extends Component {
 App.defaultProps={
   center: {lat:40.41, lng:-3.70},
   zoom: 12
+};
+
+Card.propTypes = {
+  center: PropTypes.object,
+  zoom: PropTypes.number
 };
 
 export default App;
