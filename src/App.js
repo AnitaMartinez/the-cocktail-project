@@ -131,6 +131,7 @@ class App extends Component {
 
 
     if (this.state.fetch === false) {
+      // eslint-disable-next-line
         null;
     } else if (this.state.fetch === true && stopsBus.length > 0){
       markers= stopsBus.map((stop, index)=> {
@@ -230,6 +231,7 @@ class App extends Component {
     <ul id="page-numbers flex" className="list-pagination">
     {renderPageNumbers}
     </ul>
+    </div>
     </section>
     <div className="box-goUp">
     <a className="link-goUp" href="#intro">Volver arriba</a>

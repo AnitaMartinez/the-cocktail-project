@@ -588,8 +588,9 @@ body {
 .padding-subtitle {
   padding: 0 15px; }
 
-.fixed {
-  position: fixed; }
+@media all and (min-width: 768px) {
+  .fixed {
+    position: fixed; } }
 
 .no-style-button {
   border: none;
