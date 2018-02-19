@@ -1,17 +1,19 @@
 /*Variables para medias*/
 @media all and (min-width: 768px) {
   .sticky {
-    display: block;
-    height: 30px;
+    background-color: #336287;
+    padding: 15px 0;
     width: 100%;
-    background-color: #e0634b;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 200000; } }
-
-.menu-invisible {
-  display: none; }
+    z-index: 200000;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: background-color ease-in-out .5s; }
+    .hidden .sticky {
+      background-color: none; } }
 
 .footer {
   background-color: #3e4049;
@@ -219,6 +221,18 @@ body {
   @media all and (min-width: 1024px) {
     .hero-subtitle {
       font-size: 28px; } }
+
+.sticky-title {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 700; }
+
+.sticky-subtitle {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  font-style: italic; }
 
 .introduction-title {
   font-size: 18px;
@@ -488,6 +502,9 @@ body {
 
 .hidden {
   display: none; }
+
+.visible {
+  display: block; }
 
 .flex {
   display: flex; }

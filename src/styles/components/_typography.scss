@@ -35,6 +35,20 @@ body {
   }
 }
 
+.sticky-title {
+  font-family: $font-title-family;
+  font-size: $font-size-m;
+  color: $font-color-light;
+  font-weight: $font-weight-bold;
+}
+
+.sticky-subtitle {
+  font-size: $font-size-s;
+  color: $font-color-light;
+  font-weight: $font-weight-medium;
+  font-style: italic;
+}
+
 .introduction-title {
   font-size: $font-size-m;
   color: $font-color-dark;
