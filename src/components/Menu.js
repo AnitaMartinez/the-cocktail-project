@@ -22,7 +22,7 @@ class Menu extends Component {
       <div className={`menu-display ${menuClose}`}>
 
         <button aria-label="Menú" className="no-style-button hamburguer fixed" onClick={this.handleClick}>
-          <MenuButton className=""  />
+          <MenuButton />
         </button>
 
         <nav className="background-menu">
