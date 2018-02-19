@@ -9,17 +9,13 @@ import Spinner from './components/Icons/Spinner';
 import Menu from './components/Menu';
 import StickyMenu from './components/StickyMenu';
 import EmptyState from './components/EmptyState';
-
 import heroImage from './images/hero-image.jpg';
 import PropTypes from 'prop-types';
-
-
 
 const radius = 500;
 const idClient = "WEB.SERV.redlim@gmail.com";
 const passKey = "FB5B0E17-88EB-407E-A222-97F0916E0C41";
 const urlGetStopsFromXY = "https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetStopsFromXY.php";
-
 
 class App extends Component {
   constructor(props) {
@@ -164,7 +160,7 @@ class App extends Component {
             {number}
           </button>
         </li>
-        
+
       );
     });
 
