@@ -567,6 +567,38 @@ body {
   height: 14px;
   display: inline; }
 
+.teamWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+
+.teamImage {
+  width: 40%;
+  height: 30vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 5% auto;
+  position: relative; }
+
+.imgDescription {
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  width: 100%;
+  background: rgba(45, 96, 136, 0.72);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s, visibility .2s;
+  display: flex;
+  text-align: center;
+  padding-top: 10px; }
+
+.teamImage:hover .imgDescription {
+  visibility: visible;
+  opacity: 1; }
+
 .hidden {
   display: none; }
 

@@ -10,6 +10,8 @@ import StickyMenu from './components/StickyMenu';
 import EmptyState from './components/EmptyState';
 import Hero from './components/Hero';
 import PropTypes from 'prop-types';
+import Team from './components/Team';
+
 
 const radius = 500;
 const idClient = "WEB.SERV.redlim@gmail.com";
@@ -221,13 +223,15 @@ class App extends Component {
     <ul id="page-numbers flex" className="list-pagination">
     {renderPageNumbers}
     </ul>
-  
+
     </section>
     <div className="box-goUp">
     <a className="link-goUp" href="#intro">Volver arriba</a>
     </div>
 
     </main>
+
+    <Team />
 
     <Footer />
     </div>
