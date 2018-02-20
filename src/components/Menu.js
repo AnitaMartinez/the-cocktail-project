@@ -29,15 +29,15 @@ class Menu extends Component {
 
           <ul className="list-style">
 
-            <li>
+            <li className="background-menu-link">
               <a className="menu-link uppercase">Busca tu parada</a>
             </li>
 
-            <li>
+            <li className="background-menu-link">
               <a className="menu-link uppercase">Mi grupo</a>
             </li>
 
-            <li>
+            <li className="background-menu-link">
               <a className="menu-link uppercase">About us</a>
             </li>
 
