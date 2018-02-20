@@ -29,17 +29,17 @@ class Menu extends Component {
 
           <ul className="list-style">
 
-            <button className="background-menu-link no-style-button">
+            <li>
               <a className="menu-link uppercase">Busca tu parada</a>
-            </button>
+            </li>
 
-            <button className="background-menu-link no-style-button">
+            <li>
               <a className="menu-link uppercase">Mi grupo</a>
-            </button>
+            </li>
 
-            <button className="background-menu-link no-style-button">
+            <li>
               <a className="menu-link uppercase">About us</a>
-            </button>
+            </li>
 
             <button aria-label="Cerrar" className="no-style-button"><CloseButton className="close-button" onClick={this.handleClick} /></button>
 
