@@ -33,11 +33,9 @@
   transition: background-color ease-in-out 0.7s, border ease-in-out 0.7s;
   &:hover {
     background-color: map-get($color, 'secondary-dark');
-    border: 1px solid map-get($color, 'primary');
   }
 
   &:active {
     background-color: map-get($color, 'secondary-dark');
-    border: 1px solid map-get($color, 'primary');
   }
 }

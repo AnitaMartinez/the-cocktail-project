@@ -91,7 +91,7 @@
   transition: transform .5s; }
   @media all and (min-width: 768px) {
     .card {
-      border-top: 0px;
+      border-top: 0;
       box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19); } }
   .card::after {
     position: absolute;
@@ -157,7 +157,7 @@
   border-bottom: 2px solid #336287; }
   @media all and (min-width: 768px) {
     .border-bottom-card {
-      border-bottom: 0px; } }
+      border-bottom: 0; } }
 
 .section-title {
   margin-left: 12px; }
@@ -371,11 +371,9 @@ body {
   align-items: center;
   transition: background-color ease-in-out 0.7s, border ease-in-out 0.7s; }
   .main-button:hover {
-    background-color: #373d42;
-    border: 1px solid #e0634b; }
+    background-color: #373d42; }
   .main-button:active {
-    background-color: #373d42;
-    border: 1px solid #e0634b; }
+    background-color: #373d42; }
 
 .icon {
   display: inline-block;
@@ -498,7 +496,7 @@ body {
   align-items: center; }
 
 .background-menu-link {
-  margin: 15px 0px;
+  margin: 15px 0;
   cursor: pointer; }
 
 .intro {

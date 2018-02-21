@@ -3,7 +3,6 @@ import Spinner from './Icons/Spinner';
 import Card from './Card';
 import PropTypes from 'prop-types';
 
-
 class AllCards extends Component {
 
   render(){
@@ -43,15 +42,15 @@ class AllCards extends Component {
 
     return(
       <section className={`section-cards ${hiddenResults}`}>
-      <h3 className="m-top-none section-title-font section-title">Resultados</h3>
-      {this.props.noResults}
-      { this.props.loading ? null : <Spinner/>  }
-      <div className="container-cards">
-      {renderElementsPage}
-      </div>
-      <ul id="page-numbers flex" className="list-pagination">
-      {renderPageNumbers}
-      </ul>
+        <h3 className="m-top-none section-title-font section-title">Resultados</h3>
+        {this.props.noResults}
+        { this.props.loading ? null : <Spinner/>  }
+        <div className="container-cards">
+          {renderElementsPage}
+        </div>
+        <ul id="page-numbers flex" className="list-pagination">
+          {renderPageNumbers}
+        </ul>
       </section>
     )
   }
