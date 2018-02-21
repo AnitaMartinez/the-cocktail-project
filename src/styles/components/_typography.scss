@@ -85,10 +85,10 @@ body {
   margin-top: 2px;
   margin-bottom: 0;
   @media all and (min-width: $media-tablet) {
-  font-size: $font-size-s;
+    font-size: $font-size-s;
   }
   @media all and (min-width: $media-desktop) {
-  font-size: $font-size-m;
+    font-size: $font-size-m;
   }
 }
 
@@ -101,10 +101,10 @@ body {
   line-height: normal;
   letter-spacing: normal;
   @media all and (min-width: $media-tablet) {
-  font-size: $font-size-m;
+    font-size: $font-size-m;
   }
   @media all and (min-width: $media-desktop) {
-  font-size: $font-size-mn;
+    font-size: $font-size-mn;
   }
 }
 

@@ -34,39 +34,39 @@
 @keyframes scroll {
   0% {
     bottom: 20px; }
-  50% {
-    bottom: 25px; }
-  100% {
-    bottom: 20px; }
-  }
+    50% {
+      bottom: 25px; }
+      100% {
+        bottom: 20px; }
+      }
 
-  .marker-icon-intro {
-    fill: map-get($color, 'primary');
+      .marker-icon-intro {
+        fill: map-get($color, 'primary');
 
-    @media all and (min-width: $media-desktop) {
-      display: none;
-    }
-  }
+        @media all and (min-width: $media-desktop) {
+          display: none;
+        }
+      }
 
-  .bus-marker-map {
-    width: 1.5em;
-    height: 1.5em;
-    fill: map-get($color, 'primary');
-  }
+      .bus-marker-map {
+        width: 1.5em;
+        height: 1.5em;
+        fill: map-get($color, 'primary');
+      }
 
-  .bus-card {
-    width: 1em;
-    height: 1em;
-    margin-right: 5px;
-    fill: map-get($color, 'secondary');
-  }
+      .bus-card {
+        width: 1em;
+        height: 1em;
+        margin-right: 5px;
+        fill: map-get($color, 'secondary');
+      }
 
-  .active-bus {
-    fill: map-get($color, 'light');
-  }
+      .active-bus {
+        fill: map-get($color, 'light');
+      }
 
-  .spinner-style {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+      .spinner-style {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
