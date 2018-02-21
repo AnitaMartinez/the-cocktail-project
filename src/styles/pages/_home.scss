@@ -72,3 +72,28 @@
   height: 14px;
   display: inline;
 }
+
+.code-searcher {
+  margin-top: 30px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media all and (min-width: $media-tablet) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.input-searcher {
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+  border: none;
+  border-bottom: 2px solid map-get($color, 'primary');
+  width: 50%;
+  padding-bottom: 5px;
+  font-size: 14px;
+
+}

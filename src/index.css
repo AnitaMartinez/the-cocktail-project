@@ -375,6 +375,10 @@ body {
   .main-button:active {
     background-color: #373d42; }
 
+.no-box-button {
+  margin-top: 20px;
+  cursor: pointer; }
+
 .icon {
   display: inline-block;
   width: 2em;
@@ -561,6 +565,27 @@ body {
   height: 14px;
   display: inline; }
 
+.code-searcher {
+  margin-top: 30px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  @media all and (min-width: 768px) {
+    .code-searcher {
+      flex-direction: row;
+      justify-content: space-around; } }
+
+.input-searcher {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-bottom: 2px solid #e0634b;
+  width: 50%;
+  padding-bottom: 5px;
+  font-size: 14px; }
+
 .teamWrapper {
   display: flex;
   flex-direction: row;
@@ -623,7 +648,8 @@ body {
 
 .no-style-button {
   border: none;
-  background-color: transparent; }
+  background-color: transparent;
+  font-family: inherit; }
 
 .no-style-button button:active, button:focus {
   outline: none; }

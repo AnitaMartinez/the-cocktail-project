@@ -10,6 +10,7 @@ import Hero from './components/Hero';
 import AllCards from './components/AllCards';
 import PropTypes from 'prop-types';
 import Team from './components/Team';
+import CodeSearcher from './components/CodeSearcher';
 
 
 const madridCoors= {
@@ -170,6 +171,8 @@ class App extends Component {
               <a href="#map"><button onClick={this.handleClickCocktail} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
               <a href="#map"><button onClick={this.handleClickCampo} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
             </div>
+
+            <CodeSearcher />
         </div>
 
         <div className="map" id="map">

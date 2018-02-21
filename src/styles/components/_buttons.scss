@@ -39,3 +39,8 @@
     background-color: map-get($color, 'secondary-dark');
   }
 }
+
+.no-box-button {
+  margin-top: 20px;
+  cursor: pointer;
+}
