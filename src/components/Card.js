@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class Card extends Component {
 
   clickCard = () => {
-    this.props.setCurrentStop(this.props.stop);
+    this.props.setCurrentStop(this.props.stop.stopId);
   }
 
   render() {

@@ -35,9 +35,15 @@ class App extends Component {
     };
   }
 
-  setCurrentStop = stop => {
+  setCurrentStop = stopId => {
     this.setState({
-      selectedStop: stop
+      selectedStop: stopId
+    });
+  }
+
+  setCurrentMarker = stopId => {
+    this.setState({
+      selectedStop: stopId
     });
   }
 
@@ -73,7 +79,7 @@ class App extends Component {
         loading : true,
         datafetch: true,
         hidden: false,
-        selectedStop: data.stop ? data.stop[0] : null
+        selectedStop: data.stop ? data.stop[0].stopId : null
       });
     })
   }
@@ -130,20 +136,21 @@ class App extends Component {
   }
 
   render() {
-    const stopsBus = this.state.stopsBus;
-    const selectedStop= this.state.selectedStop;
+    const {stopsBus, selectedStop} = this.state;
     let markers= null;
     let noResults= null;
 
     if(this.state.datafetch) {
       if (stopsBus.length > 0) {
-        markers= stopsBus.map((stop, index)=> {
+        markers= stopsBus.map((stop, index) => {
           return (
             <Marker
               lng={stop.longitude}
               lat={stop.latitude}
               key={index}
-              selected = { stop === selectedStop }
+              selected = { stop.stopId === selectedStop }
+              stopId={stop.stopId}
+              setCurrentMarker={this.setCurrentMarker}
             />
           )
         });
