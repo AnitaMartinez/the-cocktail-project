@@ -283,6 +283,11 @@ body {
   color: #336287;
   font-weight: 700; }
 
+.section-text-no-results {
+  font-size: 24px;
+  color: #373d42;
+  font-weight: 700; }
+
 .data-title {
   font-size: 18px;
   font-weight: 700; }
