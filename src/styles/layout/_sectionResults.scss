@@ -154,6 +154,7 @@
   border: 1px solid map-get($color, 'primary');
   transition: background-color .3s;
   border-right: 1px solid map-get($color, 'light');
+  cursor: pointer;
   &:hover {
     background-color: map-get($color, 'secondary-dark');
     border: 1px solid map-get($color, 'primary');
