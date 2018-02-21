@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Star from './Icons/Star';
-import IconMarker from './Icons/IconMarker';
+import Twitter from './Icons/Twitter';
+import Github from './Icons/Github';
 
 
 class Footer extends Component {
@@ -8,9 +8,8 @@ class Footer extends Component {
     return(
     <footer className="footer footer-font">
       <div className="icons-footer">
-        <Star className="footer-star"/>
-        <IconMarker className="icon-marker-footer"/>
-        <Star className="footer-star-desktop"/>
+        <a href="https://twitter.com/AdaLab_Digital" target="_blank" rel="noopener noreferrer"><Twitter className="twitter-footer"/></a>
+        <a href="https://github.com/Adalab/the-cocktail-project" target="_blank" rel="noopener noreferrer"><Github className="github-footer" /></a>
       </div>
       <p>Hecho por 'Las Apis' de Adalab</p>
     </footer>
