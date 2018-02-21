@@ -21,7 +21,7 @@ class App extends Component {
     super(props);
     this.state = {
       stopsBus: [],
-      fetch: false,
+      datafetch: false,
       loading: false,
       currentPage: 1,
       elementsPerPage: 6,
@@ -70,7 +70,7 @@ class App extends Component {
       this.setState({
         stopsBus: data.stop || [],
         loading : true,
-        fetch: true,
+        datafetch: true,
         hidden: false,
         selectedStop: data.stop ? data.stop[0] : null
       });
@@ -128,25 +128,22 @@ class App extends Component {
     let markers= null;
     let noResults= null;
 
-
-    if (this.state.fetch === false) {
-      // eslint-disable-next-line
-        null;
-    } else if (this.state.fetch === true && stopsBus.length > 0){
-      markers= stopsBus.map((stop, index)=> {
-        return (
-        <Marker
-        lng={stop.longitude}
-        lat={stop.latitude}
-        key={index}
-        selected = { stop === selectedStop }
-        />
-        )
-      });
-    } else {
-     noResults= <EmptyState/>
+    if(this.state.datafetch) {
+      if (stopsBus.length > 0) {
+        markers= stopsBus.map((stop, index)=> {
+          return (
+            <Marker
+            lng={stop.longitude}
+            lat={stop.latitude}
+            key={index}
+            selected = { stop === selectedStop }
+            />
+          )
+        });
+      } else {
+        noResults= <EmptyState/>
+      }
     }
-
 
     // Pagination
     const { currentPage, elementsPerPage } = this.state;
@@ -221,7 +218,7 @@ class App extends Component {
     <ul id="page-numbers flex" className="list-pagination">
     {renderPageNumbers}
     </ul>
-  
+
     </section>
     <div className="box-goUp">
     <a className="link-goUp" href="#intro">Volver arriba</a>
