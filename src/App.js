@@ -12,41 +12,36 @@ import EmptyState from './components/EmptyState';
 import heroImage from './images/hero-image.jpg';
 import PropTypes from 'prop-types';
 
-const radius = 500;
-const idClient = "WEB.SERV.redlim@gmail.com";
-const passKey = "FB5B0E17-88EB-407E-A222-97F0916E0C41";
-const urlGetStopsFromXY = "https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetStopsFromXY.php";
+const madridCoors= {
+  lat:40.41,
+  lng:-3.70
+};
 
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       stopsBus: [],
       fetch: false,
       loading: false,
       currentPage: 1,
       elementsPerPage: 6,
-      center: {lat:40.41, lng:-3.70},
+      center: madridCoors,
       zoom: 15,
       hidden: true,
       selectedStop: null,
       currentCard: null
     };
-    this.handleClickPagination = this.handleClickPagination.bind(this);
-    this.handleClickBilbao=this.handleClickBilbao.bind(this);
-    this.handleClickCocktail=this.handleClickCocktail.bind(this);
-    this.handleClickCampo=this.handleClickCampo.bind(this);
-    this.fetchInfoBuses=this.fetchInfoBuses.bind(this);
-    this.setCurrentStop=this.setCurrentStop.bind(this);
   }
 
-  setCurrentStop(stop) {
+  setCurrentStop = stop => {
     this.setState({
       selectedStop: stop
     });
   }
 
-  handleClickPagination(event) {
+  handleClickPagination = event => {
     const numberPagination = document.querySelectorAll(".number-pagination");
     this.setState({
       currentPage: Number(event.target.id)
@@ -57,7 +52,12 @@ class App extends Component {
     }
   }
 
-  fetchInfoBuses(latitude,longitude) {
+  fetchInfoBuses = (latitude,longitude) => {
+    const radius = 500;
+    const idClient = "WEB.SERV.redlim@gmail.com";
+    const passKey = "FB5B0E17-88EB-407E-A222-97F0916E0C41";
+    const urlGetStopsFromXY = "https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetStopsFromXY.php";
+
     fetch(urlGetStopsFromXY, {
       method: "POST",
       headers: {
@@ -78,7 +78,7 @@ class App extends Component {
     })
   }
 
-  handleClickBilbao(event){
+  handleClickBilbao = event => {
     let latitudeBilbao = 40.429154;
     let longitudeBilbao = -3.701952;
     this.fetchInfoBuses(latitudeBilbao,longitudeBilbao);
@@ -92,7 +92,7 @@ class App extends Component {
     zoom={this.state.zoom}/>
   }
 
-  handleClickCocktail(event){
+  handleClickCocktail = event => {
     let latitudeCocktail = 40.454146;
     let longitudeCocktail = -3.700346;
     this.fetchInfoBuses(latitudeCocktail,longitudeCocktail);
@@ -106,7 +106,7 @@ class App extends Component {
     zoom={this.state.zoom}/>
   }
 
-  handleClickCampo(event){
+  handleClickCampo = event => {
     let latitudeCampo = 40.640772;
     let longitudeCampo = -3.909992;
     this.fetchInfoBuses(latitudeCampo,longitudeCampo);
@@ -247,7 +247,7 @@ class App extends Component {
 }
 
 App.defaultProps={
-  center: {lat:40.41, lng:-3.70},
+  center: madridCoors,
   zoom: 12
 };
 
