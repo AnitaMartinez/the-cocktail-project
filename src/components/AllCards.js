@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Spinner from './Icons/Spinner';
-import Card from './Card'
+import Card from './Card';
+import PropTypes from 'prop-types';
 
 
 class AllCards extends Component {
@@ -55,5 +56,16 @@ class AllCards extends Component {
     )
   }
 }
+
+AllCards.propTypes = {
+  stopsBus: PropTypes.array,
+  selectedStop: PropTypes.object,
+  hidden: PropTypes.bool,
+  currentPage: PropTypes.number,
+  elementsPerPage: PropTypes.number,
+  onClick: PropTypes.func,
+  noResults: PropTypes.element,
+  loading: PropTypes.bool
+};
 
 export default AllCards;

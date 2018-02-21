@@ -8,6 +8,7 @@ import StickyMenu from './components/StickyMenu';
 import EmptyState from './components/EmptyState';
 import Hero from './components/Hero';
 import AllCards from './components/AllCards';
+import PropTypes from 'prop-types';
 
 const radius = 500;
 const idClient = "WEB.SERV.redlim@gmail.com";
@@ -208,6 +209,11 @@ class App extends Component {
 App.defaultProps={
   center: {lat:40.41, lng:-3.70},
   zoom: 12
+};
+
+GoogleMapReact.propTypes = {
+  center: PropTypes.object,
+  zoom: PropTypes.number
 };
 
 export default App;
