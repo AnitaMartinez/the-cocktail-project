@@ -1,4 +1,4 @@
-//tipografías botones
+//typography buttons
 .button-light-font {
   font-size: $font-size-xxs;
   font-weight: $font-weight-semi-bold;
@@ -20,7 +20,7 @@
   text-transform: uppercase;
 }
 
-//estilos botones
+//style buttons
 .main-button {
   width: 80px;
   background-color: map-get($color, 'primary');
