@@ -5,24 +5,34 @@ class CodeSearcher extends Component {
   constructor(props) {
       super(props)
       this.state = {
-        hidden : true
+        hidden : true,
+        street : ''
       }
-    this.handleClickSearcher = this.handleClickSearcher.bind(this);
   }
 
-  handleClickSearcher() {
+  handleClickShowSearcher = () => {
     this.setState({hidden : !this.state.hidden});
+  }
+
+  handleClickStreetSearcher = (event) => {
+    const streetName = document.querySelector('.input-searcher');
+    this.setState(
+      {
+        street : streetName.value
+      }
+    )
   }
 
   render() {
     const showInput = this.state.hidden ? 'hidden' : '';
+
     return(
       <div className="code-wrapper">
-        <button className="link-goUp no-style-button no-box-button center" onClick={this.handleClickSearcher}>Buscar por código postal</button>
+        <button className="link-goUp no-style-button no-box-button center" onClick={this.handleClickShowSearcher}>Buscar por código postal</button>
 
         <div className={`${showInput} code-searcher`}>
-          <input className="input-searcher" type="text" name="postal-code" placeholder="Introduce el código postal" />
-          <button className= "home-button main-button button-light-font no-margin" type="button" name="button">Buscar</button>
+          <input className="input-searcher" type="text" name="postal-code" placeholder="Introduce el código postal"/>
+          <button className= "home-button main-button button-light-font no-margin" type="button" name="button" onClick={this.handleClickStreetSearcher}>Buscar</button>
         </div>
       </div>
     )
