@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Bus from './Icons/Bus';
 import PropTypes from 'prop-types';
 
-
 class Card extends Component {
 
   clickCard = () => {
@@ -32,7 +31,7 @@ class Card extends Component {
         })
     }
 
-    //Section results
+    //Style cards
     const futureColumnClass = stopsBusLines.length >= 3 ? 'flex classColumn' : 'flex';
     const futureWrap = stopsBusLines.length >= 5 ? 'flex flexWrap' : 'flex';
 

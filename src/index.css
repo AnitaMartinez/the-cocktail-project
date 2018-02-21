@@ -23,34 +23,24 @@
 
 .icons-footer {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center; }
-  @media all and (min-width: 768px) {
-    .icons-footer {
-      flex-direction: row;
-      justify-content: center; } }
 
-.footer-star {
+.twitter-footer {
   fill: #fff;
-  margin-bottom: 20px; }
+  cursor: pointer; }
   @media all and (min-width: 768px) {
-    .footer-star {
-      margin-bottom: 0; } }
+    .twitter-footer {
+      width: 2.5em;
+      height: 2.5em; } }
 
-.footer-star-desktop {
-  display: none;
-  fill: #fff; }
-  @media all and (min-width: 768px) {
-    .footer-star-desktop {
-      display: inline; } }
-
-.icon-marker-footer {
+.github-footer {
   fill: #fff;
   margin-left: 20px;
-  margin-right: 20px; }
+  margin-right: 20px;
+  cursor: pointer; }
   @media all and (min-width: 768px) {
-    .icon-marker-footer {
+    .github-footer {
       width: 2.5em;
       height: 2.5em; } }
 
@@ -201,7 +191,8 @@
   background-color: #e0634b;
   border: 1px solid #e0634b;
   transition: background-color .3s;
-  border-right: 1px solid #fff; }
+  border-right: 1px solid #fff;
+  cursor: pointer; }
   .number-pagination:hover {
     background-color: #373d42;
     border: 1px solid #e0634b; }
