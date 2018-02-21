@@ -274,6 +274,11 @@ body {
   color: #336287;
   font-weight: 700; }
 
+.section-text-no-results {
+  font-size: 24px;
+  color: #373d42;
+  font-weight: 700; }
+
 .data-title {
   font-size: 18px;
   font-weight: 700; }
@@ -557,6 +562,38 @@ body {
   width: 143px;
   height: 14px;
   display: inline; }
+
+.teamWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+
+.teamImage {
+  width: 40%;
+  height: 30vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 5% auto;
+  position: relative; }
+
+.imgDescription {
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  width: 100%;
+  background: rgba(45, 96, 136, 0.72);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s, visibility .2s;
+  display: flex;
+  text-align: center;
+  padding-top: 10px; }
+
+.teamImage:hover .imgDescription {
+  visibility: visible;
+  opacity: 1; }
 
 .hidden {
   display: none; }

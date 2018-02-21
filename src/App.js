@@ -9,6 +9,8 @@ import EmptyState from './components/EmptyState';
 import Hero from './components/Hero';
 import AllCards from './components/AllCards';
 import PropTypes from 'prop-types';
+import Team from './components/Team';
+
 
 const madridCoors= {
   lat: 40.41,
