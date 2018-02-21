@@ -5,7 +5,7 @@ class EmptyState extends Component {
   render(){
     return(
     <div>
-    <p className= "data-title">No hay resultados</p>
+    <p className= "m-top-none section-text-no-results section-title">No hay resultados</p>
     </div>
     )
   }
