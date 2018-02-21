@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import Card from './components/Card'
 import Marker from './components/Marker';
 import IconMarker from './components/Icons/IconMarker';
 import Footer from './components/Footer';
-import Spinner from './components/Icons/Spinner';
 import Menu from './components/Menu';
 import StickyMenu from './components/StickyMenu';
 import EmptyState from './components/EmptyState';
 import Hero from './components/Hero';
+import AllCards from './components/AllCards';
 import PropTypes from 'prop-types';
 
 const radius = 500;
@@ -86,9 +85,12 @@ class App extends Component {
       zoom: 15,
       hidden: false,
     });
-    return <GoogleMapReact
-    center={this.state.center}
-    zoom={this.state.zoom}/>
+    return (
+      <GoogleMapReact
+        center={this.state.center}
+        zoom={this.state.zoom}
+      />
+    )
   }
 
   handleClickCocktail(event){
@@ -100,9 +102,12 @@ class App extends Component {
       zoom: 15,
       hidden: false
     });
-    return <GoogleMapReact
-    center={this.state.center}
-    zoom={this.state.zoom}/>
+    return (
+      <GoogleMapReact
+        center={this.state.center}
+        zoom={this.state.zoom}
+      />
+    )
   }
 
   handleClickCampo(event){
@@ -114,120 +119,89 @@ class App extends Component {
       zoom: 15,
       hidden: false
     });
-    return <GoogleMapReact
-    center={this.state.center}
-    zoom={this.state.zoom}/>
-
+    return (
+      <GoogleMapReact
+        center={this.state.center}
+        zoom={this.state.zoom}
+      />
+    )
   }
 
   render() {
-
-    const hiddenResults = this.state.hidden ? 'hidden' : '';
     const stopsBus = this.state.stopsBus;
     const selectedStop= this.state.selectedStop;
     let markers= null;
     let noResults= null;
 
-    if(this.state.datafetch) {
-      if (stopsBus.length > 0) {
-        markers= stopsBus.map((stop, index)=> {
-          return (
-            <Marker
-            lng={stop.longitude}
-            lat={stop.latitude}
-            key={index}
-            selected = { stop === selectedStop }
-            />
-          )
-        });
-      } else {
-        noResults= <EmptyState/>
-      }
-    }
-
-    // Pagination
-    const { currentPage, elementsPerPage } = this.state;
-    const indexOfLastAll = currentPage * elementsPerPage;
-    const indexOfFirstAll = indexOfLastAll - elementsPerPage;
-    const currentElements = stopsBus.slice(indexOfFirstAll, indexOfLastAll);
-    const renderElementsPage = currentElements.map((stop, index) => {
+if(this.state.datafetch) {
+  if (stopsBus.length > 0) {
+    markers= stopsBus.map((stop, index)=> {
       return (
-        <Card
-        stop={stop}
+        <Marker
+        lng={stop.longitude}
+        lat={stop.latitude}
         key={index}
-        setCurrentStop={this.setCurrentStop}
-        onClick={this.handleActiveClassCard}
-        selected = {stop === selectedStop}
+        selected = { stop === selectedStop }
         />
       )
     });
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(stopsBus.length / elementsPerPage); i++) {
-      pageNumbers.push(i);
-    }
-    const renderPageNumbers = pageNumbers.map(number => {
-      return (
-        <li key={number}>
-          <button onClick={this.handleClickPagination} className={"number-pagination button-light-font " + (number === 1 ? 'active' : "")} id={number} type="button" name="button">
-            {number}
-          </button>
-        </li>
-
-      );
-    });
+  } else {
+    noResults= <EmptyState/>
+  }
+}
 
     return (
       <div>
-      <Menu />
-      <Hero />
-      <StickyMenu />
+        <Menu/>
+        <Hero/>
+        <StickyMenu/>
 
-      <main className= "home" id="intro">
-      <div className= "intro">
-      <IconMarker className="marker-icon-intro" />
-      <h2 className= "home-title introduction-title center">Bienvenido a BusApp</h2>
-      <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
+        <main className= "home" id="intro">
 
-      <div className= "home-menu-buttons">
-      <a href="#map"><button onClick={this.handleClickBilbao} className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
-      <a href="#map"><button onClick={this.handleClickCocktail} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
-      <a href="#map"><button onClick={this.handleClickCampo} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
+          <div className= "intro">
+            <IconMarker className="marker-icon-intro" />
+            <h2 className= "home-title introduction-title center">Bienvenido a BusApp</h2>
+            <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
+
+            <div className= "home-menu-buttons">
+            <a href="#map"><button onClick={this.handleClickBilbao} className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
+            <a href="#map"><button onClick={this.handleClickCocktail} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
+            <a href="#map"><button onClick={this.handleClickCampo} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
+            </div>
+          </div>
+
+          <div className="map" id="map">
+            <GoogleMapReact
+              defaultCenter={this.props.center}
+              defaultZoom={this.props.zoom}
+              center={this.state.center}
+              zoom={this.state.zoom}
+              bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
+            >
+              {markers}
+            </GoogleMapReact>
+          </div>
+
+          <AllCards
+            loading={this.state.loading}
+            hidden={this.state.hidden}
+            noResults={noResults}
+            currentPage={this.state.currentPage}
+            elementsPerPage={this.state.elementsPerPage}
+            stopsBus={this.state.stopsBus}
+            selectedStop={this.state.selectedStop}
+            setCurrentStop={this.setCurrentStop}
+            onClick={this.handleClickPagination}
+          />
+
+          <div className="box-goUp">
+            <a className="link-goUp" href="#intro">Volver arriba</a>
+          </div>
+
+        </main>
+
+        <Footer/>
       </div>
-
-      </div>
-
-      <div className="map" id="map">
-      <GoogleMapReact
-      defaultCenter={this.props.center}
-      defaultZoom={this.props.zoom}
-      center={this.state.center}
-      zoom={this.state.zoom}
-      bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
-      >
-      {markers}
-    </GoogleMapReact>
-    </div>
-
-    <section className={`section-cards ${hiddenResults}`}>
-    <h3 className="m-top-none section-title-font section-title">Resultados</h3>
-    {noResults}
-    { this.state.loading ? null : <Spinner />  }
-    <div className="container-cards">
-    {renderElementsPage}
-    </div>
-    <ul id="page-numbers flex" className="list-pagination">
-    {renderPageNumbers}
-    </ul>
-
-    </section>
-    <div className="box-goUp">
-    <a className="link-goUp" href="#intro">Volver arriba</a>
-    </div>
-
-    </main>
-
-    <Footer />
-    </div>
   );
 }
 }
@@ -237,7 +211,7 @@ App.defaultProps={
   zoom: 12
 };
 
-Card.propTypes = {
+GoogleMapReact.propTypes = {
   center: PropTypes.object,
   zoom: PropTypes.number
 };

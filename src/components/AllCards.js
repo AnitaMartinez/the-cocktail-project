@@ -68,5 +68,4 @@ AllCards.propTypes = {
   loading: PropTypes.bool
 };
 
-
 export default AllCards;
