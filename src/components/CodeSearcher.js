@@ -17,8 +17,8 @@ class CodeSearcher extends Component {
   render() {
     const showInput = this.state.hidden ? 'hidden' : '';
     return(
-      <div>
-        <button className="link-goUp no-style-button no-box-button" onClick={this.handleClickSearcher}>Buscar por código postal</button>
+      <div className="code-wrapper">
+        <button className="link-goUp no-style-button no-box-button center" onClick={this.handleClickSearcher}>Buscar por código postal</button>
 
         <div className={`${showInput} code-searcher`}>
           <input className="input-searcher" type="text" name="postal-code" placeholder="Introduce el código postal" />
