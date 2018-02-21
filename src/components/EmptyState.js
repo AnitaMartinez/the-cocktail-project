@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class EmptyState extends Component {
   render(){
     return(
-    <div>
+    <div className= "no-results">
     <p className= "data-title">No hay resultados</p>
     </div>
     )
