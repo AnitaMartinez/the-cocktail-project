@@ -567,66 +567,112 @@ body {
   height: 14px;
   display: inline; }
 
-.teamWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around; }
-
 .teamImage {
+  margin: 5% auto;
   width: 100%;
   height: 100vh;
-  background-size: contain;
+  background-position: center 35%;
   background-repeat: no-repeat;
-  background-position: center;
-  margin: 5% auto;
-  position: relative; }
+  background-size: cover; }
+  @media all and (min-width: 768px) {
+    .teamImage {
+      width: 70%;
+      height: 100vh;
+      background-size: cover;
+      position: relative; } }
+
+.team-title {
+  padding-top: 10%;
+  text-align: center;
+  color: #e0634b; }
+  @media all and (min-width: 768px) {
+    .team-title {
+      padding-top: 5%; } }
 
 .component1 {
-  width: 12%;
-  height: 8%;
-  opacity: 0;
-  transition: opacity 1s linear;
-  position: absolute;
-  background-color: rgba(235, 86, 63, 0.7);
-  padding-left: 0.6%;
-  padding-top: 0.3%;
-  color: #fff;
-  top: 52%;
-  left: 27%; }
-
-.component1:hover {
-  opacity: 1; }
+  display: none;
+  font-weight: 600; }
+  @media all and (min-width: 1024px) {
+    .component1 {
+      display: block;
+      width: 145px;
+      height: 60px;
+      border-radius: 3px;
+      opacity: 1;
+      transition: opacity 0.53s linear;
+      position: relative;
+      background-color: rgba(235, 86, 63, 0.6);
+      color: #fff;
+      top: 68%;
+      left: 13%;
+      padding-left: 5px;
+      display: flex;
+      align-items: center; } }
 
 .component2 {
-  width: 12%;
-  height: 8%;
-  opacity: 0;
-  transition: opacity 1s linear;
-  position: absolute;
-  background-color: rgba(235, 86, 63, 0.7);
-  padding-left: 0.6%;
-  padding-top: 0.3%;
-  color: #fff;
-  top: 40%;
-  left: 35%; }
-
-.component2:hover {
-  opacity: 1; }
+  display: none;
+  font-weight: 600; }
+  @media all and (min-width: 1024px) {
+    .component2 {
+      display: block;
+      width: 145px;
+      height: 60px;
+      border-radius: 3px;
+      opacity: 0;
+      transition: opacity 0.5s linear;
+      position: absolute;
+      background-color: rgba(235, 86, 63, 0.6);
+      color: #fff;
+      top: 76%;
+      left: 34%;
+      padding-left: 0.6%;
+      display: flex;
+      align-items: center; } }
 
 .component3 {
-  width: 12%;
-  height: 8%;
-  opacity: 0;
-  transition: opacity 1s linear;
-  position: absolute;
-  background-color: rgba(235, 86, 63, 0.7);
-  padding-left: 0.6%;
-  padding-top: 0.3%;
-  color: #fff;
-  top: 50%;
-  left: 45%; }
+  display: none;
+  font-weight: 600; }
+  @media all and (min-width: 1024px) {
+    .component3 {
+      display: block;
+      width: 140px;
+      height: 60px;
+      border-radius: 3px;
+      opacity: 0;
+      transition: opacity 0.5s linear;
+      position: absolute;
+      background-color: rgba(235, 86, 63, 0.6);
+      color: #fff;
+      top: 54%;
+      left: 55%;
+      padding-left: 0.6%;
+      display: flex;
+      align-items: center; } }
 
-.component3:hover {
+.component4 {
+  display: none;
+  font-weight: 600; }
+  @media all and (min-width: 1024px) {
+    .component4 {
+      display: block;
+      width: 140px;
+      height: 60px;
+      border-radius: 3px;
+      opacity: 0;
+      transition: opacity 0.5s linear;
+      position: absolute;
+      background-color: rgba(235, 86, 63, 0.6);
+      color: #fff;
+      top: 85%;
+      left: 73%;
+      padding-left: 0.6%;
+      display: flex;
+      align-items: center; } }
+
+.component1:hover,
+.component2:hover,
+.component3:hover,
+.component4:hover {
   opacity: 1; }
 
 .hidden {

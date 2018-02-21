@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import profilePic from '../images/team.jpg';
+import profilePic from '../images/teampic.jpg';
 
 
 
@@ -7,14 +7,21 @@ class Team extends Component {
   render() {
     return(
       <div className="teamWrapper">
-      <div style={{backgroundImage: `url(${profilePic})`}} className="teamImage">
-      <div className="component1">'El minimalismo es mi lema'</div>
-      <div className="component2">'El bid data es mi pasión'</div>
-      <div className="component3">'El bid data es mi pasión'</div>
-
-
-      </div>
-
+      <h3 className="m-top-none section-title-font section-title team-title">Nuestro Equipo</h3>
+        <div style={{backgroundImage: `url(${profilePic})`}} className="teamImage">
+          <div className="component1">
+            <p>'Improvisando en Javascript'</p>
+          </div>
+          <div className="component2">
+            <p>'El minimalismo es mi lema'</p>
+          </div>
+          <div className="component3">
+            <p>'Si contenido, luego existo'</p>
+          </div>
+          <div className="component4">
+            <p>'¿Big Data? Simplemente amante'</p>
+          </div>
+        </div>
       </div>
 
       // <div style={{backgroundImage: `url(${profilePic})`}} className="teamImage">
