@@ -98,6 +98,21 @@ body {
   }
 }
 
+.about-title-font {
+  font-size: $font-size-mm;
+  font-weight: $font-weight-bold;
+  color: $font-color-secondary-dark;
+}
+
+.about-subtitle-font {
+  font-size: $font-size-m;
+  color: $font-color-dark;
+  @media all and (min-width: $media-tablet) {
+    font-size: $font-size-s;
+    font-weight: $font-weight-semi-bold;
+  }
+}
+
 .number-card-font {
   font-family: $font-title-family;
   font-size: $font-size-s;

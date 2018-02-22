@@ -11,6 +11,7 @@ import Hero from './components/Hero';
 import AllCards from './components/AllCards';
 import PropTypes from 'prop-types';
 import Team from './components/Team';
+import About from './components/About';
 
 
 const madridCoors= {
@@ -254,6 +255,7 @@ class App extends Component {
         <div className="box-goUp">
           <a className="link-goUp" href="#intro">Volver arriba</a>
         </div>
+        <About/>
 
       </main>
 

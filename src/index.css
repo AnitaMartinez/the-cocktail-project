@@ -298,6 +298,19 @@ body {
     .data-medium {
       font-size: 18px; } }
 
+.about-title-font {
+  font-size: 24px;
+  font-weight: 700;
+  color: #373d42; }
+
+.about-subtitle-font {
+  font-size: 18px;
+  color: #000; }
+  @media all and (min-width: 768px) {
+    .about-subtitle-font {
+      font-size: 16px;
+      font-weight: 600; } }
+
 .number-card-font {
   font-family: "Playfair Display", serif;
   font-size: 16px;
@@ -631,6 +644,44 @@ body {
 .teamImage:hover .imgDescription {
   visibility: visible;
   opacity: 1; }
+
+.about-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px; }
+  @media all and (min-width: 768px) {
+    .about-intro {
+      padding-left: 25px;
+      padding-right: 25px; } }
+
+.about-title {
+  margin-bottom: 20px; }
+  @media all and (min-width: 1024px) {
+    .about-title {
+      margin-top: 48px; } }
+
+.about-subtitle {
+  margin-bottom: 0px; }
+  @media all and (min-width: 768px) {
+    .about-subtitle {
+      margin-bottom: 20px; } }
+
+.about-text {
+  margin-top: 0px;
+  margin-bottom: 20px; }
+
+@media all and (min-width: 768px) {
+  .about-icons-group {
+    display: flex;
+    flex-direction: row; } }
+
+@media all and (min-width: 768px) {
+  .about-icon-text {
+    margin-left: 20px;
+    margin-right: 20px; } }
 
 .hidden {
   display: none; }

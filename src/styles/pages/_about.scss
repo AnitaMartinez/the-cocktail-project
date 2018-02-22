@@ -1,0 +1,45 @@
+.about-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
+  @media all and (min-width: $media-tablet) {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+.about-title {
+  margin-bottom: 20px;
+  @media all and (min-width: $media-desktop) {
+    margin-top: 48px;
+  }
+}
+
+.about-subtitle {
+  margin-bottom: 0px;
+  @media all and (min-width: $media-tablet) {
+  margin-bottom: 20px;
+  }
+}
+
+.about-text {
+  margin-top: 0px;
+  margin-bottom: 20px;
+
+}
+
+.about-icons-group {
+  @media all and (min-width: $media-tablet) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+  .about-icon-text {
+    @media all and (min-width: $media-tablet){
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+}
