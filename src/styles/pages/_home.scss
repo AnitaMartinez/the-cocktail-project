@@ -72,3 +72,44 @@
   height: 14px;
   display: inline;
 }
+
+.code-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.code-searcher {
+  margin-top: 30px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media all and (min-width: $media-tablet) {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+}
+
+.input-searcher {
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+  border: none;
+  border-bottom: 2px solid map-get($color, 'primary');
+  padding-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+
+
+  @media all and (min-width: $media-tablet) {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import GoogleMapReact from 'google-map-react';
 import Marker from './components/Marker';
 import IconMarker from './components/Icons/IconMarker';
@@ -31,8 +32,12 @@ class App extends Component {
       zoom: 15,
       hidden: true,
       selectedStop: null,
-      currentCard: null
+      currentCard: null,
+      street : '',
+      latSearch : '',
+      lngSearch: ''
     };
+    this.onChange = (street) => this.setState({ street });
   }
 
   setCurrentStop = stop => {
@@ -129,11 +134,52 @@ class App extends Component {
     )
   }
 
+  handleClickShowSearcher = () => {
+    this.setState({
+      hidden : !this.state.hidden,
+    });
+  }
+
+  handleClickStreetSearcher = (event) => {
+    event.preventDefault()
+
+    geocodeByAddress(this.state.street)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => {
+        this.setState({
+          latSearch : latLng.lat,
+          lngSearch : latLng.lng
+        })
+
+      let latitudSearch = this.state.latSearch;
+      let longitudeSearch = this.state.lngSearch;
+      this.fetchInfoBuses(latitudSearch,longitudeSearch);
+      this.setState({
+        center:{lat:latitudSearch, lng:longitudeSearch},
+        zoom: 15,
+        hidden: false
+      });
+      })
+
+      .catch(error => console.error('Error', error));
+  }
+
+
   render() {
     const stopsBus = this.state.stopsBus;
     const selectedStop= this.state.selectedStop;
     let markers= null;
     let noResults= null;
+    const showInput = this.state.hidden ? 'hidden' : '';
+    const inputProps = {
+      value: this.state.street,
+      onChange: this.onChange,
+      placeholder: 'Nombre de la calle'
+      }
+
+    const cssClasses = {
+      input : "input-searcher"
+    }
 
     if(this.state.datafetch) {
       if (stopsBus.length > 0) {
@@ -169,6 +215,15 @@ class App extends Component {
               <a href="#map"><button onClick={this.handleClickBilbao} className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
               <a href="#map"><button onClick={this.handleClickCocktail} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
               <a href="#map"><button onClick={this.handleClickCampo} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
+            </div>
+
+            <div className="code-wrapper">
+              <button className="link-goUp no-style-button no-box-button center" onClick={this.handleClickShowSearcher}>Buscar por dirección</button>
+
+              <form className={`${showInput} code-searcher`} onSubmit={this.handleClickStreetSearcher}>
+                <PlacesAutocomplete inputProps={inputProps} classNames={cssClasses} />
+                <button className="home-button main-button button-light-font" type="submit">Buscar</button>
+              </form>
             </div>
         </div>
 
