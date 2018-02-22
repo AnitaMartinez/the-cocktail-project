@@ -568,14 +568,14 @@ body {
   display: inline; }
 
 .teamImage {
-  margin: 5% auto;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   background-position: center 35%;
   background-repeat: no-repeat;
   background-size: cover; }
   @media all and (min-width: 768px) {
     .teamImage {
+      margin: 5% auto;
       width: 70%;
       height: 100vh;
       background-size: cover;
@@ -589,91 +589,112 @@ body {
     .team-title {
       padding-top: 5%; } }
 
-.component1 {
-  display: none;
-  font-weight: 600; }
-  @media all and (min-width: 1024px) {
-    .component1 {
+.tooltipcontainer {
+  display: none; }
+  @media all and (min-width: 768px) {
+    .tooltipcontainer {
       display: block;
-      width: 145px;
-      height: 60px;
-      border-radius: 3px;
-      opacity: 1;
-      transition: opacity 0.53s linear;
-      position: relative;
-      background-color: rgba(235, 86, 63, 0.6);
       color: #fff;
-      top: 68%;
-      left: 13%;
-      padding-left: 5px;
-      display: flex;
-      align-items: center; } }
-
-.component2 {
-  display: none;
-  font-weight: 600; }
-  @media all and (min-width: 1024px) {
-    .component2 {
-      display: block;
-      width: 145px;
-      height: 60px;
-      border-radius: 3px;
-      opacity: 0;
-      transition: opacity 0.5s linear;
+      font-weight: 600;
       position: absolute;
-      background-color: rgba(235, 86, 63, 0.6);
-      color: #fff;
-      top: 76%;
-      left: 34%;
-      padding-left: 0.6%;
-      display: flex;
-      align-items: center; } }
-
-.component3 {
-  display: none;
-  font-weight: 600; }
+      font-size: 28px; } }
   @media all and (min-width: 1024px) {
-    .component3 {
-      display: block;
-      width: 140px;
-      height: 60px;
-      border-radius: 3px;
-      opacity: 0;
-      transition: opacity 0.5s linear;
-      position: absolute;
-      background-color: rgba(235, 86, 63, 0.6);
-      color: #fff;
-      top: 54%;
-      left: 55%;
-      padding-left: 0.6%;
-      display: flex;
-      align-items: center; } }
+    .tooltipcontainer {
+      font-size: 40px; } }
 
-.component4 {
-  display: none;
-  font-weight: 600; }
-  @media all and (min-width: 1024px) {
-    .component4 {
-      display: block;
-      width: 140px;
-      height: 60px;
-      border-radius: 3px;
-      opacity: 0;
-      transition: opacity 0.5s linear;
-      position: absolute;
-      background-color: rgba(235, 86, 63, 0.6);
-      color: #fff;
-      top: 85%;
-      left: 73%;
-      padding-left: 0.6%;
-      display: flex;
-      align-items: center; } }
+@media all and (min-width: 768px) {
+  .tooltipcontainer .tooltiptext {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    background-color: rgba(235, 86, 63, 0.6);
+    transition: opacity 0.53s linear;
+    border-radius: 3px;
+    padding-left: 5px;
+    position: absolute;
+    top: 150%;
+    left: 5%;
+    z-index: 1;
+    font-size: 14px;
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    width: 150px;
+    height: 50px; } }
 
-.component1:hover,
-.component2:hover,
-.component3:hover,
-.component4:hover {
+@media all and (min-width: 1024px) {
+  .tooltipcontainer .tooltiptext {
+    font-size: 24px;
+    width: 200px;
+    height: 70px; } }
+
+.tooltipcontainer:hover .tooltiptext {
   opacity: 1; }
+
+@media all and (min-width: 768px) {
+  .person1 {
+    top: 65%;
+    left: 15%; } }
+
+@media all and (min-width: 1024px) {
+  .person1 {
+    top: 75%;
+    left: 18%; } }
+
+@media all and (min-width: 768px) {
+  .person2 {
+    top: 60%;
+    left: 40%; } }
+
+@media all and (min-width: 1024px) {
+  .person2 {
+    top: 70%;
+    left: 40%; } }
+
+@media all and (min-width: 768px) {
+  .person3 {
+    top: 55%;
+    left: 65%; } }
+
+@media all and (min-width: 1024px) {
+  .person3 {
+    top: 65%;
+    left: 60%; } }
+
+@media all and (min-width: 768px) {
+  .person4 {
+    top: 70%;
+    left: 70%; } }
+
+@media all and (min-width: 1024px) {
+  .person4 {
+    top: 75%;
+    left: 70%; } }
+
+.team-mobile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  color: #fff;
+  background-color: #e0634b; }
+  @media all and (min-width: 768px) {
+    .team-mobile {
+      display: none; } }
+
+.team-mobile p {
+  font-size: 16px;
+  margin-top: 0; }
+
+.team-mobile h4 {
+  margin-bottom: 10px;
+  font-size: 20px; }
+
+.team-mobile div {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 .hidden {
   display: none; }
