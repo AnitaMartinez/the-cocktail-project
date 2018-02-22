@@ -1,0 +1,54 @@
+
+.map {
+  width: 100%;
+  height: 400px;
+  margin-top: 70px;
+  @media all and (min-width: $media-desktop) {
+    width: 70%;
+    margin: 70px auto;
+  }
+}
+
+.map-text-search {
+  width: 143px;
+  height: 14px;
+  display: inline;
+}
+
+.marker {
+  width: 24px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.container-text-marker {
+  width: 150px;
+  height: 90px;
+  border-radius: 5px;
+  background-color: map-get($color, 'secondary');
+  color: white;
+  padding: 10px 12px;
+  position: relative;
+  margin-top: 50px;
+  margin-left: -55px;
+}
+
+.container-text-marker:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-width: 16px;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  border-color: transparent;
+  border-bottom-color: map-get($color, 'secondary');
+  border-style: solid;
+  top: -34%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.container-text-marker p {
+  margin: 5px 0 0 0;
+}

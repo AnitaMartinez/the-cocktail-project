@@ -22,7 +22,7 @@ class AllCards extends Component {
           stop={stop}
           key={index}
           setCurrentStop={this.props.setCurrentStop}
-          selected = {stop === selectedStop}
+          selected = {stop.stopId === selectedStop}
         />
       )
     });
@@ -58,7 +58,7 @@ class AllCards extends Component {
 
 AllCards.propTypes = {
   stopsBus: PropTypes.array,
-  selectedStop: PropTypes.object,
+  selectedStop: PropTypes.string,
   hidden: PropTypes.bool,
   currentPage: PropTypes.number,
   elementsPerPage: PropTypes.number,

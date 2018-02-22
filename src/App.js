@@ -10,8 +10,6 @@ import EmptyState from './components/EmptyState';
 import Hero from './components/Hero';
 import AllCards from './components/AllCards';
 import PropTypes from 'prop-types';
-import Team from './components/Team';
-
 
 const madridCoors= {
   lat: 40.41,
@@ -40,9 +38,9 @@ class App extends Component {
     this.onChange = (street) => this.setState({ street });
   }
 
-  setCurrentStop = stop => {
+  setCurrentStop = stopId => {
     this.setState({
-      selectedStop: stop
+      selectedStop: stopId
     });
   }
 
@@ -78,7 +76,7 @@ class App extends Component {
         loading : true,
         datafetch: true,
         hidden: false,
-        selectedStop: data.stop ? data.stop[0] : null
+        selectedStop: data.stop ? data.stop[0].stopId : null
       });
     })
   }
@@ -166,8 +164,7 @@ class App extends Component {
 
 
   render() {
-    const stopsBus = this.state.stopsBus;
-    const selectedStop= this.state.selectedStop;
+    const {stopsBus, selectedStop} = this.state;
     let markers= null;
     let noResults= null;
     const showInput = this.state.hidden ? 'hidden' : '';
@@ -183,13 +180,16 @@ class App extends Component {
 
     if(this.state.datafetch) {
       if (stopsBus.length > 0) {
-        markers= stopsBus.map((stop, index)=> {
+        markers= stopsBus.map((stop, index) => {
           return (
             <Marker
               lng={stop.longitude}
               lat={stop.latitude}
               key={index}
-              selected = { stop === selectedStop }
+              stop={stop}
+              selected = { stop.stopId === selectedStop }
+              stopId={stop.stopId}
+              setCurrentStop={this.setCurrentStop}
             />
           )
         });
