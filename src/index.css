@@ -477,7 +477,7 @@ body {
 
 .menu-display {
   background-color: transparent;
-  transition: background-color ease-in-out 2s; }
+  transition: background-color ease-in-out 0.8s; }
 
 .background-menu {
   background-color: #e0634b;
@@ -485,7 +485,7 @@ body {
   position: fixed;
   width: 276px;
   left: -100%;
-  transition: left ease 2s; }
+  transition: left ease 0.8s; }
   .menu-visible .background-menu {
     left: 0;
     z-index: 3; }

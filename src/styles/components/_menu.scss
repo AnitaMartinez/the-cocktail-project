@@ -15,7 +15,7 @@
 
 .menu-display {
   background-color: rgba($font-color-dark, 0);
-  transition: background-color ease-in-out 2s;
+  transition: background-color ease-in-out 0.8s;
 }
 
 .background-menu {
@@ -24,7 +24,7 @@
   position: fixed;
   width: 276px;
   left: -100%;
-  transition: left ease 2s;
+  transition: left ease 0.8s;
 
   .menu-visible & {
     left: 0;
