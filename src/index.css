@@ -656,15 +656,22 @@ body {
     .about-intro {
       padding-left: 25px;
       padding-right: 25px; } }
+  @media all and (min-width: 768px) {
+    .about-intro {
+      padding-left: 50px;
+      padding-right: 50px; } }
 
 .about-title {
   margin-bottom: 20px; }
+  @media all and (min-width: 768px) {
+    .about-title {
+      margin-bottom: 30px; } }
   @media all and (min-width: 1024px) {
     .about-title {
-      margin-top: 48px; } }
+      margin-bottom: 40px; } }
 
 .about-subtitle {
-  margin-bottom: 0px; }
+  margin-bottom: 10px; }
   @media all and (min-width: 768px) {
     .about-subtitle {
       margin-bottom: 20px; } }
@@ -678,10 +685,37 @@ body {
     display: flex;
     flex-direction: row; } }
 
+.about-icon-text {
+  margin-bottom: 10px; }
+  @media all and (min-width: 768px) {
+    .about-icon-text {
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 0px;
+      border: 1px dashed #e0634b;
+      padding-left: 10px;
+      padding-right: 10px; }
+      .about-icon-text:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+        border-width: 2px;
+        transition: all 1s ease;
+        margin: 10px 10px; } }
+  @media all and (min-width: 1024px) {
+    .about-icon-text {
+      margin-left: 20px;
+      margin-right: 20px; }
+      .about-icon-text:hover {
+        margin-left: 30px;
+        margin-right: 30px; } }
+
+.about-icon-position {
+  margin-left: 150px;
+  margin-right: 150px; }
+
 @media all and (min-width: 768px) {
-  .about-icon-text {
-    margin-left: 20px;
-    margin-right: 20px; } }
+  .hidden-icon {
+    display: none; } }
 
 .hidden {
   display: none; }

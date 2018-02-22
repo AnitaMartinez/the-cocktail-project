@@ -9,19 +9,28 @@
     padding-left: 25px;
     padding-right: 25px;
   }
+
+  @media all and (min-width: $media-tablet) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
 }
 
 .about-title {
   margin-bottom: 20px;
+  @media all and (min-width: $media-tablet) {
+    margin-bottom: 30px;
+  }
   @media all and (min-width: $media-desktop) {
-    margin-top: 48px;
+    margin-bottom: 40px;
   }
 }
 
 .about-subtitle {
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   @media all and (min-width: $media-tablet) {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
   }
 }
 
@@ -37,9 +46,43 @@
     flex-direction: row;
   }
 }
-  .about-icon-text {
-    @media all and (min-width: $media-tablet){
-      margin-left: 20px;
-      margin-right: 20px;
+.about-icon-text {
+  margin-bottom: 10px;
+  @media all and (min-width: $media-tablet){
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+    border: 1px dashed $font-color-primary;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &:hover{
+      cursor: pointer;
+      transform: scale(1.2);
+      border-width: 2px;
+      transition: all 1s ease;
+      margin: 10px 10px;
     }
+  }
+
+  @media all and (min-width: $media-desktop){
+    margin-left: 20px;
+    margin-right: 20px;
+
+    &:hover{
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+  }
+}
+
+.about-icon-position {
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.hidden-icon {
+  @media all and (min-width: $media-tablet) {
+    display: none;
+  }
 }

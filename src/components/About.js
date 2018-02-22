@@ -23,19 +23,19 @@ class About extends Component {
       <h2 className= "about-title about-title-font center">Objetivos académicos</h2>
       <div className= "about-icons-group">
       <div className= "about-icon-text">
-      <IconMarker className="marker-icon-intro" />
+      <IconMarker className="marker-icon-intro center hidden-icon" />
       <h2 className= "about-subtitle about-subtitle-font center">Web responsive</h2>
       <p className= "about-text introduction-body center">Aprender a maquetar de forma responsiva un diseño con diferentes vistas.</p>
       </div>
       <div className= "about-icon-text">
-      <IconMarker className="marker-icon-intro" />
-      <h2 className= "about-subtitle about-subtitle-font center">Conexión con API de la EMT</h2>
+      <IconMarker className="marker-icon-intro hidden-icon" />
+      <h2 className= "about-subtitle about-subtitle-font center">Datos de la EMT</h2>
       <p className= "about-text introduction-body center">Conectarse con una API y obtener información de esos datos para visualizarlo.</p>
       </div>
       <div className= "about-icon-text">
-      <IconMarker className="marker-icon-intro" />
-      <h2 className= "about-subtitle about-subtitle-font center">Uso de la API de Google Maps</h2>
-      <p className= "about-text introduction-body center">Integrar un API Externa como Google Maps para poder pintar esos datos.</p>
+      <IconMarker className="marker-icon-intro hidden-icon" />
+      <h2 className= "about-subtitle about-subtitle-font center">Google Maps</h2>
+      <p className= "about-text introduction-body center">Integrar la API de Google Maps para poder pintar esos datos en el mapa.</p>
       </div>
       </div>
       </div>
