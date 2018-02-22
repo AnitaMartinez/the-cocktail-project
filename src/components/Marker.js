@@ -9,28 +9,30 @@ class Marker extends Component {
   }
 
   render() {
-    let classes = "bus-marker-map";
-    let classesToolTip = "hidden button-marker"
+    let classesIcon = "bus-marker-map";
+    let classesToolTip = "hidden container-text-marker marker-font"
     if (this.props.selected) {
-      classes += " active-marker"
+      classesIcon += " active-icon-marker"
       classesToolTip += " block"
     }
 
     return(
-      <div className="marker" onClick={this.clickMarker} >
-        <Bus className= { classes }/>
-
-        <button  className= { classesToolTip } type="button" name="button">
-          Dirección: {this.props.stop.postalAddress}
-        </button>
-
+      <div>
+        <div className="marker" onClick={this.clickMarker} viewBox="0 0 24 28">
+          <div  className= { classesToolTip } >
+            <h6 className="title-button-marker uppercase" > {this.props.stop.name} </h6>
+            <p>  {this.props.stop.postalAddress} </p>
+          </div>
+        </div>
+        <Bus className= { classesIcon }/>
       </div>
     )
   }
 }
 
 Marker.propTypes = {
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+  stop: PropTypes.object
 };
 
 export default Marker

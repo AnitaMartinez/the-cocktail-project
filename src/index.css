@@ -313,6 +313,17 @@ body {
     .number-card-font {
       font-size: 20px; } }
 
+.marker-font {
+  font-family: "Raleway", sans-serif;
+  font-size: 12px;
+  text-align: left;
+  font-weight: 600; }
+
+.title-button-marker {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700; }
+
 .footer-font {
   color: #fff;
   font-size: 18px; }
@@ -375,14 +386,6 @@ body {
   .main-button:active {
     background-color: #373d42; }
 
-.button-marker {
-  background-color: #fff;
-  font-family: "Raleway", sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  color: #373d42;
-  width: 150px; }
-
 .icon {
   display: inline-block;
   width: 2em;
@@ -425,11 +428,6 @@ body {
     .marker-icon-intro {
       display: none; } }
 
-.bus-marker-map {
-  width: 1.5em;
-  height: 1.5em;
-  fill: #e0634b; }
-
 .bus-card {
   width: 1em;
   height: 1em;
@@ -443,6 +441,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+.bus-marker-map {
+  width: 1.5em;
+  height: 1.5em;
+  fill: #e0634b;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1; }
+
+.active-icon-marker {
+  fill: #336287;
+  width: 3.5em;
+  height: 3.5em; }
 
 .hamburguer {
   fill: #fff;
@@ -507,6 +519,54 @@ body {
   margin: 15px 0;
   cursor: pointer; }
 
+.map {
+  width: 100%;
+  height: 400px;
+  margin-top: 70px; }
+  @media all and (min-width: 1024px) {
+    .map {
+      width: 70%;
+      margin: 70px auto; } }
+
+.map-text-search {
+  width: 143px;
+  height: 14px;
+  display: inline; }
+
+.marker {
+  width: 24px;
+  height: 28px;
+  cursor: pointer; }
+
+.container-text-marker {
+  width: 150px;
+  height: 90px;
+  border-radius: 5px;
+  background-color: #336287;
+  color: white;
+  padding: 10px 12px;
+  position: relative;
+  margin-top: 50px;
+  margin-left: -55px; }
+
+.container-text-marker:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-width: 16px;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  border-color: transparent;
+  border-bottom-color: #336287;
+  border-style: solid;
+  top: -34%;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.container-text-marker p {
+  margin: 5px 0 0 0; }
+
 .intro {
   display: flex;
   flex-direction: column;
@@ -522,11 +582,6 @@ body {
   @media all and (min-width: 1024px) {
     .marker-icon-intro {
       display: none; } }
-
-.active-marker {
-  fill: #336287;
-  width: 3.5em;
-  height: 3.5em; }
 
 .home-title {
   margin: 0; }
@@ -554,20 +609,6 @@ body {
     .home-button {
       width: 170px;
       margin-left: 20px; } }
-
-.map {
-  width: 100%;
-  height: 400px;
-  margin-top: 70px; }
-  @media all and (min-width: 1024px) {
-    .map {
-      width: 70%;
-      margin: 70px auto; } }
-
-.map-text-search {
-  width: 143px;
-  height: 14px;
-  display: inline; }
 
 .teamWrapper {
   display: flex;

@@ -39,12 +39,3 @@
     background-color: map-get($color, 'secondary-dark');
   }
 }
-
-.button-marker {
-  background-color: map-get($color, 'light');
-  font-family: $font-body-family;
-  font-size: $font-size-xxs;
-  font-weight: $font-weight-medium;
-  color: $font-color-secondary-dark;
-  width: 150px;
-}
