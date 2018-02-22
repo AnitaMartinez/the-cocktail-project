@@ -8,6 +8,8 @@ import Menu from './components/Menu';
 import StickyMenu from './components/StickyMenu';
 import EmptyState from './components/EmptyState';
 import Hero from './components/Hero';
+import Team from './components/Team';
+
 import AllCards from './components/AllCards';
 import PropTypes from 'prop-types';
 
@@ -256,7 +258,7 @@ class App extends Component {
         </div>
 
       </main>
-
+      <Team />
       <Footer/>
       </div>
     );
