@@ -9,8 +9,6 @@ import EmptyState from './components/EmptyState';
 import Hero from './components/Hero';
 import AllCards from './components/AllCards';
 import PropTypes from 'prop-types';
-import Team from './components/Team';
-
 
 const madridCoors= {
   lat: 40.41,
@@ -36,12 +34,6 @@ class App extends Component {
   }
 
   setCurrentStop = stopId => {
-    this.setState({
-      selectedStop: stopId
-    });
-  }
-
-  setCurrentMarker = stopId => {
     this.setState({
       selectedStop: stopId
     });
@@ -150,7 +142,7 @@ class App extends Component {
               key={index}
               selected = { stop.stopId === selectedStop }
               stopId={stop.stopId}
-              setCurrentMarker={this.setCurrentMarker}
+              setCurrentStop={this.setCurrentStop}
             />
           )
         });

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class Marker extends Component {
 
   clickMarker = () => {
-    this.props.setCurrentMarker(this.props.stopId);
+    this.props.setCurrentStop(this.props.stopId);
   }
 
   render() {
