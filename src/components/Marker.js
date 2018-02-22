@@ -10,7 +10,7 @@ class Marker extends Component {
 
   render() {
     let classes = "bus-marker-map";
-    let classesToolTip = "hidden"
+    let classesToolTip = "hidden button-marker"
     if (this.props.selected) {
       classes += " active-marker"
       classesToolTip += " block"
@@ -19,7 +19,11 @@ class Marker extends Component {
     return(
       <div className="marker" onClick={this.clickMarker} >
         <Bus className= { classes }/>
-        <p className= { classesToolTip }>Prueba</p>
+
+        <button  className= { classesToolTip } type="button" name="button">
+          Dirección: {this.props.stop.postalAddress}
+        </button>
+
       </div>
     )
   }

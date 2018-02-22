@@ -375,6 +375,14 @@ body {
   .main-button:active {
     background-color: #373d42; }
 
+.button-marker {
+  background-color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #373d42;
+  width: 150px; }
+
 .icon {
   display: inline-block;
   width: 2em;

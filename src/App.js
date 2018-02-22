@@ -140,6 +140,7 @@ class App extends Component {
               lng={stop.longitude}
               lat={stop.latitude}
               key={index}
+              stop={stop}
               selected = { stop.stopId === selectedStop }
               stopId={stop.stopId}
               setCurrentStop={this.setCurrentStop}
