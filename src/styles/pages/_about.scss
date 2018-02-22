@@ -37,7 +37,6 @@
 .about-text {
   margin-top: 0px;
   margin-bottom: 20px;
-
 }
 
 .about-icons-group {
@@ -48,6 +47,9 @@
 }
 .about-icon-text {
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @media all and (min-width: $media-tablet){
     margin-left: 20px;
     margin-right: 20px;
@@ -55,12 +57,14 @@
     border: 1px dashed $font-color-primary;
     padding-left: 10px;
     padding-right: 10px;
+    transform: scale(1);
+    transition: all 500ms ease-in;
 
     &:hover{
       cursor: pointer;
       transform: scale(1.2);
       border-width: 2px;
-      transition: all 1s ease;
+      transition: all 500ms ease-in;
       margin: 10px 10px;
     }
   }
@@ -77,6 +81,7 @@
 }
 
 .about-icon-position {
+  margin-top: 0px;
   margin-left: 150px;
   margin-right: 150px;
 }
