@@ -48,12 +48,6 @@
         }
       }
 
-      .bus-marker-map {
-        width: 1.5em;
-        height: 1.5em;
-        fill: map-get($color, 'primary');
-      }
-
       .bus-card {
         width: 1em;
         height: 1em;
@@ -69,4 +63,22 @@
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+
+      //Map
+
+      .bus-marker-map {
+        width: 1.5em;
+        height: 1.5em;
+        fill: map-get($color, 'primary');
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+      }
+
+      .active-icon-marker {
+        fill: map-get($color, 'secondary');
+        width: 3.5em;
+        height: 3.5em;
       }

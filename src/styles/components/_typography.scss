@@ -129,6 +129,19 @@ body {
   }
 }
 
+.marker-font {
+  font-family: $font-body-family;
+  font-size: $font-size-xxs;
+  text-align: left;
+  font-weight: $font-weight-semi-bold;
+}
+
+.title-button-marker {
+  margin: 0;
+  font-size: $font-size-xxs;
+  font-weight: $font-weight-bold;
+}
+
 .footer-font {
   color: map-get($color, 'light');
   font-size: $font-size-m;
@@ -146,11 +159,11 @@ body {
   color: $font-color-primary;
 }
 
-//clases para alinear
+//Align
 .center {text-align: center;}
 .left {text-align: left;}
 .right {text-align: right;}
 
-//clases para mayúsculas
+//Uppercase
 .uppercase {text-transform: uppercase;}
 .capitalize {text-transform: capitalize;}
