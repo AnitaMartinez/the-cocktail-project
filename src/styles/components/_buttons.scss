@@ -1,4 +1,4 @@
-//tipografías botones
+//typography buttons
 .button-light-font {
   font-size: $font-size-xxs;
   font-weight: $font-weight-semi-bold;
@@ -20,7 +20,7 @@
   text-transform: uppercase;
 }
 
-//estilos botones
+//style buttons
 .main-button {
   width: 80px;
   background-color: map-get($color, 'primary');
@@ -33,11 +33,15 @@
   transition: background-color ease-in-out 0.7s, border ease-in-out 0.7s;
   &:hover {
     background-color: map-get($color, 'secondary-dark');
-    border: 1px solid map-get($color, 'primary');
   }
 
   &:active {
     background-color: map-get($color, 'secondary-dark');
-    border: 1px solid map-get($color, 'primary');
   }
+}
+
+.no-box-button {
+  margin-top: 20px;
+  cursor: pointer;
+  align-items: center
 }

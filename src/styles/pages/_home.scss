@@ -12,16 +12,9 @@
   height: 38px;
   margin-top: 16px;
   margin-bottom: 6px;
-
   @media all and (min-width: $media-desktop) {
     display: none;
   }
-}
-
-.active-marker {
-  fill: map-get($color, 'secondary');
-  width: 3.5em;
-  height: 3.5em;
 }
 
 .home-title {
@@ -57,18 +50,43 @@
   }
 }
 
-.map {
-  width: 100%;
-  height: 400px;
-  margin-top: 70px;
-  @media all and (min-width: $media-desktop) {
-    width: 70%;
-    margin: 70px auto;
+.code-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.code-searcher {
+  margin-top: 30px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media all and (min-width: $media-tablet) {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
   }
 }
 
-.map-text-search {
-  width: 143px;
-  height: 14px;
-  display: inline;
+.input-searcher {
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+  border: none;
+  border-bottom: 2px solid map-get($color, 'primary');
+  padding-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+
+
+  @media all and (min-width: $media-tablet) {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
 }

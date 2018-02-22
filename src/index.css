@@ -23,34 +23,24 @@
 
 .icons-footer {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center; }
-  @media all and (min-width: 768px) {
-    .icons-footer {
-      flex-direction: row;
-      justify-content: center; } }
 
-.footer-star {
+.twitter-footer {
   fill: #fff;
-  margin-bottom: 20px; }
+  cursor: pointer; }
   @media all and (min-width: 768px) {
-    .footer-star {
-      margin-bottom: 0; } }
+    .twitter-footer {
+      width: 2.5em;
+      height: 2.5em; } }
 
-.footer-star-desktop {
-  display: none;
-  fill: #fff; }
-  @media all and (min-width: 768px) {
-    .footer-star-desktop {
-      display: inline; } }
-
-.icon-marker-footer {
+.github-footer {
   fill: #fff;
   margin-left: 20px;
-  margin-right: 20px; }
+  margin-right: 20px;
+  cursor: pointer; }
   @media all and (min-width: 768px) {
-    .icon-marker-footer {
+    .github-footer {
       width: 2.5em;
       height: 2.5em; } }
 
@@ -94,14 +84,14 @@
 .card {
   background-color: #fff;
   border-top: 2px solid #336287;
-  padding: 30px 0 60px 12px;
+  padding: 30px 0 50px 12px;
   flex-direction: column;
   height: 230px;
   cursor: pointer;
   transition: transform .5s; }
   @media all and (min-width: 768px) {
     .card {
-      border-top: 0px;
+      border-top: 0;
       box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19); } }
   .card::after {
     position: absolute;
@@ -167,7 +157,7 @@
   border-bottom: 2px solid #336287; }
   @media all and (min-width: 768px) {
     .border-bottom-card {
-      border-bottom: 0px; } }
+      border-bottom: 0; } }
 
 .section-title {
   margin-left: 12px; }
@@ -201,7 +191,8 @@
   background-color: #e0634b;
   border: 1px solid #e0634b;
   transition: background-color .3s;
-  border-right: 1px solid #fff; }
+  border-right: 1px solid #fff;
+  cursor: pointer; }
   .number-pagination:hover {
     background-color: #373d42;
     border: 1px solid #e0634b; }
@@ -283,6 +274,11 @@ body {
   color: #336287;
   font-weight: 700; }
 
+.section-text-no-results {
+  font-size: 24px;
+  color: #373d42;
+  font-weight: 700; }
+
 .data-title {
   font-size: 18px;
   font-weight: 700; }
@@ -316,6 +312,17 @@ body {
   @media all and (min-width: 1024px) {
     .number-card-font {
       font-size: 20px; } }
+
+.marker-font {
+  font-family: "Raleway", sans-serif;
+  font-size: 12px;
+  text-align: left;
+  font-weight: 600; }
+
+.title-button-marker {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700; }
 
 .footer-font {
   color: #fff;
@@ -375,11 +382,14 @@ body {
   align-items: center;
   transition: background-color ease-in-out 0.7s, border ease-in-out 0.7s; }
   .main-button:hover {
-    background-color: #373d42;
-    border: 1px solid #e0634b; }
+    background-color: #373d42; }
   .main-button:active {
-    background-color: #373d42;
-    border: 1px solid #e0634b; }
+    background-color: #373d42; }
+
+.no-box-button {
+  margin-top: 20px;
+  cursor: pointer;
+  align-items: center; }
 
 .icon {
   display: inline-block;
@@ -423,11 +433,6 @@ body {
     .marker-icon-intro {
       display: none; } }
 
-.bus-marker-map {
-  width: 1.5em;
-  height: 1.5em;
-  fill: #e0634b; }
-
 .bus-card {
   width: 1em;
   height: 1em;
@@ -441,6 +446,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+.bus-marker-map {
+  width: 1.5em;
+  height: 1.5em;
+  fill: #e0634b;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1; }
+
+.active-icon-marker {
+  fill: #336287;
+  width: 3.5em;
+  height: 3.5em; }
 
 .hamburguer {
   fill: #fff;
@@ -458,7 +477,7 @@ body {
 
 .menu-display {
   background-color: transparent;
-  transition: background-color ease-in-out 2s; }
+  transition: background-color ease-in-out 0.8s; }
 
 .background-menu {
   background-color: #e0634b;
@@ -466,7 +485,7 @@ body {
   position: fixed;
   width: 276px;
   left: -100%;
-  transition: left ease 2s; }
+  transition: left ease 0.8s; }
   .menu-visible .background-menu {
     left: 0;
     z-index: 3; }
@@ -502,8 +521,56 @@ body {
   align-items: center; }
 
 .background-menu-link {
-  margin: 15px 0px;
+  margin: 15px 0;
   cursor: pointer; }
+
+.map {
+  width: 100%;
+  height: 400px;
+  margin-top: 70px; }
+  @media all and (min-width: 1024px) {
+    .map {
+      width: 70%;
+      margin: 70px auto; } }
+
+.map-text-search {
+  width: 143px;
+  height: 14px;
+  display: inline; }
+
+.marker {
+  width: 24px;
+  height: 28px;
+  cursor: pointer; }
+
+.container-text-marker {
+  width: 150px;
+  height: 90px;
+  border-radius: 5px;
+  background-color: #336287;
+  color: white;
+  padding: 10px 12px;
+  position: relative;
+  margin-top: 50px;
+  margin-left: -55px; }
+
+.container-text-marker:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-width: 16px;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  border-color: transparent;
+  border-bottom-color: #336287;
+  border-style: solid;
+  top: -34%;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.container-text-marker p {
+  margin: 5px 0 0 0; }
 
 .intro {
   display: flex;
@@ -520,11 +587,6 @@ body {
   @media all and (min-width: 1024px) {
     .marker-icon-intro {
       display: none; } }
-
-.active-marker {
-  fill: #336287;
-  width: 3.5em;
-  height: 3.5em; }
 
 .home-title {
   margin: 0; }
@@ -553,19 +615,39 @@ body {
       width: 170px;
       margin-left: 20px; } }
 
-.map {
-  width: 100%;
-  height: 400px;
-  margin-top: 70px; }
-  @media all and (min-width: 1024px) {
-    .map {
-      width: 70%;
-      margin: 70px auto; } }
+.code-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
 
-.map-text-search {
-  width: 143px;
-  height: 14px;
-  display: inline; }
+.code-searcher {
+  margin-top: 30px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto; }
+  @media all and (min-width: 768px) {
+    .code-searcher {
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%; } }
+
+.input-searcher {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-bottom: 2px solid #e0634b;
+  padding-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 10px; }
+  @media all and (min-width: 768px) {
+    .input-searcher {
+      margin-right: 20px;
+      margin-bottom: 0; } }
 
 .teamImage {
   width: 100%;
@@ -726,7 +808,8 @@ body {
 
 .no-style-button {
   border: none;
-  background-color: transparent; }
+  background-color: transparent;
+  font-family: inherit; }
 
 .no-style-button button:active, button:focus {
   outline: none; }
@@ -750,6 +833,9 @@ ul {
 
 .hidden {
   display: none; }
+
+.block {
+  display: block; }
 
 li {
   list-style-type: none; }

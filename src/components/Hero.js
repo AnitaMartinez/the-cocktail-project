@@ -9,7 +9,7 @@ class Hero extends Component {
     <section className="hero" style={{backgroundImage: `url(${heroImage})`}} id="hero">
       <h1 className="hero-title uppercase margin-title center">bus app</h1>
       <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
-      <Arrow className="arrow-down"/>
+      <a href="#intro"><Arrow className="arrow-down"/></a>
     </section>
     )
   }

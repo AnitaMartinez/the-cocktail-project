@@ -21,13 +21,13 @@
 .card {
   background-color: map-get($color, 'light');
   border-top: 2px solid map-get($color, 'secondary');
-  padding: 30px 0 60px 12px;
+  padding: 30px 0 50px 12px;
   flex-direction: column;
   height: 230px;
   cursor: pointer;
   transition: transform .5s;
   @media all and (min-width: $media-tablet) {
-    border-top: 0px;
+    border-top: 0;
     box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19);
   }
   &::after {
@@ -110,7 +110,7 @@
 .border-bottom-card {
   border-bottom: 2px solid map-get($color, 'secondary');
   @media all and (min-width: $media-tablet) {
-    border-bottom: 0px;
+    border-bottom: 0;
   }
 }
 
@@ -134,6 +134,7 @@
   margin-right: 0;
 }
 
+
 .box-numbers {
   flex-direction: row;
 }
@@ -153,6 +154,7 @@
   border: 1px solid map-get($color, 'primary');
   transition: background-color .3s;
   border-right: 1px solid map-get($color, 'light');
+  cursor: pointer;
   &:hover {
     background-color: map-get($color, 'secondary-dark');
     border: 1px solid map-get($color, 'primary');

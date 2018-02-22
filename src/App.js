@@ -1,53 +1,50 @@
 import React, { Component } from 'react';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import GoogleMapReact from 'google-map-react';
-import Card from './components/Card'
 import Marker from './components/Marker';
 import IconMarker from './components/Icons/IconMarker';
 import Footer from './components/Footer';
-import Spinner from './components/Icons/Spinner';
 import Menu from './components/Menu';
 import StickyMenu from './components/StickyMenu';
 import EmptyState from './components/EmptyState';
 import Hero from './components/Hero';
+import AllCards from './components/AllCards';
 import PropTypes from 'prop-types';
-import Team from './components/Team';
 
-
-const radius = 500;
-const idClient = "WEB.SERV.redlim@gmail.com";
-const passKey = "FB5B0E17-88EB-407E-A222-97F0916E0C41";
-const urlGetStopsFromXY = "https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetStopsFromXY.php";
+const madridCoors= {
+  lat: 40.41,
+  lng: -3.70
+};
 
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       stopsBus: [],
-      fetch: false,
+      datafetch: false,
       loading: false,
       currentPage: 1,
       elementsPerPage: 6,
-      center: {lat:40.41, lng:-3.70},
+      center: madridCoors,
       zoom: 15,
       hidden: true,
       selectedStop: null,
-      currentCard: null
+      currentCard: null,
+      street : '',
+      latSearch : '',
+      lngSearch: ''
     };
-    this.handleClickPagination = this.handleClickPagination.bind(this);
-    this.handleClickBilbao=this.handleClickBilbao.bind(this);
-    this.handleClickCocktail=this.handleClickCocktail.bind(this);
-    this.handleClickCampo=this.handleClickCampo.bind(this);
-    this.fetchInfoBuses=this.fetchInfoBuses.bind(this);
-    this.setCurrentStop=this.setCurrentStop.bind(this);
+    this.onChange = (street) => this.setState({ street });
   }
 
-  setCurrentStop(stop) {
+  setCurrentStop = stopId => {
     this.setState({
-      selectedStop: stop
+      selectedStop: stopId
     });
   }
 
-  handleClickPagination(event) {
+  handleClickPagination = event => {
     const numberPagination = document.querySelectorAll(".number-pagination");
     this.setState({
       currentPage: Number(event.target.id)
@@ -58,7 +55,12 @@ class App extends Component {
     }
   }
 
-  fetchInfoBuses(latitude,longitude) {
+  fetchInfoBuses = (latitude,longitude) => {
+    const radius = 500;
+    const idClient = "WEB.SERV.redlim@gmail.com";
+    const passKey = "FB5B0E17-88EB-407E-A222-97F0916E0C41";
+    const urlGetStopsFromXY = "https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetStopsFromXY.php";
+
     fetch(urlGetStopsFromXY, {
       method: "POST",
       headers: {
@@ -72,14 +74,14 @@ class App extends Component {
       this.setState({
         stopsBus: data.stop || [],
         loading : true,
-        fetch: true,
+        datafetch: true,
         hidden: false,
-        selectedStop: data.stop ? data.stop[0] : null
+        selectedStop: data.stop ? data.stop[0].stopId : null
       });
     })
   }
 
-  handleClickBilbao(event){
+  handleClickBilbao = event => {
     let latitudeBilbao = 40.429154;
     let longitudeBilbao = -3.701952;
     this.fetchInfoBuses(latitudeBilbao,longitudeBilbao);
@@ -88,12 +90,15 @@ class App extends Component {
       zoom: 15,
       hidden: false,
     });
-    return <GoogleMapReact
-    center={this.state.center}
-    zoom={this.state.zoom}/>
+    return (
+      <GoogleMapReact
+        center={this.state.center}
+        zoom={this.state.zoom}
+      />
+    )
   }
 
-  handleClickCocktail(event){
+  handleClickCocktail = event => {
     let latitudeCocktail = 40.454146;
     let longitudeCocktail = -3.700346;
     this.fetchInfoBuses(latitudeCocktail,longitudeCocktail);
@@ -102,12 +107,15 @@ class App extends Component {
       zoom: 15,
       hidden: false
     });
-    return <GoogleMapReact
-    center={this.state.center}
-    zoom={this.state.zoom}/>
+    return (
+      <GoogleMapReact
+      center={this.state.center}
+      zoom={this.state.zoom}
+      />
+    )
   }
 
-  handleClickCampo(event){
+  handleClickCampo = event => {
     let latitudeCampo = 40.640772;
     let longitudeCampo = -3.909992;
     this.fetchInfoBuses(latitudeCampo,longitudeCampo);
@@ -116,135 +124,151 @@ class App extends Component {
       zoom: 15,
       hidden: false
     });
-    return <GoogleMapReact
-    center={this.state.center}
-    zoom={this.state.zoom}/>
-
+    return (
+      <GoogleMapReact
+        center={this.state.center}
+        zoom={this.state.zoom}
+      />
+    )
   }
 
-  render() {
+  handleClickShowSearcher = () => {
+    this.setState({
+      hidden : !this.state.hidden,
+    });
+  }
 
-    const hiddenResults = this.state.hidden ? 'hidden' : '';
-    const stopsBus = this.state.stopsBus;
-    const selectedStop= this.state.selectedStop;
+  handleClickStreetSearcher = (event) => {
+    event.preventDefault()
+
+    geocodeByAddress(this.state.street)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => {
+        this.setState({
+          latSearch : latLng.lat,
+          lngSearch : latLng.lng
+        })
+
+      let latitudSearch = this.state.latSearch;
+      let longitudeSearch = this.state.lngSearch;
+      this.fetchInfoBuses(latitudSearch,longitudeSearch);
+      this.setState({
+        center:{lat:latitudSearch, lng:longitudeSearch},
+        zoom: 15,
+        hidden: false
+      });
+      })
+
+      .catch(error => console.error('Error', error));
+  }
+
+
+  render() {
+    const {stopsBus, selectedStop} = this.state;
     let markers= null;
     let noResults= null;
+    const showInput = this.state.hidden ? 'hidden' : '';
+    const inputProps = {
+      value: this.state.street,
+      onChange: this.onChange,
+      placeholder: 'Nombre de la calle'
+      }
 
-
-    if (this.state.fetch === false) {
-      // eslint-disable-next-line
-        null;
-    } else if (this.state.fetch === true && stopsBus.length > 0){
-      markers= stopsBus.map((stop, index)=> {
-        return (
-        <Marker
-        lng={stop.longitude}
-        lat={stop.latitude}
-        key={index}
-        selected = { stop === selectedStop }
-        />
-        )
-      });
-    } else {
-     noResults= <EmptyState/>
+    const cssClasses = {
+      input : "input-searcher"
     }
 
-
-    // Pagination
-    const { currentPage, elementsPerPage } = this.state;
-    const indexOfLastAll = currentPage * elementsPerPage;
-    const indexOfFirstAll = indexOfLastAll - elementsPerPage;
-    const currentElements = stopsBus.slice(indexOfFirstAll, indexOfLastAll);
-    const renderElementsPage = currentElements.map((stop, index) => {
-      return (
-        <Card
-        stop={stop}
-        key={index}
-        setCurrentStop={this.setCurrentStop}
-        onClick={this.handleActiveClassCard}
-        selected = {stop === selectedStop}
-        />
-      )
-    });
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(stopsBus.length / elementsPerPage); i++) {
-      pageNumbers.push(i);
+    if(this.state.datafetch) {
+      if (stopsBus.length > 0) {
+        markers= stopsBus.map((stop, index) => {
+          return (
+            <Marker
+              lng={stop.longitude}
+              lat={stop.latitude}
+              key={index}
+              stop={stop}
+              selected = { stop.stopId === selectedStop }
+              stopId={stop.stopId}
+              setCurrentStop={this.setCurrentStop}
+            />
+          )
+        });
+      } else {
+        noResults= <EmptyState/>
+      }
     }
-    const renderPageNumbers = pageNumbers.map(number => {
-      return (
-        <li key={number}>
-          <button onClick={this.handleClickPagination} className={"number-pagination button-light-font " + (number === 1 ? 'active' : "")} id={number} type="button" name="button">
-            {number}
-          </button>
-        </li>
-
-      );
-    });
 
     return (
       <div>
-      <Menu />
-      <Hero />
-      <StickyMenu />
+      <Menu/>
+      <Hero/>
+      <StickyMenu/>
 
       <main className= "home" id="intro">
-      <div className= "intro">
-      <IconMarker className="marker-icon-intro" />
-      <h2 className= "home-title introduction-title center">Bienvenido a BusApp</h2>
-      <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
 
-      <div className= "home-menu-buttons">
-      <a href="#map"><button onClick={this.handleClickBilbao} className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
-      <a href="#map"><button onClick={this.handleClickCocktail} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
-      <a href="#map"><button onClick={this.handleClickCampo} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
+        <div className= "intro">
+            <IconMarker className="marker-icon-intro" />
+            <h2 className= "home-title introduction-title center">Bienvenido a BusApp</h2>
+            <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
+
+            <div className= "home-menu-buttons">
+              <a href="#map"><button onClick={this.handleClickBilbao} className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
+              <a href="#map"><button onClick={this.handleClickCocktail} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
+              <a href="#map"><button onClick={this.handleClickCampo} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
+            </div>
+
+            <div className="code-wrapper">
+              <button className="link-goUp no-style-button no-box-button center" onClick={this.handleClickShowSearcher}>Buscar por dirección</button>
+
+              <form className={`${showInput} code-searcher`} onSubmit={this.handleClickStreetSearcher}>
+                <PlacesAutocomplete inputProps={inputProps} classNames={cssClasses} />
+                <button className="home-button main-button button-light-font" type="submit">Buscar</button>
+              </form>
+            </div>
+        </div>
+
+        <div className="map" id="map">
+          <GoogleMapReact
+            defaultCenter={this.props.center}
+            defaultZoom={this.props.zoom}
+            center={this.state.center}
+            zoom={this.state.zoom}
+            bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
+          >
+            {markers}
+          </GoogleMapReact>
+        </div>
+
+        <AllCards
+          loading={this.state.loading}
+          hidden={this.state.hidden}
+          noResults={noResults}
+          currentPage={this.state.currentPage}
+          elementsPerPage={this.state.elementsPerPage}
+          stopsBus={this.state.stopsBus}
+          selectedStop={this.state.selectedStop}
+          setCurrentStop={this.setCurrentStop}
+          onClick={this.handleClickPagination}
+        />
+
+        <div className="box-goUp">
+          <a className="link-goUp" href="#intro">Volver arriba</a>
+        </div>
+
+      </main>
+
+      <Footer/>
       </div>
-
-      </div>
-
-      <div className="map" id="map">
-      <GoogleMapReact
-      defaultCenter={this.props.center}
-      defaultZoom={this.props.zoom}
-      center={this.state.center}
-      zoom={this.state.zoom}
-      bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
-      >
-      {markers}
-    </GoogleMapReact>
-    </div>
-
-    <section className={`section-cards ${hiddenResults}`}>
-    <h3 className="m-top-none section-title-font section-title">Resultados</h3>
-    {noResults}
-    { this.state.loading ? null : <Spinner />  }
-    <div className="container-cards">
-    {renderElementsPage}
-    </div>
-    <ul id="page-numbers flex" className="list-pagination">
-    {renderPageNumbers}
-    </ul>
-
-    </section>
-    <div className="box-goUp">
-    <a className="link-goUp" href="#intro">Volver arriba</a>
-    </div>
-
-    </main>
-
-    <Team />
-
-    <Footer />
-    </div>
-  );
-}
+    );
+  }
 }
 
-App.defaultProps={
-  center: {lat:40.41, lng:-3.70},
+App.defaultProps= {
+  center: madridCoors,
   zoom: 12
 };
 
-Card.propTypes = {
+GoogleMapReact.propTypes = {
   center: PropTypes.object,
   zoom: PropTypes.number
 };

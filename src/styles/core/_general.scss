@@ -1,5 +1,5 @@
 * {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body,html {
@@ -23,6 +23,11 @@ ul {
 .hidden {
   display: none;
 }
+
+.block {
+  display: block;
+}
+
 li {
   list-style-type: none;
 }
