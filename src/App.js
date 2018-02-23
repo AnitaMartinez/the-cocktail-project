@@ -50,6 +50,10 @@ class App extends Component {
     const idClient = "WEB.SERV.redlim@gmail.com";
     const passKey = "FB5B0E17-88EB-407E-A222-97F0916E0C41";
     const urlGetStopsFromXY = "https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetStopsFromXY.php";
+    this.setState({
+      loading : false,
+      stopsBus: [],
+    });
 
     fetch(urlGetStopsFromXY, {
       method: "POST",

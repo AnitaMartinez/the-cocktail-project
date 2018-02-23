@@ -28,7 +28,7 @@ class Home extends Component {
     let markers= null;
     let noResults= null;
     if(this.props.datafetch) {
-      if (stopsBus.length > 0) {
+      if (stopsBus.length > 0 || !this.props.loading) {
         markers= stopsBus.map((stop, index) => {
           return (
             <Marker
@@ -56,9 +56,9 @@ class Home extends Component {
         <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
 
         <div className= "home-menu-buttons">
-          <HashLink to="/#map"><button onClick={() =>this.props.handleClick(40.429154,-3.701952)}  className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></HashLink>
-          <HashLink to="/#map"><button onClick={() =>this.props.handleClick(40.454146,-3.700346)} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></HashLink>
-          <HashLink to="/#map"><button onClick={() =>this.props.handleClick(40.640772,-3.909992)} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></HashLink>
+          <HashLink to="/#map" replace><button onClick={() =>this.props.handleClick(40.429154,-3.701952)}  className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></HashLink>
+          <HashLink to="/#map" replace><button onClick={() =>this.props.handleClick(40.454146,-3.700346)} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></HashLink>
+          <HashLink to="/#map" replace><button onClick={() =>this.props.handleClick(40.640772,-3.909992)} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></HashLink>
         </div>
 
         <div className="code-wrapper">
