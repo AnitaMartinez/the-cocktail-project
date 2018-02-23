@@ -53,16 +53,6 @@ class App extends Component {
     });
   }
 
-  handleClickPagination = event => {
-    const numberPagination = document.querySelectorAll(".number-pagination");
-    this.setState({
-      currentPage: Number(event.target.id)
-    });
-    for(let i = 0; i < numberPagination.length; i++) {
-      numberPagination[i].classList.remove('active');
-      event.target.classList.add('active');
-    }
-  }
 
   fetchInfoBuses = (latitude,longitude) => {
     const radius = 500;
@@ -76,10 +66,10 @@ class App extends Component {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       body:
-      "idClient="+idClient+"&passKey="+passKey+"&latitude="+latitude+"&longitude="+longitude+"&Radius="+radius+"&statistics=&cultureInfo=",
-    }).then((response) => {
+      "idClient="+idClient+"&passKey="+passKey+"&latitude="+latitude+"&longitude="+longitude+"&Radius="+radius,
+    }).then(response => {
       return response.json();
-    }).then((data) => {
+    }).then(data => {
       this.setState({
         stopsBus: data.stop || [],
         loading : true,
@@ -90,12 +80,10 @@ class App extends Component {
     })
   }
 
-  handleClickBilbao = event => {
-    let latitudeBilbao = 40.429154;
-    let longitudeBilbao = -3.701952;
-    this.fetchInfoBuses(latitudeBilbao,longitudeBilbao);
+  handleClickCoord = (latitudeCoord, longitudeCoord) => {
+    this.fetchInfoBuses(latitudeCoord,longitudeCoord);
     this.setState({
-      center:{lat:latitudeBilbao, lng:longitudeBilbao},
+      center:{lat:latitudeCoord, lng:longitudeCoord},
       zoom: 15,
       hidden: false,
     });
@@ -107,39 +95,6 @@ class App extends Component {
     )
   }
 
-  handleClickCocktail = event => {
-    let latitudeCocktail = 40.454146;
-    let longitudeCocktail = -3.700346;
-    this.fetchInfoBuses(latitudeCocktail,longitudeCocktail);
-    this.setState({
-      center:{lat:latitudeCocktail, lng:longitudeCocktail},
-      zoom: 15,
-      hidden: false
-    });
-    return (
-      <GoogleMapReact
-      center={this.state.center}
-      zoom={this.state.zoom}
-      />
-    )
-  }
-
-  handleClickCampo = event => {
-    let latitudeCampo = 40.640772;
-    let longitudeCampo = -3.909992;
-    this.fetchInfoBuses(latitudeCampo,longitudeCampo);
-    this.setState({
-      center:{lat:latitudeCampo, lng:longitudeCampo},
-      zoom: 15,
-      hidden: false
-    });
-    return (
-      <GoogleMapReact
-        center={this.state.center}
-        zoom={this.state.zoom}
-      />
-    )
-  }
 
   handleClickShowSearcher = () => {
     this.setState({
@@ -151,12 +106,12 @@ class App extends Component {
     event.preventDefault()
 
     geocodeByAddress(this.state.street)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => {
-        this.setState({
-          latSearch : latLng.lat,
-          lngSearch : latLng.lng
-        })
+    .then(results => getLatLng(results[0]))
+    .then(latLng => {
+      this.setState({
+        latSearch : latLng.lat,
+        lngSearch : latLng.lng
+      })
 
       let latitudSearch = this.state.latSearch;
       let longitudeSearch = this.state.lngSearch;
@@ -166,7 +121,7 @@ class App extends Component {
         zoom: 15,
         hidden: false
       });
-      })
+    })
 
       .catch(error => console.error('Error', error));
   }
@@ -220,10 +175,11 @@ class App extends Component {
             <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
 
             <div className= "home-menu-buttons">
-              <a href="#map"><button onClick={this.handleClickBilbao} className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
-              <a href="#map"><button onClick={this.handleClickCocktail} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
-              <a href="#map"><button onClick={this.handleClickCampo} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
+              <a href="#map"><button onClick={() =>this.handleClickCoord(40.429154,-3.701952)} className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
+              <a href="#map"><button onClick={() =>this.handleClickCoord(40.454146,-3.700346)} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
+              <a href="#map"><button onClick={() =>this.handleClickCoord(40.640772,-3.909992)} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
             </div>
+
 
             <div className="code-wrapper">
               <button className="link-goUp no-style-button no-box-button center" onClick={this.handleClickShowSearcher}>Buscar por dirección</button>
