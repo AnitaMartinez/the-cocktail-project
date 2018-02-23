@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import GoogleMapReact from 'google-map-react';
 import Marker from './components/Marker';
-import IconMarker from './components/Icons/IconMarker';
 import Footer from './components/Footer';
 import Menu from './components/Menu';
 import StickyMenu from './components/StickyMenu';
@@ -12,6 +11,7 @@ import AllCards from './components/AllCards';
 import PropTypes from 'prop-types';
 import Team from './components/Team';
 import About from './components/About';
+import Home from './components/Home';
 
 
 const madridCoors= {
@@ -175,16 +175,8 @@ class App extends Component {
     const {stopsBus, selectedStop} = this.state;
     let markers= null;
     let noResults= null;
-    const showInput = this.state.hidden ? 'hidden' : '';
-    const inputProps = {
-      value: this.state.street,
-      onChange: this.onChange,
-      placeholder: 'Nombre de la calle'
-      }
 
-    const cssClasses = {
-      input : "input-searcher"
-    }
+    //const showInput = this.state.hidden ? 'hidden' : '';
 
     if(this.state.datafetch) {
       if (stopsBus.length > 0) {
@@ -215,24 +207,19 @@ class App extends Component {
       <main className= "home" id="intro">
 
         <div className= "intro">
-            <IconMarker className="marker-icon-intro" />
-            <h2 className= "home-title introduction-title center">Bienvenido a BusApp</h2>
-            <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
 
-            <div className= "home-menu-buttons">
-              <a href="#map"><button onClick={this.handleClickBilbao} className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
-              <a href="#map"><button onClick={this.handleClickCocktail} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
-              <a href="#map"><button onClick={this.handleClickCampo} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
-            </div>
+            <Home
+              handleClickBilbao= {this.handleClickBilbao}
+              handleClickCocktail= {this.handleClickCocktail}
+              handleClickCampo= {this.handleClickCampo}
+              handleClickShowSearcher= {this.handleClickShowSearcher}
+              handleClickStreetSearcher= {this.handleClickStreetSearcher}
+              hidden= {this.state.hidden}
+              street= {this.state.street}
+              onChange = {this.onChange}
+            />
 
-            <div className="code-wrapper">
-              <button className="link-goUp no-style-button no-box-button center" onClick={this.handleClickShowSearcher}>Buscar por dirección</button>
 
-              <form className={`${showInput} code-searcher`} onSubmit={this.handleClickStreetSearcher}>
-                <PlacesAutocomplete inputProps={inputProps} classNames={cssClasses} />
-                <button className="home-button main-button button-light-font" type="submit">Buscar</button>
-              </form>
-            </div>
         </div>
 
         <div className="map" id="map">
