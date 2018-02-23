@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import MenuButton from './Icons/MenuButton';
 import CloseButton from './Icons/CloseButton';
 
@@ -31,15 +32,15 @@ class Menu extends Component {
           <ul className="list-style">
 
             <li className="background-menu-link">
-              <Link to='/' className="menu-link uppercase" onClick={this.handleClick}>Busca tu parada</Link>
+              <HashLink to='/#intro' className="menu-link uppercase" onClick={this.handleClick}>Busca tu parada</HashLink>
             </li>
 
             <li className="background-menu-link">
-              <Link to='/team' className="menu-link uppercase" onClick={this.handleClick}>Nuestro equipo</Link>
+              <HashLink to='/team#team' replace className="menu-link uppercase" onClick={this.handleClick}>Nuestro equipo</HashLink>
             </li>
 
             <li className="background-menu-link">
-              <Link to='/about' className="menu-link uppercase" onClick={this.handleClick}>Sobre este proyecto</Link>
+              <HashLink to='/about#about' replace className="menu-link uppercase" onClick={this.handleClick}>Sobre este proyecto</HashLink>
             </li>
 
             <button aria-label="Cerrar" className="no-style-button"><CloseButton className="close-button" onClick={this.handleClick} /></button>

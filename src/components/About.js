@@ -6,7 +6,7 @@ class About extends Component {
   render(){
     return(
       <div>
-      <div className= "about-intro">
+      <div className= "about-intro" id="about">
       <h1 className= "about-title section-title-font about-extra-color-font center">Sobre este proyecto</h1>
 
       <p className="about-text introduction-body center">BusApp es un proyecto académico realizado por encargo para la agencia The Cocktail cuya finalidad era realizar una landing integrada con la API de Autobuses de la EMT, en la que puedes

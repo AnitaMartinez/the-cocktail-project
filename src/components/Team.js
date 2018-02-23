@@ -6,7 +6,7 @@ import profilePic from '../images/teampic2.jpg';
 class Team extends Component {
   render() {
     return(
-      <div className="teamWrapper">
+      <div className="teamWrapper" id="team"> 
         <h1 className="section-title-font section-title team-title">Nuestro Equipo</h1>
        <div style={{backgroundImage: `url(${profilePic})`}} className="teamImage">
           <div className="tooltipcontainer person1"> Rita
