@@ -65,6 +65,7 @@
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  z-index: 1;
 
   @media all and (min-width: $media-tablet) {
     flex-direction: row;

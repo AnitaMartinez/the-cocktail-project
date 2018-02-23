@@ -175,7 +175,7 @@ class App extends Component {
       }
 
     const cssClasses = {
-      input : "input-searcher"
+      input : "input-searcher",
     }
 
     if(this.state.datafetch) {
@@ -221,7 +221,7 @@ class App extends Component {
               <button className="link-goUp no-style-button no-box-button center" onClick={this.handleClickShowSearcher}>Buscar por dirección</button>
 
               <form className={`${showInput} code-searcher`} onSubmit={this.handleClickStreetSearcher}>
-                <PlacesAutocomplete inputProps={inputProps} classNames={cssClasses} />
+                <PlacesAutocomplete inputProps={inputProps} classNames={cssClasses} onEnterKeyDown={this.handleClickStreetSearcher}/>
                 <button className="home-button main-button button-light-font" type="submit">Buscar</button>
               </form>
             </div>

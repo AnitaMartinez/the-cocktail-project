@@ -7,7 +7,7 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 2;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -468,7 +468,7 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
-  z-index: 2;
+  z-index: 3;
   align-content: center;
   display: flex;
   justify-content: center;
@@ -488,7 +488,7 @@ body {
   transition: left ease 0.8s; }
   .menu-visible .background-menu {
     left: 0;
-    z-index: 3; }
+    z-index: 4; }
 
 .menu-visible {
   position: fixed;
@@ -497,7 +497,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   height: 100vh;
   width: 100%;
-  z-index: 2; }
+  z-index: 3; }
 
 .close-button {
   fill: #fff;
@@ -628,7 +628,8 @@ body {
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  z-index: 1; }
   @media all and (min-width: 768px) {
     .code-searcher {
       flex-direction: row;
