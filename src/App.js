@@ -8,10 +8,11 @@ import Menu from './components/Menu';
 import StickyMenu from './components/StickyMenu';
 import EmptyState from './components/EmptyState';
 import Hero from './components/Hero';
-import Team from './components/Team';
-
 import AllCards from './components/AllCards';
 import PropTypes from 'prop-types';
+import Team from './components/Team';
+import About from './components/About';
+
 
 const madridCoors= {
   lat: 40.41,
@@ -256,9 +257,10 @@ class App extends Component {
         <div className="box-goUp">
           <a className="link-goUp" href="#intro">Volver arriba</a>
         </div>
-
       </main>
+
       <Team />
+      <About/>
       <Footer/>
       </div>
     );
