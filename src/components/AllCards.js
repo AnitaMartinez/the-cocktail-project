@@ -5,14 +5,20 @@ import PropTypes from 'prop-types';
 
 class AllCards extends Component {
 
+  handleClickPagination = event => {
+    const numberPagination = document.querySelectorAll(".number-pagination");
+    this.props.setCurrentPage(Number(event.target.id));
+    for(let i = 0; i < numberPagination.length; i++) {
+      numberPagination[i].classList.remove('active');
+      event.target.classList.add('active');
+    }
+  }
+
   render(){
-    const stopsBus = this.props.stopsBus;
-    const selectedStop= this.props.selectedStop;
+    const { currentPage, elementsPerPage, stopsBus, selectedStop } = this.props
     const hiddenResults = this.props.hidden ? 'hidden' : '';
 
     // Pagination
-    const currentPage = this.props.currentPage
-    const elementsPerPage = this.props.elementsPerPage
     const indexOfLastAll = currentPage * elementsPerPage;
     const indexOfFirstAll = indexOfLastAll - elementsPerPage;
     const currentElements = stopsBus.slice(indexOfFirstAll, indexOfLastAll);
@@ -33,7 +39,7 @@ class AllCards extends Component {
     const renderPageNumbers = pageNumbers.map(number => {
       return (
         <li key={number}>
-          <button onClick={this.props.onClick} className={"number-pagination button-light-font " + (number === 1 ? 'active' : "")} id={number} type="button" name="button">
+          <button onClick={this.handleClickPagination} className={"number-pagination button-light-font " + (number === 1 ? 'active' : "")} id={number} type="button" name="button">
             {number}
           </button>
         </li>

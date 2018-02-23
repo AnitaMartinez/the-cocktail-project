@@ -41,6 +41,12 @@ class App extends Component {
     this.onChange = (street) => this.setState({ street });
   }
 
+  setCurrentPage = numberpage => {
+    this.setState({
+      currentPage: numberpage
+    });
+  }
+
   setCurrentStop = stopId => {
     this.setState({
       selectedStop: stopId
@@ -165,7 +171,6 @@ class App extends Component {
       .catch(error => console.error('Error', error));
   }
 
-
   render() {
     const {stopsBus, selectedStop} = this.state;
     let markers= null;
@@ -251,7 +256,7 @@ class App extends Component {
           stopsBus={this.state.stopsBus}
           selectedStop={this.state.selectedStop}
           setCurrentStop={this.setCurrentStop}
-          onClick={this.handleClickPagination}
+          setCurrentPage= {this.setCurrentPage}
         />
 
         <div className="box-goUp">
