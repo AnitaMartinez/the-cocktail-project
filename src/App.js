@@ -56,6 +56,7 @@ class App extends Component {
     }
   }
 
+
   fetchInfoBuses = (latitude,longitude) => {
     const radius = 500;
     const idClient = "WEB.SERV.redlim@gmail.com";
