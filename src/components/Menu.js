@@ -34,11 +34,11 @@ class Menu extends Component {
             </li>
 
             <li className="background-menu-link">
-              <a className="menu-link uppercase">Mi grupo</a>
+              <a className="menu-link uppercase">Nuestro equipo</a>
             </li>
 
             <li className="background-menu-link">
-              <a className="menu-link uppercase">About us</a>
+              <a className="menu-link uppercase">Sobre este proyecto</a>
             </li>
 
             <button aria-label="Cerrar" className="no-style-button"><CloseButton className="close-button" onClick={this.handleClick} /></button>

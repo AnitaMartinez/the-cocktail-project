@@ -257,10 +257,10 @@ class App extends Component {
         <div className="box-goUp">
           <a className="link-goUp" href="#intro">Volver arriba</a>
         </div>
-        <About/>
-
       </main>
 
+      <Team />
+      <About/>
       <Footer/>
       </div>
     );

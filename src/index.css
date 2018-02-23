@@ -311,6 +311,9 @@ body {
       font-size: 16px;
       font-weight: 600; } }
 
+.about-extra-color-font {
+  color: #e0634b; }
+
 .number-card-font {
   font-family: "Playfair Display", serif;
   font-size: 16px;
@@ -662,37 +665,134 @@ body {
       margin-right: 20px;
       margin-bottom: 0; } }
 
-.teamWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around; }
-
 .teamImage {
-  width: 40%;
-  height: 30vh;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: 5% auto;
-  position: relative; }
-
-.imgDescription {
-  position: absolute;
-  top: 80px;
-  bottom: 0;
   width: 100%;
-  background: rgba(45, 96, 136, 0.72);
-  color: #fff;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity .2s, visibility .2s;
-  display: flex;
-  text-align: center;
-  padding-top: 10px; }
+  height: 80vh;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  @media all and (min-width: 768px) {
+    .teamImage {
+      margin: 5% auto;
+      width: 70%;
+      height: 100vh;
+      background-size: cover;
+      position: relative; } }
 
-.teamImage:hover .imgDescription {
-  visibility: visible;
+.team-title {
+  padding-top: 10%;
+  text-align: center;
+  color: #e0634b; }
+  @media all and (min-width: 768px) {
+    .team-title {
+      padding-top: 5%; } }
+
+.tooltipcontainer {
+  display: none; }
+  @media all and (min-width: 768px) {
+    .tooltipcontainer {
+      display: block;
+      color: #fff;
+      font-weight: 600;
+      position: absolute;
+      font-size: 28px; } }
+  @media all and (min-width: 1024px) {
+    .tooltipcontainer {
+      font-size: 40px; } }
+
+@media all and (min-width: 768px) {
+  .tooltipcontainer .tooltiptext {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    background-color: rgba(235, 86, 63, 0.6);
+    transition: opacity 0.53s linear;
+    border-radius: 3px;
+    padding-left: 5px;
+    position: absolute;
+    top: 150%;
+    left: 5%;
+    z-index: 1;
+    font-size: 14px;
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    width: 150px;
+    height: 50px; } }
+
+@media all and (min-width: 1024px) {
+  .tooltipcontainer .tooltiptext {
+    font-size: 24px;
+    width: 200px;
+    height: 70px; } }
+
+.tooltipcontainer:hover .tooltiptext {
   opacity: 1; }
+
+@media all and (min-width: 768px) {
+  .person1 {
+    top: 65%;
+    left: 15%; } }
+
+@media all and (min-width: 1024px) {
+  .person1 {
+    top: 75%;
+    left: 18%; } }
+
+@media all and (min-width: 768px) {
+  .person2 {
+    top: 60%;
+    left: 40%; } }
+
+@media all and (min-width: 1024px) {
+  .person2 {
+    top: 70%;
+    left: 40%; } }
+
+@media all and (min-width: 768px) {
+  .person3 {
+    top: 55%;
+    left: 65%; } }
+
+@media all and (min-width: 1024px) {
+  .person3 {
+    top: 65%;
+    left: 60%; } }
+
+@media all and (min-width: 768px) {
+  .person4 {
+    top: 70%;
+    left: 70%; } }
+
+@media all and (min-width: 1024px) {
+  .person4 {
+    top: 75%;
+    left: 70%; } }
+
+.team-mobile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  color: #fff;
+  background-color: #e0634b; }
+  @media all and (min-width: 768px) {
+    .team-mobile {
+      display: none; } }
+
+.team-mobile p {
+  font-size: 16px;
+  margin-top: 0; }
+
+.team-mobile h4 {
+  margin-bottom: 10px;
+  font-size: 20px; }
+
+.team-mobile div {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 .about-intro {
   display: flex;
@@ -727,7 +827,9 @@ body {
 
 .about-text {
   margin-top: 0px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  padding-right: 15px;
+  padding-left: 15px; }
 
 @media all and (min-width: 768px) {
   .about-icons-group {
@@ -754,7 +856,8 @@ body {
         transform: scale(1.2);
         border-width: 2px;
         transition: all 500ms ease-in;
-        margin: 10px 10px; } }
+        margin: 10px 10px;
+        box-shadow: 4px 6px 8px 1px rgba(0, 0, 0, 0.19); } }
   @media all and (min-width: 1024px) {
     .about-icon-text {
       margin-left: 20px;

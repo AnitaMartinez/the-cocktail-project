@@ -1,38 +1,143 @@
-.teamWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
 .teamImage {
-  width: 40%;
-  height: 30vh;
-  background-size: contain;
+  width: 100%;
+  height: 80vh;
+  background-position: center 35%;
   background-repeat: no-repeat;
-  background-position: center;
-  margin: 5% auto;
-  position: relative;
+  background-size: cover;
+  @media all and (min-width: $media-tablet) {
+    margin: 5% auto;
+    width: 70%;
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+  }
+}
+
+.team-title {
+  padding-top: 10%;
+  text-align: center;
+  color:map-get($color, 'primary');
+  @media all and (min-width: $media-tablet) {
+    padding-top: 5%;
+  }
 }
 
 
 
-.imgDescription {
-position: absolute;
-top: 80px;
-bottom: 0;
-width: 100%;
-background: rgba(45,96,136, 0.72);
-color: $font-color-light;
-visibility: hidden;
-opacity: 0;
-transition: opacity .2s, visibility .2s;
-display: flex;
-text-align: center;
-padding-top: 10px;
+.tooltipcontainer {
+   display: none;
+  @media all and (min-width: $media-tablet) {
+    display: block;
+    color: $font-color-light;
+    font-weight: $font-weight-semi-bold;
+    position: absolute;
+    font-size: $font-size-md;
+  }
+  @media all and (min-width: $media-desktop) {
+    font-size: $font-size-ml;
+  }
 }
 
 
-.teamImage:hover .imgDescription {
-visibility: visible;
-opacity: 1;
+.tooltipcontainer .tooltiptext {
+  @media all and (min-width: $media-tablet) {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    background-color: rgba(235,86,63, 0.6);
+    transition: opacity 0.53s linear;
+    border-radius: 3px;
+    padding-left: 5px;
+    position: absolute;
+    top: 150%;
+    left: 5%;
+    z-index: 1;
+    font-size: $font-size-xs;
+    width: 100px;
+    height: 40px;
+    font-size: $font-size-m;
+    width: 150px;
+    height: 50px;
+  }
+  @media all and (min-width: $media-desktop) {
+    font-size: $font-size-mm;
+    width: 200px;
+    height: 70px;
+  }
+}
+
+.tooltipcontainer:hover .tooltiptext {
+  opacity: 1;
+}
+
+.person1 {
+  @media all and (min-width: $media-tablet) {
+    top: 65%;
+    left: 15%;
+  }
+  @media all and (min-width: $media-desktop) {
+    top: 75%;
+    left: 18%;
+  }
+}
+
+.person2 {
+  @media all and (min-width: $media-tablet) {
+    top: 60%;
+    left: 40%;
+  }
+  @media all and (min-width: $media-desktop) {
+    top: 70%;
+    left: 40%;
+  }
+}
+
+.person3 {
+  @media all and (min-width: $media-tablet) {
+    top: 55%;
+    left: 65%;
+  }
+  @media all and (min-width: $media-desktop) {
+    top: 65%;
+    left: 60%;
+  }
+}
+
+.person4 {
+  @media all and (min-width: $media-tablet) {
+    top: 70%;
+    left: 70%;
+  }
+  @media all and (min-width: $media-desktop) {
+    top: 75%;
+    left: 70%;
+  }
+}
+.team-mobile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  color: $font-color-light;
+  background-color: map-get($color, 'primary');
+  @media all and (min-width: $media-tablet) {
+   display: none;
+  }
+}
+
+.team-mobile p {
+  font-size: $font-size-s;
+  margin-top: 0;
+}
+
+.team-mobile h4 {
+  margin-bottom: 10px;
+  font-size: $font-size-mn;
+}
+
+.team-mobile div {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
 }
