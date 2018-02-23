@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import  { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import GoogleMapReact from 'google-map-react';
-import Marker from './components/Marker';
 import Footer from './components/Footer';
 import Menu from './components/Menu';
 import StickyMenu from './components/StickyMenu';
-import EmptyState from './components/EmptyState';
 import Hero from './components/Hero';
-import AllCards from './components/AllCards';
 import PropTypes from 'prop-types';
 import Team from './components/Team';
 import About from './components/About';
@@ -127,39 +124,13 @@ class App extends Component {
   }
 
   render() {
-    const {stopsBus, selectedStop} = this.state;
-    let markers= null;
-    let noResults= null;
 
-    if(this.state.datafetch) {
-      if (stopsBus.length > 0) {
-        markers= stopsBus.map((stop, index) => {
-          return (
-            <Marker
-              lng={stop.longitude}
-              lat={stop.latitude}
-              key={index}
-              stop={stop}
-              selected = { stop.stopId === selectedStop }
-              stopId={stop.stopId}
-              setCurrentStop={this.setCurrentStop}
-            />
-          )
-        });
-      } else {
-        noResults= <EmptyState/>
-      }
-    }
 
     return (
       <div>
       <Menu/>
       <Hero/>
       <StickyMenu/>
-
-      <main className= "home" id="intro">
-
-
 
             <Home
               handleClickBilbao= {this.handleClickCoord}
@@ -178,20 +149,12 @@ class App extends Component {
               datafetch = {this.state.datafetch}
               setCurrentStop = {this.setCurrentStop}
               loading= {this.state.loading}
-              hidden= {this.state.hidden}
               currentPage= {this.state.currentPage}
               elementsPerPage= {this.state.elementsPerPage}
-              stopsBus= {this.state.stopsBus}
               selectedStop= {this.state.selectedStop}
               setCurrentPage= {this.setCurrentPage}
             />
 
-
-        
-        <div className="box-goUp">
-          <a className="link-goUp" href="#intro">Volver arriba</a>
-        </div>
-      </main>
 
       <Team />
       <About/>
