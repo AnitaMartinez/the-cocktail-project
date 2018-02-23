@@ -26,9 +26,9 @@ class Home extends Component {
       <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
 
       <div className= "home-menu-buttons">
-        <a href="#map"><button onClick={this.props.handleClickBilbao} className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
-        <a href="#map"><button onClick={this.props.handleClickCocktail} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
-        <a href="#map"><button onClick={this.props.handleClickCampo} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
+        <a href="#map"><button onClick={() =>this.props.handleClickBilbao(40.429154,-3.701952)}  className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
+        <a href="#map"><button onClick={() =>this.props.handleClickCocktail(40.454146,-3.700346)} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
+        <a href="#map"><button onClick={() =>this.props.handleClickCampo(40.640772,-3.909992)} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
       </div>
 
       <div className="code-wrapper">
