@@ -118,12 +118,10 @@ class App extends Component {
   }
 
   render() {
-    
+
     return (
       <Home
-      handleClickBilbao= {this.handleClickCoord}
-      handleClickCocktail= {this.handleClickCoord}
-      handleClickCampo= {this.handleClickCoord}
+      handleClick= {this.handleClickCoord}
       handleClickShowSearcher= {this.handleClickShowSearcher}
       handleClickStreetSearcher= {this.handleClickStreetSearcher}
       hidden= {this.state.hidden}

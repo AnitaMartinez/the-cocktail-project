@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { HashLink } from 'react-router-hash-link';
 import IconMarker from './Icons/IconMarker';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import GoogleMapReact from 'google-map-react';
@@ -55,9 +56,9 @@ class Home extends Component {
         <p className= "home-text introduction-body center">Para comenzar, elige una zona para descubrir las paradas disponibles</p>
 
         <div className= "home-menu-buttons">
-          <a href="#map"><button onClick={() =>this.props.handleClickBilbao(40.429154,-3.701952)}  className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></a>
-          <a href="#map"><button onClick={() =>this.props.handleClickCocktail(40.454146,-3.700346)} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></a>
-          <a href="#map"><button onClick={() =>this.props.handleClickCampo(40.640772,-3.909992)} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></a>
+          <HashLink to="/#map"><button onClick={() =>this.props.handleClick(40.429154,-3.701952)}  className= "home-button main-button button-light-font" type="button" name="button">Glorieta de bilbao</button></HashLink>
+          <HashLink to="/#map"><button onClick={() =>this.props.handleClick(40.454146,-3.700346)} className= "home-button main-button button-light-font" type="button" name="button">The cocktail</button></HashLink>
+          <HashLink to="/#map"><button onClick={() =>this.props.handleClick(40.640772,-3.909992)} className= "home-button main-button button-light-font" type="button" name="button">El campo</button></HashLink>
         </div>
 
         <div className="code-wrapper">
@@ -95,7 +96,7 @@ class Home extends Component {
         />
 
         <div className="box-goUp">
-          <a className="link-goUp" href="#intro">Volver arriba</a>
+          <HashLink to="#intro" className="link-goUp">Volver arriba</HashLink>
         </div>
 
     </main>
