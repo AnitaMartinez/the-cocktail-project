@@ -4,6 +4,7 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker';
 import EmptyState from './EmptyState';
+import AllCards from './AllCards';
 
 
 
@@ -83,6 +84,17 @@ class Home extends Component {
         </GoogleMapReact>
       </div>
 
+      <AllCards
+        loading={this.props.loading}
+        hidden={this.props.hidden}
+        noResults={noResults}
+        currentPage={this.props.currentPage}
+        elementsPerPage={this.props.elementsPerPage}
+        stopsBus={this.props.stopsBus}
+        selectedStop={this.props.selectedStop}
+        setCurrentStop={this.props.setCurrentStop}
+        setCurrentPage= {this.props.setCurrentPage}
+      />
       </div>
     )
   }

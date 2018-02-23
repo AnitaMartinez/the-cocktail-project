@@ -177,21 +177,17 @@ class App extends Component {
               state = {this.state}
               datafetch = {this.state.datafetch}
               setCurrentStop = {this.setCurrentStop}
+              loading= {this.state.loading}
+              hidden= {this.state.hidden}
+              currentPage= {this.state.currentPage}
+              elementsPerPage= {this.state.elementsPerPage}
+              stopsBus= {this.state.stopsBus}
+              selectedStop= {this.state.selectedStop}
+              setCurrentPage= {this.setCurrentPage}
             />
 
 
-        <AllCards
-          loading={this.state.loading}
-          hidden={this.state.hidden}
-          noResults={noResults}
-          currentPage={this.state.currentPage}
-          elementsPerPage={this.state.elementsPerPage}
-          stopsBus={this.state.stopsBus}
-          selectedStop={this.state.selectedStop}
-          setCurrentStop={this.setCurrentStop}
-          setCurrentPage= {this.setCurrentPage}
-        />
-
+        
         <div className="box-goUp">
           <a className="link-goUp" href="#intro">Volver arriba</a>
         </div>
