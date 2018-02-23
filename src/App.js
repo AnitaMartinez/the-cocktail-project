@@ -53,18 +53,6 @@ class App extends Component {
     });
   }
 
-  handleClickPagination = event => {
-    const numberPagination = document.querySelectorAll(".number-pagination");
-    this.setState({
-      currentPage: Number(event.target.id)
-    });
-
-    for(let i = 0; i < numberPagination.length; i++) {
-      numberPagination[i].classList.remove('active');
-      event.target.classList.add('active');
-    }
-  }
-
 
   fetchInfoBuses = (latitude,longitude) => {
     const radius = 500;
@@ -118,12 +106,12 @@ class App extends Component {
     event.preventDefault()
 
     geocodeByAddress(this.state.street)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => {
-        this.setState({
-          latSearch : latLng.lat,
-          lngSearch : latLng.lng
-        })
+    .then(results => getLatLng(results[0]))
+    .then(latLng => {
+      this.setState({
+        latSearch : latLng.lat,
+        lngSearch : latLng.lng
+      })
 
       let latitudSearch = this.state.latSearch;
       let longitudeSearch = this.state.lngSearch;
@@ -133,7 +121,7 @@ class App extends Component {
         zoom: 15,
         hidden: false
       });
-      })
+    })
 
       .catch(error => console.error('Error', error));
   }
