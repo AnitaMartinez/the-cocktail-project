@@ -10,6 +10,9 @@ import EmptyState from './components/EmptyState';
 import Hero from './components/Hero';
 import AllCards from './components/AllCards';
 import PropTypes from 'prop-types';
+import Team from './components/Team';
+import About from './components/About';
+
 
 const madridCoors= {
   lat: 40.41,
@@ -38,7 +41,13 @@ class App extends Component {
     this.onChange = (street) => this.setState({ street });
   }
 
-  setCurrentStop = (stopId) => {
+  setCurrentPage = numberpage => {
+    this.setState({
+      currentPage: numberpage
+    });
+  }
+
+  setCurrentStop = stopId => {
     this.setState({
       selectedStop: stopId
     });
@@ -129,7 +138,6 @@ class App extends Component {
       .catch(error => console.error('Error', error));
   }
 
-
   render() {
     const {stopsBus, selectedStop} = this.state;
     let markers= null;
@@ -216,15 +224,16 @@ class App extends Component {
           stopsBus={this.state.stopsBus}
           selectedStop={this.state.selectedStop}
           setCurrentStop={this.setCurrentStop}
-          onClick={this.handleClickPagination}
+          setCurrentPage= {this.setCurrentPage}
         />
 
         <div className="box-goUp">
           <a className="link-goUp" href="#intro">Volver arriba</a>
         </div>
-
       </main>
 
+      <Team />
+      <About/>
       <Footer/>
       </div>
     );
