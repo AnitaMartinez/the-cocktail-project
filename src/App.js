@@ -38,7 +38,7 @@ class App extends Component {
     this.onChange = (street) => this.setState({ street });
   }
 
-  setCurrentStop = stopId => {
+  setCurrentStop = (stopId) => {
     this.setState({
       selectedStop: stopId
     });
@@ -49,6 +49,7 @@ class App extends Component {
     this.setState({
       currentPage: Number(event.target.id)
     });
+
     for(let i = 0; i < numberPagination.length; i++) {
       numberPagination[i].classList.remove('active');
       event.target.classList.add('active');
@@ -67,10 +68,10 @@ class App extends Component {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       body:
-      "idClient="+idClient+"&passKey="+passKey+"&latitude="+latitude+"&longitude="+longitude+"&Radius="+radius+"&statistics=&cultureInfo=",
-    }).then((response) => {
+      "idClient="+idClient+"&passKey="+passKey+"&latitude="+latitude+"&longitude="+longitude+"&Radius="+radius,
+    }).then(response => {
       return response.json();
-    }).then((data) => {
+    }).then(data => {
       this.setState({
         stopsBus: data.stop || [],
         loading : true,
