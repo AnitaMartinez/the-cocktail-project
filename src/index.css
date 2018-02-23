@@ -681,12 +681,8 @@ body {
       position: relative; } }
 
 .team-title {
-  padding-top: 10%;
   text-align: center;
   color: #e0634b; }
-  @media all and (min-width: 768px) {
-    .team-title {
-      padding-top: 5%; } }
 
 .tooltipcontainer {
   display: none; }

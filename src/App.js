@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import  { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import GoogleMapReact from 'google-map-react';
-import Footer from './components/Footer';
-import Menu from './components/Menu';
-import StickyMenu from './components/StickyMenu';
-import Hero from './components/Hero';
 import PropTypes from 'prop-types';
-import Team from './components/Team';
-import About from './components/About';
 import Home from './components/Home';
 
 
@@ -124,42 +118,30 @@ class App extends Component {
   }
 
   render() {
-
-
+    
     return (
-      <div>
-      <Menu/>
-      <Hero/>
-      <StickyMenu/>
-
-            <Home
-              handleClickBilbao= {this.handleClickCoord}
-              handleClickCocktail= {this.handleClickCoord}
-              handleClickCampo= {this.handleClickCoord}
-              handleClickShowSearcher= {this.handleClickShowSearcher}
-              handleClickStreetSearcher= {this.handleClickStreetSearcher}
-              hidden= {this.state.hidden}
-              street= {this.state.street}
-              onChange = {this.onChange}
-              defaultCenter = {this.props.center}
-              defaultZoom = {this.props.zoom}
-              center = {this.state.center}
-              zoom = {this.state.zoom}
-              state = {this.state}
-              datafetch = {this.state.datafetch}
-              setCurrentStop = {this.setCurrentStop}
-              loading= {this.state.loading}
-              currentPage= {this.state.currentPage}
-              elementsPerPage= {this.state.elementsPerPage}
-              selectedStop= {this.state.selectedStop}
-              setCurrentPage= {this.setCurrentPage}
-            />
-
-
-      <Team />
-      <About/>
-      <Footer/>
-      </div>
+      <Home
+      handleClickBilbao= {this.handleClickCoord}
+      handleClickCocktail= {this.handleClickCoord}
+      handleClickCampo= {this.handleClickCoord}
+      handleClickShowSearcher= {this.handleClickShowSearcher}
+      handleClickStreetSearcher= {this.handleClickStreetSearcher}
+      hidden= {this.state.hidden}
+      street= {this.state.street}
+      onChange = {this.onChange}
+      defaultCenter = {this.props.center}
+      defaultZoom = {this.props.zoom}
+      center = {this.state.center}
+      zoom = {this.state.zoom}
+      state = {this.state}
+      datafetch = {this.state.datafetch}
+      setCurrentStop = {this.setCurrentStop}
+      loading= {this.state.loading}
+      currentPage= {this.state.currentPage}
+      elementsPerPage= {this.state.elementsPerPage}
+      selectedStop= {this.state.selectedStop}
+      setCurrentPage= {this.setCurrentPage}
+      />
     );
   }
 }

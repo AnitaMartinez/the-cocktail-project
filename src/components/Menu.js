@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import MenuButton from './Icons/MenuButton';
 import CloseButton from './Icons/CloseButton';
 
@@ -30,15 +31,15 @@ class Menu extends Component {
           <ul className="list-style">
 
             <li className="background-menu-link">
-              <a className="menu-link uppercase">Busca tu parada</a>
+              <Link to='/' className="menu-link uppercase">Busca tu parada</Link>
             </li>
 
             <li className="background-menu-link">
-              <a className="menu-link uppercase">Nuestro equipo</a>
+              <Link to='/team' className="menu-link uppercase">Nuestro equipo</Link>
             </li>
 
             <li className="background-menu-link">
-              <a className="menu-link uppercase">Sobre este proyecto</a>
+              <Link to='/about' className="menu-link uppercase">Sobre este proyecto</Link>
             </li>
 
             <button aria-label="Cerrar" className="no-style-button"><CloseButton className="close-button" onClick={this.handleClick} /></button>

@@ -7,7 +7,7 @@ class Team extends Component {
   render() {
     return(
       <div className="teamWrapper">
-        <h3 className="m-top-none section-title-font section-title team-title">Nuestro Equipo</h3>
+        <h1 className="section-title-font section-title team-title">Nuestro Equipo</h1>
        <div style={{backgroundImage: `url(${profilePic})`}} className="teamImage">
           <div className="tooltipcontainer person1"> Rita
             <span className="tooltiptext"><p>'Improvisando javascript'</p></span>

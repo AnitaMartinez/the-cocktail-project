@@ -14,12 +14,9 @@
 }
 
 .team-title {
-  padding-top: 10%;
   text-align: center;
   color:map-get($color, 'primary');
-  @media all and (min-width: $media-tablet) {
-    padding-top: 5%;
-  }
+
 }
 
 
