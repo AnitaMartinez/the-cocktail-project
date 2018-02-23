@@ -31,15 +31,15 @@ class Menu extends Component {
           <ul className="list-style">
 
             <li className="background-menu-link">
-              <Link to='/' className="menu-link uppercase">Busca tu parada</Link>
+              <Link to='/' className="menu-link uppercase" onClick={this.handleClick}>Busca tu parada</Link>
             </li>
 
             <li className="background-menu-link">
-              <Link to='/team' className="menu-link uppercase">Nuestro equipo</Link>
+              <Link to='/team' className="menu-link uppercase" onClick={this.handleClick}>Nuestro equipo</Link>
             </li>
 
             <li className="background-menu-link">
-              <Link to='/about' className="menu-link uppercase">Sobre este proyecto</Link>
+              <Link to='/about' className="menu-link uppercase" onClick={this.handleClick}>Sobre este proyecto</Link>
             </li>
 
             <button aria-label="Cerrar" className="no-style-button"><CloseButton className="close-button" onClick={this.handleClick} /></button>
