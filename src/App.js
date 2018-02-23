@@ -159,7 +159,7 @@ class App extends Component {
 
       <main className= "home" id="intro">
 
-        <div className= "intro">
+
 
             <Home
               handleClickBilbao= {this.handleClickCoord}
@@ -170,22 +170,15 @@ class App extends Component {
               hidden= {this.state.hidden}
               street= {this.state.street}
               onChange = {this.onChange}
+              defaultCenter = {this.props.center}
+              defaultZoom = {this.props.zoom}
+              center = {this.state.center}
+              zoom = {this.state.zoom}
+              state = {this.state}
+              datafetch = {this.state.datafetch}
+              setCurrentStop = {this.setCurrentStop}
             />
 
-
-        </div>
-
-        <div className="map" id="map">
-          <GoogleMapReact
-            defaultCenter={this.props.center}
-            defaultZoom={this.props.zoom}
-            center={this.state.center}
-            zoom={this.state.zoom}
-            bootstrapURLKeys={{key: 'AIzaSyC7n0BhHlxsVU_li9hGJMFIFbYQcFqaggw'}}
-          >
-            {markers}
-          </GoogleMapReact>
-        </div>
 
         <AllCards
           loading={this.state.loading}
