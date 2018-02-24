@@ -15,6 +15,7 @@ class AllCards extends Component {
   }
 
   render(){
+
     const { currentPage, elementsPerPage, stopsBus, selectedStop } = this.props
     const hiddenResults = this.props.hidden ? 'hidden' : '';
 
@@ -49,8 +50,8 @@ class AllCards extends Component {
     return(
       <section className={`section-cards ${hiddenResults}`}>
         <h3 className="m-top-none section-title-font section-title">Resultados</h3>
-        {this.props.noResults}
-        { this.props.loading ? null : <Spinner/>  }
+          {this.props.noResults}
+          { this.props.loading ? null : <Spinner/>  }
         <div className="container-cards">
           {renderElementsPage}
         </div>
