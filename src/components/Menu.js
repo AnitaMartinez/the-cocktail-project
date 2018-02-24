@@ -31,7 +31,7 @@ class Menu extends Component {
           <ul className="list-style">
 
             <li className="background-menu-link">
-              <HashLink to='/#intro' className="menu-link uppercase" onClick={this.handleClick}>Busca tu parada</HashLink>
+              <HashLink to='/#intro' replace className="menu-link uppercase" onClick={this.handleClick}>Busca tu parada</HashLink>
             </li>
 
             <li className="background-menu-link">

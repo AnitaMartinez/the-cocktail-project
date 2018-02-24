@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import  { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import GoogleMapReact from 'google-map-react';
-import PropTypes from 'prop-types';
 import Home from './components/Home';
-
 
 const madridCoors= {
   lat: 40.41,
@@ -43,7 +41,6 @@ class App extends Component {
       selectedStop: stopId
     });
   }
-
 
   fetchInfoBuses = (latitude,longitude) => {
     const radius = 500;
@@ -90,7 +87,6 @@ class App extends Component {
     )
   }
 
-
   handleClickShowSearcher = () => {
     this.setState({
       hidden : !this.state.hidden,
@@ -117,7 +113,6 @@ class App extends Component {
         hidden: false
       });
     })
-
       .catch(error => console.error('Error', error));
   }
 
@@ -125,24 +120,15 @@ class App extends Component {
 
     return (
       <Home
-      handleClick= {this.handleClickCoord}
-      handleClickShowSearcher= {this.handleClickShowSearcher}
-      handleClickStreetSearcher= {this.handleClickStreetSearcher}
-      hidden= {this.state.hidden}
-      street= {this.state.street}
-      onChange = {this.onChange}
-      defaultCenter = {this.props.center}
-      defaultZoom = {this.props.zoom}
-      center = {this.state.center}
-      zoom = {this.state.zoom}
-      state = {this.state}
-      datafetch = {this.state.datafetch}
-      setCurrentStop = {this.setCurrentStop}
-      loading= {this.state.loading}
-      currentPage= {this.state.currentPage}
-      elementsPerPage= {this.state.elementsPerPage}
-      selectedStop= {this.state.selectedStop}
-      setCurrentPage= {this.setCurrentPage}
+        state = {this.state}
+        handleClick= {this.handleClickCoord}
+        handleClickShowSearcher= {this.handleClickShowSearcher}
+        handleClickStreetSearcher= {this.handleClickStreetSearcher}
+        onChange = {this.onChange}
+        defaultCenter = {this.props.center}
+        defaultZoom = {this.props.zoom}
+        setCurrentStop = {this.setCurrentStop}
+        setCurrentPage= {this.setCurrentPage}
       />
     );
   }
@@ -151,11 +137,6 @@ class App extends Component {
 App.defaultProps= {
   center: madridCoors,
   zoom: 12
-};
-
-GoogleMapReact.propTypes = {
-  center: PropTypes.object,
-  zoom: PropTypes.number
 };
 
 export default App;
