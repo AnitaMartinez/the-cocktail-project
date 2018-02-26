@@ -9,7 +9,7 @@ class Hero extends Component {
     return(
     <section className="hero" style={{backgroundImage: `url(${heroImage})`}} id="hero">
       <h1 className="hero-title uppercase margin-title center">bus app</h1>
-      <p className="hero-subtitle center padding-subtitle">El mundo, en la palma de tu mano</p>
+      <p className="hero-subtitle center padding-subtitle">Madrid, en la palma de tu mano</p>
       <HashLink to="/#intro"><Arrow className="arrow-down"/></HashLink>
     </section>
     )
